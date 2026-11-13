@@ -1,0 +1,20 @@
+step_number,action_name,seed_value,function_or_parameter,notes
+3,train/test split,42,train_test_split(random_state=RANDOM_STATE),"stratified on TARGET_B, 70/30"
+4,lr model,42,random_state=RANDOM_STATE,logistic
+4,gbm model,42,random_state=RANDOM_STATE,gbm
+4,nn model,42,random_state=RANDOM_STATE,nn
+4,rf model,42,random_state=RANDOM_STATE,rf
+4,isotonic calibration folds,n/a,CalibratedClassifierCV(cv=3): unshuffled stratified folds,deterministic
+4,permutation importance sample + repeats,42,DataFrame.sample / permutation_importance(random_state),NB and NN
+5,XGBRegressor,42,random_state=RANDOM_STATE,"TARGET_D, responders"
+5,MLPRegressor,42,random_state=RANDOM_STATE,"TARGET_D, responders"
+5,RandomForestRegressor,42,random_state=RANDOM_STATE,"TARGET_D, responders"
+10,"tune gbm_target_b {'max_depth': 2, 'n_estimators': 150}",42,clone() keeps random_state,
+10,"tune gbm_target_b {'max_depth': 2, 'n_estimators': 400}",42,clone() keeps random_state,
+10,"tune gbm_target_b {'max_depth': 3, 'n_estimators': 150}",42,clone() keeps random_state,
+10,"tune gbm_target_b {'max_depth': 3, 'n_estimators': 400}",42,clone() keeps random_state,
+10,"tune gbm_target_b {'max_depth': 4, 'n_estimators': 150}",42,clone() keeps random_state,
+10,"tune gbm_target_b {'max_depth': 4, 'n_estimators': 400}",42,clone() keeps random_state,
+10,tune linreg_target_d {'positive': False},42,clone() keeps random_state,
+10,tune linreg_target_d {'positive': True},42,clone() keeps random_state,
+12,input shuffling permutations,42,seeded per feature and shuffle,20 shuffles per variable

@@ -1,0 +1,115 @@
+==============================================================================
+RUNNING STEP 2 — NON-LEARNED DATA PREPARATION AND FEATURE ENGINEERING
+Start: 2026-11-13 22:42:24
+==============================================================================
+1) Removed from inputs as leakage: ['boat', 'body']
+2) Derived: title, deck, cabin_known, family_size, is_alone, ticket_group_size.
+   ticket_group_size counts passengers sharing a ticket over the whole file. It uses no target information and the passenger
+   list is known before the outcome, so this is not leakage.
+
+   Title counts (rare titles are grouped in Step 4, on TRAIN):
+              records
+title                
+Mr                757
+Miss              260
+Mrs               197
+Master             61
+Rev                 8
+Dr                  8
+Col                 4
+Mlle                2
+Ms                  2
+Major               2
+Capt                1
+Sir                 1
+Dona                1
+Jonkheer            1
+the Countess        1
+Don                 1
+Mme                 1
+Lady                1
+
+4) Candidate inputs (missing values are imputed in Step 4, after the split):
+             variable     dtype         source  n_missing
+0              pclass     int64         pclass          0
+1                 sex  category            sex          0
+2                 age   float64            age        263
+3               sibsp     int64          sibsp          0
+4               parch     int64          parch          0
+5                fare   float64           fare          1
+6            embarked  category       embarked          2
+7               title  category           name          0
+8                deck  category          cabin          0
+9         cabin_known     int64          cabin          0
+10        family_size     int64  sibsp + parch          0
+11           is_alone     int64  sibsp + parch          0
+12  ticket_group_size     int64         ticket          0
+   Kept for reference, not inputs: ['boat', 'body', 'name', 'ticket', 'cabin', 'home.dest']
+   pclass stays numeric for tree models; linear models use N-1 dummies (Step 4).
+   Near-zero-variance inputs (one value > 95%): none
+
+   Skewness of non-binary numeric inputs:
+                   skewness
+fare                   4.37
+sibsp                  3.84
+parch                  3.67
+family_size            2.85
+ticket_group_size      2.31
+age                    0.41
+pclass                -0.60
+
+   Survival rate by derived feature:
+             variable         level  records  survival_rate
+0               title          Capt        1          0.000
+1               title           Col        4          0.500
+2               title           Don        1          0.000
+3               title          Dona        1          1.000
+4               title            Dr        8          0.500
+5               title      Jonkheer        1          0.000
+6               title          Lady        1          1.000
+7               title         Major        2          0.500
+8               title        Master       61          0.508
+9               title          Miss      260          0.677
+10              title          Mlle        2          1.000
+11              title           Mme        1          1.000
+12              title            Mr      757          0.162
+13              title           Mrs      197          0.787
+14              title            Ms        2          0.500
+15              title           Rev        8          0.000
+16              title           Sir        1          1.000
+17              title  the Countess        1          1.000
+18               deck             A       22          0.500
+19               deck             B       65          0.723
+20               deck             C       94          0.606
+21               deck             D       46          0.696
+22               deck             E       41          0.732
+23               deck             F       21          0.619
+24               deck             G        5          0.600
+25               deck             T        1          0.000
+26               deck             U     1014          0.303
+27        cabin_known             0     1014          0.303
+28        cabin_known             1      295          0.654
+29        family_size             1      790          0.303
+30        family_size             2      235          0.536
+31        family_size             3      159          0.566
+32        family_size             4       43          0.698
+33        family_size             5       22          0.273
+34        family_size             6       25          0.200
+35        family_size             7       16          0.250
+36        family_size             8        8          0.000
+37        family_size            11       11          0.000
+38           is_alone             0      519          0.503
+39           is_alone             1      790          0.303
+40  ticket_group_size             1      713          0.272
+41  ticket_group_size             2      264          0.508
+42  ticket_group_size             3      147          0.626
+43  ticket_group_size             4       64          0.703
+44  ticket_group_size             5       35          0.371
+45  ticket_group_size             6       24          0.292
+46  ticket_group_size             7       35          0.257
+47  ticket_group_size             8       16          0.375
+48  ticket_group_size            11       11          0.000
+==============================================================================
+STEP 2 COMPLETE — 0.0 s (0.00 min)
+Objects created: modeling_prepared_df, INPUTS, input_catalog_df
+==============================================================================

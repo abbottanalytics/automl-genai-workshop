@@ -1,0 +1,61 @@
+==============================================================================
+RUNNING STEP 9 — FINAL MODEL COMPARISON
+Start: 2026-11-13 22:41:14
+==============================================================================
+
+--- target_b_classification (5 models) ---
+            model_name            approach_type  roc_auc     f1  accuracy  precision  recall  lift_decile3  TEST_peak_CNR_optimistic  roi_at_optimum  optimal_depth_pct  mailed_at_optimum  donation_capture
+48   model_rf_target_b  target_b_classification    0.622  0.128     0.617      0.072   0.553         1.560                   3330.20           0.193              0.888              25410             0.920
+49  model_gbm_target_b  target_b_classification    0.625  0.127     0.585      0.071   0.597         1.583                   3249.64           0.183              0.915              26177             0.940
+50   model_nb_target_b  target_b_classification    0.613  0.124     0.608      0.070   0.548         1.505                   3145.48           0.166              0.973              27864             0.986
+51   model_nn_target_b  target_b_classification    0.588  0.115     0.517      0.063   0.617         1.404                   3112.40           0.164              0.974              27870             0.985
+52   model_lr_target_b  target_b_classification    0.620  0.128     0.609      0.072   0.563         1.537                   2987.88           0.161              0.956              27359             0.964
+
+--- target_d_regression (4 models) ---
+               model_name        approach_type   rmse    mae     r2  donation_lift_decile3  TEST_peak_CNR_optimistic  roi_at_optimum  optimal_depth_pct  mailed_at_optimum  donation_capture
+40  model_linreg_target_d  target_d_regression  9.090  4.634  0.497                  1.650                   4013.20           0.282              0.731              20935             0.815
+45      model_rf_target_d  target_d_regression  8.862  4.174  0.521                  1.659                   3899.40           0.300              0.669              19145             0.755
+46     model_gbm_target_d  target_d_regression  8.707  4.140  0.538                  1.650                   3883.68           0.292              0.684              19574             0.768
+47      model_nn_target_d  target_d_regression  8.829  4.423  0.525                  1.630                   3831.44           0.257              0.765              21892             0.836
+
+--- transformed_target_d_regression (4 models) ---
+                   model_name                    approach_type   rmse    mae     r2  donation_lift_decile3  TEST_peak_CNR_optimistic  roi_at_optimum  optimal_depth_pct  mailed_at_optimum  donation_capture
+41      model_nn_log_target_d  transformed_target_d_regression  9.125  4.507  0.493                  1.629                   3953.64           0.282              0.721              20627             0.803
+42  model_linreg_log_target_d  transformed_target_d_regression  8.476  4.028  0.562                  1.644                   3941.84           0.270              0.751              21487             0.828
+43     model_gbm_log_target_d  transformed_target_d_regression  8.375  4.037  0.573                  1.660                   3938.56           0.286              0.707              20233             0.790
+44      model_rf_log_target_d  transformed_target_d_regression  8.992  4.129  0.507                  1.666                   3913.92           0.287              0.701              20056             0.784
+
+--- expected_value (40 models) ---
+                  model_name   approach_type  TEST_peak_CNR_optimistic  roi_at_optimum  optimal_depth_pct  mailed_at_optimum  donation_capture
+0      model_ev_gbm_x_linreg  expected_value                   4750.60           0.681              0.358              10255             0.523
+1  model_ev_gbm_x_linreg_log  expected_value                   4745.36           0.648              0.376              10773             0.539
+2   model_ev_nb_x_linreg_log  expected_value                   4716.20           0.445              0.544              15585             0.684
+3      model_ev_gbm_x_nn_log  expected_value                   4710.72           0.505              0.479              13721             0.627
+4      model_ev_gbm_x_rf_log  expected_value                   4682.32           0.635              0.379              10851             0.539
+5         model_ev_gbm_x_gbm  expected_value                   4670.68           0.575              0.417              11949             0.571
+6          model_ev_gbm_x_nn  expected_value                   4648.32           0.602              0.397              11351             0.552
+7     model_ev_gbm_x_gbm_log  expected_value                   4647.80           0.542              0.441              12615             0.591
+8          model_ev_gbm_x_rf  expected_value                   4621.76           0.597              0.398              11393             0.552
+9       model_ev_nb_x_nn_log  expected_value                   4606.88           0.411              0.576              16484             0.706
+
+Recommendations:
+                                recommendation                   model                    approach_type  roc_auc   rmse  TEST_peak_CNR_optimistic  optimal_depth_pct
+0          best statistical TARGET_B (ROC AUC)      model_gbm_target_b          target_b_classification    0.625    NaN                   3249.64              0.915
+1             best statistical TARGET_D (RMSE)  model_gbm_log_target_d  transformed_target_d_regression      NaN  8.375                   3938.56              0.707
+2  best business model (TEST peak, optimistic)   model_ev_gbm_x_linreg                   expected_value      NaN    NaN                   4750.60              0.358
+
+Discussion:
+                                topic                                                                                                                                                  finding
+0     Statistical vs business metrics                Highest-AUC response model model_gbm_target_b (AUC 0.625) peaks at $3,250; the best business model model_ev_gbm_x_linreg peaks at $4,751.
+1                 Ranking differences  AUC and lift reward ranking responders; RMSE rewards gift accuracy among responders only; CNR rewards ranking dollars net of mail cost across everyone.
+2                   Why EV models win                                                                 EV combines who responds with how much they give, so it ranks likely large donors first.
+3            Operational implications                                                                     The best EV model mails about 36% of the file instead of everyone (mail-all $2,933).
+4               Optimal mailing depth                                           Depth sets cost and volume. The CNR curve is flat near its peak, so a slightly shallower mailing loses little.
+5  Risk of statistical-only selection                                                                Choosing by AUC alone picks a response model whose CNR is well below the best EV model's.
+6             TEST peak is optimistic                                                 Every peak here is chosen on TEST. In production, set the depth on training data and apply it unchanged.
+
+NOTE: 'TEST peak (optimistic)' is the best mailing depth found by looking at the TEST data itself. It is an upper bound, not what the model would earn. In production, set the threshold or depth on TRAINING data (e.g. where cumulative net revenue peaks on out-of-fold training predictions) and apply it unchanged.
+==============================================================================
+STEP 9 COMPLETE — 0.0 s (0.00 min)
+Objects created: final_comparison_df, summary_tables, recommendation_summary_df, discussion_summary_df
+==============================================================================

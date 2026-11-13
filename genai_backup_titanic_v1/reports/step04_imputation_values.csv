@@ -1,0 +1,4 @@
+variable,rule,value,filled_train,filled_test
+age,TRAIN median within title group,"{""Master"": 4.0, ""Miss"": 21.0, ""Mr"": 29.0, ""Mrs"": 36.0, ""Rare"": 48.5}",190,73
+fare,TRAIN median within pclass,"{""1"": 60.59, ""2"": 15.05, ""3"": 8.05}",1,0
+embarked,TRAIN most frequent,S,0,2

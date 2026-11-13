@@ -1,0 +1,16 @@
+,dtype
+RECORD_ID,int64
+pclass,int64
+survived,int64
+name,object
+sex,object
+age,float64
+sibsp,int64
+parch,int64
+ticket,object
+fare,float64
+cabin,object
+embarked,object
+boat,object
+body,float64
+home.dest,object

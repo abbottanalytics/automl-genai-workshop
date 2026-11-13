@@ -1,0 +1,5 @@
+topic,note
+tuning gain,$16 change in TEST peak (+0.3%).
+risk,"Settings were chosen on TEST, so the gain is optimistic; small gains are within TEST-sample noise."
+deployment,Prefer the simpler untuned model unless the gain holds under cross-validation inside TRAIN.
+decision,Production strategy: untuned (keep tuned only if the gain exceeds 2%).

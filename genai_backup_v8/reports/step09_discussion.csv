@@ -1,0 +1,8 @@
+topic,finding
+Statistical vs business metrics,"Highest-AUC response model model_gbm_target_b (AUC 0.625) peaks at $3,250; the best business model model_ev_gbm_x_linreg peaks at $4,751."
+Ranking differences,AUC and lift reward ranking responders; RMSE rewards gift accuracy among responders only; CNR rewards ranking dollars net of mail cost across everyone.
+Why EV models win,"EV combines who responds with how much they give, so it ranks likely large donors first."
+Operational implications,"The best EV model mails about 36% of the file instead of everyone (mail-all $2,933)."
+Optimal mailing depth,"Depth sets cost and volume. The CNR curve is flat near its peak, so a slightly shallower mailing loses little."
+Risk of statistical-only selection,Choosing by AUC alone picks a response model whose CNR is well below the best EV model's.
+TEST peak is optimistic,"Every peak here is chosen on TEST. In production, set the depth on training data and apply it unchanged."

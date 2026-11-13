@@ -1,0 +1,14 @@
+variable,dtype,source,n_missing
+pclass,int64,pclass,0
+sex,category,sex,0
+age,float64,age,263
+sibsp,int64,sibsp,0
+parch,int64,parch,0
+fare,float64,fare,1
+embarked,category,embarked,2
+title,category,name,0
+deck,category,cabin,0
+cabin_known,int64,cabin,0
+family_size,int64,sibsp + parch,0
+is_alone,int64,sibsp + parch,0
+ticket_group_size,int64,ticket,0

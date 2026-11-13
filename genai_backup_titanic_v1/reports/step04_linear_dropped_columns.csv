@@ -1,0 +1,10 @@
+column,why dropped for linear models
+pclass (numeric),"replaced by N-1 dummies pclass_1, pclass_2 (reference 3): survival is not linear in class"
+family_size,"= sibsp + parch + 1, exact linear combination"
+cabin_known,= sum of the non-reference deck dummies (reference deck U = unknown)
+fare,replaced by fare_log (skew)
+pclass_3,N-1 reference level
+sex_female,N-1 reference level
+embarked_S,N-1 reference level
+title_Mr,N-1 reference level
+deck_U,N-1 reference level

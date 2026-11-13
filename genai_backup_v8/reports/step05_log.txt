@@ -1,0 +1,45 @@
+==============================================================================
+RUNNING STEP 5 — BUILD TARGET_D REGRESSION MODELS
+Start: 2026-11-13 22:41:08
+==============================================================================
+Responder rows: train 3,390  test 1,453
+   [fit linreg] 0.02 s
+   [score linreg] 0.04 s
+   [fit gbm] 0.37 s
+   [score gbm] 0.01 s
+   [fit nn] 0.38 s
+   [score nn] 0.00 s
+   [fit rf] 0.59 s
+   [score rf] 0.09 s
+Linear regression: largest |coefficient| = 4.73 (no collinearity blow-up)
+
+TARGET_D metrics (responders), ranked by test donation lift at decile 3, then RMSE:
+    model  train_rmse  train_mae  train_r2  train_donation_lift_decile3  test_rmse  test_mae  test_r2  test_donation_lift_decile3
+3      rf       7.540      3.520     0.623                        1.670      8.862     4.174    0.521                       1.659
+0  linreg       8.894      4.585     0.476                        1.606      9.090     4.634    0.497                       1.650
+1     gbm       6.327      3.603     0.735                        1.633      8.707     4.140    0.538                       1.650
+2      nn       8.466      4.304     0.525                        1.616      8.829     4.423    0.525                       1.630
+
+Donation decile table (test responders, rf):
+          n  donation_mean  cum_donation_lift
+decile                                       
+1       146          34.23               2.22
+2       145          23.28               1.87
+3       145          19.14               1.66
+4       146          16.99               1.52
+5       145          15.86               1.42
+6       145          12.63               1.32
+7       146          10.88               1.23
+8       145           9.11               1.15
+9       145           6.89               1.07
+10      145           5.02               1.00
+
+Random seeds used in this step:
+  step_number           action_name seed_value     function_or_parameter                notes
+           5          XGBRegressor         42 random_state=RANDOM_STATE TARGET_D, responders
+           5          MLPRegressor         42 random_state=RANDOM_STATE TARGET_D, responders
+           5 RandomForestRegressor         42 random_state=RANDOM_STATE TARGET_D, responders
+==============================================================================
+STEP 5 COMPLETE — 2.0 s (0.03 min)
+Objects created: model_*_target_d, pred_*_target_d, predictions_target_d_*, target_d_metrics_df
+==============================================================================

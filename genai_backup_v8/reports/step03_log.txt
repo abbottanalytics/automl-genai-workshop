@@ -1,0 +1,17 @@
+==============================================================================
+RUNNING STEP 3 — TRAIN / HOLD-OUT SPLIT
+Start: 2026-11-13 22:40:50
+==============================================================================
+
+Split:
+  dataset      n  response_rate  pct
+0   TRAIN  66788         0.0508  0.7
+1    TEST  28624         0.0508  0.3
+
+Random seeds used in this step:
+  step_number      action_name  seed_value                       function_or_parameter                         notes
+           3 train/test split          42 train_test_split(random_state=RANDOM_STATE) stratified on TARGET_B, 70/30
+==============================================================================
+STEP 3 COMPLETE — 1.7 s (0.03 min)
+Objects created: split_flag in modeling_prepared_df, train_df, test_df
+==============================================================================

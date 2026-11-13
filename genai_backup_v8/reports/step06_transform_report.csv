@@ -1,0 +1,11 @@
+variable,skew_before,transformation,skew_after
+CARDPM12,0.3122560035965193,none (|skew| <= 1),
+LASTDATE,0.7204237415093004,none (|skew| <= 1),
+RFA_2F,0.7855219132780119,none (|skew| <= 1),
+AGE_modelimpute,-0.044432928208415566,none (|skew| <= 1),
+NUMPRM12_log10,0.8144735213532192,already log10 in file,
+NGIFTALL_log10,-0.07420543817767972,already log10 in file,
+MINRAMNT_log10,0.393083990204153,already log10 in file,
+LASTGIFT_log10,-0.48016980688900623,already log10 in file,
+TIMELAG_log10,1.8937102378360813,already log10 in file,
+AVGGIFT_log10,0.38249100396604196,already log10 in file,

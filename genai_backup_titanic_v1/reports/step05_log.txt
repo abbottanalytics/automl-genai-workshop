@@ -1,0 +1,112 @@
+==============================================================================
+RUNNING STEP 5 — BUILD CLASSIFICATION MODELS
+Start: 2026-11-13 22:42:25
+==============================================================================
+
+--- Logistic Regression ---
+   [lr fit] 0.03 s
+   [lr score] 0.03 s
+   [lr 5-fold out-of-fold] 0.15 s
+
+--- Naive Bayes (Gaussian, Platt-calibrated) ---
+   [nb fit] 0.04 s
+   [nb score] 0.03 s
+   [nb 5-fold out-of-fold] 0.26 s
+
+--- Gradient Boosting (XGBoost) ---
+   [gbm fit] 0.08 s
+   [gbm score] 0.02 s
+   [gbm 5-fold out-of-fold] 0.44 s
+
+--- Neural Network (MLP) ---
+   [nn fit] 0.40 s
+   [nn score] 0.04 s
+   [nn 5-fold out-of-fold] 2.26 s
+
+--- Random Forest ---
+   [rf fit] 0.36 s
+   [rf score] 0.09 s
+   [rf 5-fold out-of-fold] 1.73 s
+
+Metrics (threshold for percent correct / F1 / precision / recall = BASE_RATE_TRAIN = 0.382):
+  model partition  base_rate  roc_auc  pct_correct_at_prior  f1_at_prior  precision_at_prior  recall_at_prior  pct_correct_at_0_5  lift_decile3  depth_50  depth_80  depth_95
+0    lr     TRAIN      0.382    0.853                 0.795        0.745               0.710            0.783               0.814         2.113     0.221     0.453     0.802
+1    lr      TEST      0.382    0.885                 0.817        0.776               0.727            0.833               0.824         2.243     0.204     0.399     0.776
+2    nb     TRAIN      0.382    0.790                 0.748        0.643               0.700            0.594               0.620         1.846     0.262     0.497     0.874
+3    nb      TEST      0.382    0.838                 0.771        0.690               0.714            0.667               0.613         1.998     0.239     0.453     0.814
+4   gbm     TRAIN      0.382    0.926                 0.853        0.814               0.787            0.843               0.859         2.322     0.198     0.364     0.617
+5   gbm      TEST      0.382    0.893                 0.807        0.762               0.718            0.813               0.845         2.287     0.198     0.392     0.735
+6    nn     TRAIN      0.382    0.914                 0.860        0.818               0.815            0.820               0.856         2.303     0.197     0.368     0.684
+7    nn      TEST      0.382    0.882                 0.827        0.781               0.756            0.807               0.830         2.198     0.206     0.392     0.804
+8    rf     TRAIN      0.382    0.914                 0.832        0.787               0.762            0.814               0.829         2.265     0.202     0.390     0.611
+9    rf      TEST      0.382    0.898                 0.822        0.777               0.744            0.813               0.855         2.354     0.198     0.397     0.705
+
+Training-chosen operating point (depth that captures 80% on out-of-fold TRAIN, applied to TEST):
+  model  train_chosen_depth  train_chosen_cutoff  test_capture_depth_rule  test_pct_acted_cutoff_rule  test_capture_cutoff_rule  oof_mean_p  test_mean_p
+0    lr               0.469                0.296                    0.853                       0.468                     0.853       0.385        0.395
+1    nb               0.548                0.288                    0.893                       0.514                     0.867       0.343        0.348
+2   gbm               0.452                0.293                    0.833                       0.473                     0.847       0.382        0.403
+3    nn               0.480                0.204                    0.873                       0.476                     0.873       0.382        0.393
+4    rf               0.466                0.315                    0.847                       0.468                     0.847       0.383        0.401
+   depth rule: act on that share of TEST.  cutoff rule: act on TEST records with P >= the out-of-fold cutoff.
+
+Calibration: only Naive Bayes is Platt-calibrated (its raw probabilities pile up near 0 and 1). Calibration does not change the
+ranking, so it does not change ROC AUC or the depth metric; it does change who clears the base-rate threshold.
+
+Mean predicted probability (TRAIN base rate 0.382):
+                    lr     nb   gbm     nn     rf
+mean P on TRAIN  0.382  0.343  0.38  0.381  0.382
+
+Parameter report:
+  model                                 algorithm                                                                                                                                       params
+0    lr                       Logistic Regression                                                                                                                                 {"C": "1.0"}
+1    nb  Naive Bayes (Gaussian, Platt-calibrated)  {"estimator": "Pipeline(steps=[('standardscaler', StandardScaler()),\n                ('gaussiannb', GaussianNB())])", "method": "sigmoid"}
+2   gbm               Gradient Boosting (XGBoost)                                                       {"learning_rate": "0.05", "max_depth": "3", "n_estimators": "200", "subsample": "0.8"}
+3    nn                      Neural Network (MLP)                                                                {"alpha": "0.01", "hidden_layer_sizes": "(16,)", "learning_rate": "constant"}
+4    rf                             Random Forest                                                {"max_depth": "None", "max_features": "sqrt", "min_samples_leaf": "5", "n_estimators": "500"}
+
+TEST decile table, logistic regression (others in reports/):
+        records  positives  mean_score   rate   lift  cum_capture
+decile                                                           
+1            40         38       0.928  0.950  2.489        0.253
+2            39         36       0.819  0.923  2.418        0.493
+3            39         27       0.678  0.692  1.814        0.673
+4            40         20       0.571  0.500  1.310        0.807
+5            39          9       0.347  0.231  0.605        0.867
+6            39          7       0.193  0.179  0.470        0.913
+7            40          3       0.144  0.075  0.196        0.933
+8            39          4       0.111  0.103  0.269        0.960
+9            39          3       0.091  0.077  0.202        0.980
+10           39          3       0.055  0.077  0.202        1.000
+
+Top 10 predictors per model (top_features):
+             lr            nb                gbm                 nn                 rf
+0      sex_male      sex_male           sex_male           sex_male           sex_male
+1         sibsp    title_Miss           title_Mr                age           title_Mr
+2  title_Master     title_Mrs             pclass  ticket_group_size               fare
+3     title_Mrs  title_Master           pclass_3       title_Master                age
+4           age      pclass_1        cabin_known           pclass_1          title_Mrs
+5      pclass_1        deck_E             deck_U           fare_log         title_Miss
+6         parch        deck_D              sibsp         embarked_C  ticket_group_size
+7    title_Miss        deck_B         title_Rare              sibsp        family_size
+8        deck_E         sibsp  ticket_group_size              parch             pclass
+9    embarked_C      pclass_2       title_Master           is_alone           pclass_3
+
+Runtime:
+  model_name  train_runtime_seconds  scoring_runtime_seconds  cv_runtime_seconds  total_runtime_seconds
+0   model_lr                   0.03                     0.03                0.15                   0.21
+1   model_nb                   0.04                     0.03                0.26                   0.33
+2  model_gbm                   0.08                     0.02                0.44                   0.55
+3   model_nn                   0.40                     0.04                2.26                   2.70
+4   model_rf                   0.36                     0.09                1.73                   2.18
+
+Random seeds used in this step:
+  step_number                                             action_name  seed_value                         function_or_parameter                                                     notes
+           5                                      score tie-breaking          42 np.random.default_rng(RANDOM_STATE).random(n) ties in the score are ordered at random, fixed per record
+           5        5-fold CV inside TRAIN (out-of-fold predictions)          42   StratifiedKFold(shuffle=True, random_state)                                                          
+           5 model random_state (RF, GBM, MLP, NB calibration folds)          42                     random_state=RANDOM_STATE                                                          
+           5            permutation importance (NB, NN top features)          42          permutation_importance(random_state)                                        5 repeats on TRAIN
+==============================================================================
+STEP 5 COMPLETE — 7.6 s (0.13 min)
+Objects created: model_<fam>, <fam>_features, pred_<fam>, oof_<fam>, predictions_*, model_metadata_df, top_features, metric helpers
+==============================================================================

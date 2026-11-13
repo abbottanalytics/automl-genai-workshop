@@ -1,0 +1,29 @@
+==============================================================================
+RUNNING STEP 7 — CUMULATIVE NET REVENUE EVALUATION
+Start: 2026-11-13 22:41:12
+==============================================================================
+Scored all 28,624 test rows with every model (13 models).
+   [cumulative net revenue, all models] 0.06 s
+Mail everyone in TEST (28,624 records): $2,933
+
+Cumulative net revenue, ranked by TEST peak (optimistic):
+                        model                    approach_type  TEST_peak_CNR_optimistic  optimal_depth_pct  mailed_at_optimum  roi_at_optimum  response_rate_at_optimum  donation_capture
+5       model_linreg_target_d              target_d_regression                   4013.20              0.731              20935           0.282                     0.044             0.815
+11      model_nn_log_target_d  transformed_target_d_regression                   3953.64              0.721              20627           0.282                     0.043             0.803
+9   model_linreg_log_target_d  transformed_target_d_regression                   3941.84              0.751              21487           0.270                     0.044             0.828
+10     model_gbm_log_target_d  transformed_target_d_regression                   3938.56              0.707              20233           0.286                     0.043             0.790
+12      model_rf_log_target_d  transformed_target_d_regression                   3913.92              0.701              20056           0.287                     0.042             0.784
+8           model_rf_target_d              target_d_regression                   3899.40              0.669              19145           0.300                     0.042             0.755
+6          model_gbm_target_d              target_d_regression                   3883.68              0.684              19574           0.292                     0.042             0.768
+7           model_nn_target_d              target_d_regression                   3831.44              0.765              21892           0.257                     0.044             0.836
+4           model_rf_target_b          target_b_classification                   3330.20              0.888              25410           0.193                     0.054             0.920
+2          model_gbm_target_b          target_b_classification                   3249.64              0.915              26177           0.183                     0.053             0.940
+1           model_nb_target_b          target_b_classification                   3145.48              0.973              27864           0.166                     0.051             0.986
+3           model_nn_target_b          target_b_classification                   3112.40              0.974              27870           0.164                     0.051             0.985
+0           model_lr_target_b          target_b_classification                   2987.88              0.956              27359           0.161                     0.052             0.964
+
+NOTE: 'TEST peak (optimistic)' is the best mailing depth found by looking at the TEST data itself. It is an upper bound, not what the model would earn. In production, set the threshold or depth on TRAINING data (e.g. where cumulative net revenue peaks on out-of-fold training predictions) and apply it unchanged.
+==============================================================================
+STEP 7 COMPLETE — 1.5 s (0.03 min)
+Objects created: cnr_summary_df, cnr_tables, cnr_curves_df; model_metadata_df updated
+==============================================================================

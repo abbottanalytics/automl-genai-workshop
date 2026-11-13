@@ -1,0 +1,2 @@
+step_number,action_name,seed_value,function_or_parameter,notes
+8,tuning CV folds,42,"StratifiedKFold(shuffle=True, random_state) (same folds as Step 5)",

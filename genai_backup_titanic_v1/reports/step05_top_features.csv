@@ -1,0 +1,11 @@
+lr,nb,gbm,nn,rf
+sex_male,sex_male,sex_male,sex_male,sex_male
+sibsp,title_Miss,title_Mr,age,title_Mr
+title_Master,title_Mrs,pclass,ticket_group_size,fare
+title_Mrs,title_Master,pclass_3,title_Master,age
+age,pclass_1,cabin_known,pclass_1,title_Mrs
+pclass_1,deck_E,deck_U,fare_log,title_Miss
+parch,deck_D,sibsp,embarked_C,ticket_group_size
+title_Miss,deck_B,title_Rare,sibsp,family_size
+deck_E,sibsp,ticket_group_size,parch,pclass
+embarked_C,pclass_2,title_Master,is_alone,pclass_3

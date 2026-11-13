@@ -1,0 +1,6 @@
+question,note
+Do important predictors appear in strong rules?,"Variables most often in rules: ['LASTDATE', 'NUMPRM12_log10', 'AGE_modelimpute', 'AVGGIFT_log10', 'NGIFTALL_log10']; compare with input-shuffling top 5: ['AVGGIFT_log10', 'F_RFA_2A', 'RFA_2F', 'LASTGIFT_log10', 'NGIFTALL_log10']."
+Interactions missed by main-effects models?,"Only pairs whose lift beats both single items by 5% are kept, so the surviving pairs are candidate interactions; confirm them on TRAIN before using them."
+Interpretability,A rule is a segment you can describe and mail; a model score is not.
+Most profitable / responsive segments,"Top segment: LASTGIFT_log10 in Q4 (1.32, 2.7] & AVGGIFT_log10 in Q4 (1.22, 2.53]."
+Risk of over-interpreting,"Thousands of rules were tested on the same TEST data already used in Steps 7, 10 and 12: expect some false discoveries. Validate on fresh data."

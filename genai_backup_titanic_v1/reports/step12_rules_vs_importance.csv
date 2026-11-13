@@ -1,0 +1,14 @@
+,in_top20_survived_rules,overall_rank
+age,,6
+cabin_known,3.0,12
+deck,2.0,8
+embarked,3.0,10
+family_size,,13
+fare,3.0,7
+is_alone,,5
+parch,1.0,9
+pclass,4.0,3
+sex,8.0,1
+sibsp,,4
+ticket_group_size,4.0,11
+title,12.0,2

@@ -1,0 +1,121 @@
+==============================================================================
+RUNNING STEP 12 — SUPERVISED ASSOCIATION RULE DISCOVERY
+Start: 2026-11-13 22:43:02
+==============================================================================
+Antecedent items: 49 built, 45 kept (TRAIN support between 0.02 and 0.95).
+Outcome base rates (TRAIN): {'CONS::SURVIVED': 0.382, 'CONS::DIED': 0.618}
+   [matrix rule counting] 0.01 s
+   1,050 rules counted (support and outcome-count floors applied).
+
+SURVIVED: 112 two-item rules kept (91 confirmed on TEST), 26 one-item rules.
+
+Top 20 two-item rules -> SURVIVED (TRAIN lift, then records):
+                          antecedent  records  support  records_with_outcome  confidence   lift  best_parent_lift  test_records  test_confidence  test_lift  confirmed_on_test  share_of_train_positives
+26               sex=female & deck=B       22    0.024                    22       1.000  2.617             1.895          14.0            1.000      2.620               True                     0.063
+53              title=Mrs & pclass=1       53    0.058                    52       0.981  2.568             2.063          25.0            0.960      2.515               True                     0.149
+29             sex=female & pclass=1       95    0.104                    92       0.968  2.534             1.895          49.0            0.959      2.513               True                     0.263
+59   title=Mrs & fare in (31.3, inf]       54    0.059                    52       0.963  2.520             2.063          29.0            0.862      2.259               True                     0.149
+37  sex=female & ticket_group_size=4       24    0.026                    23       0.958  2.508             1.946          15.0            0.867      2.271               True                     0.066
+43             title=Miss & pclass=1       41    0.045                    39       0.951  2.489             1.764          21.0            0.952      2.495               True                     0.111
+51        title=Miss & cabin_known=1       38    0.041                    36       0.947  2.479             1.764          22.0            0.909      2.382               True                     0.103
+41        sex=female & cabin_known=1       91    0.099                    86       0.945  2.473             1.895          50.0            0.940      2.463               True                     0.246
+60         title=Mrs & cabin_known=1       52    0.057                    49       0.942  2.466             2.063          25.0            0.960      2.515               True                     0.140
+52            title=Mrs & embarked=C       44    0.048                    41       0.932  2.439             2.063          16.0            0.938      2.456               True                     0.117
+57   title=Mrs & ticket_group_size=3       27    0.029                    25       0.926  2.423             2.063          12.0            0.750      1.965               True                     0.071
+40  sex=female & fare in (31.3, inf]      103    0.112                    95       0.922  2.414             1.895          58.0            0.845      2.213               True                     0.271
+36  sex=female & ticket_group_size=3       50    0.055                    46       0.920  2.408             1.895          27.0            0.815      2.135               True                     0.131
+44             title=Miss & pclass=2       34    0.037                    31       0.912  2.386             1.764          17.0            1.000      2.620               True                     0.089
+48  title=Miss & ticket_group_size=3       22    0.024                    20       0.909  2.379             1.782          14.0            0.857      2.246               True                     0.057
+28           sex=female & embarked=C       81    0.088                    73       0.901  2.359             1.895          32.0            0.906      2.374               True                     0.209
+27               sex=female & deck=C       29    0.032                    26       0.897  2.346             1.895          17.0            0.941      2.466               True                     0.074
+50  title=Miss & fare in (31.3, inf]       48    0.052                    42       0.875  2.290             1.764          27.0            0.815      2.135               True                     0.120
+54               title=Mrs & parch=1       30    0.033                    26       0.867  2.268             2.063          17.0            0.882      2.312               True                     0.074
+42           title=Miss & embarked=C       36    0.039                    31       0.861  2.254             1.764          15.0            0.867      2.271               True                     0.089
+
+One-item reference rules -> SURVIVED:
+             antecedent  records  support  records_with_outcome  confidence   lift  test_records  test_confidence  test_lift  confirmed_on_test  share_of_train_positives
+3             title=Mrs      137    0.150                   108       0.788  2.063          61.0            0.787      2.062               True                     0.309
+20  ticket_group_size=4       39    0.043                    29       0.744  1.946          25.0            0.640      1.677               True                     0.083
+17        family_size=4       30    0.033                    22       0.733  1.919          13.0            0.615      1.612               True                     0.063
+0            sex=female      319    0.348                   231       0.724  1.895         147.0            0.735      1.925               True                     0.660
+6                deck=D       35    0.038                    25       0.714  1.869          11.0            0.636      1.667               True                     0.071
+7                deck=E       28    0.031                    20       0.714  1.869          13.0            0.769      2.015               True                     0.057
+19  ticket_group_size=3       94    0.103                    64       0.681  1.782          53.0            0.528      1.384               True                     0.183
+2            title=Miss      181    0.198                   122       0.674  1.764          83.0            0.687      1.799               True                     0.349
+4                deck=B       45    0.049                    30       0.667  1.745          20.0            0.850      2.227               True                     0.086
+25        cabin_known=1      201    0.219                   128       0.637  1.667          94.0            0.691      1.812               True                     0.366
+9              pclass=1      228    0.249                   135       0.592  1.550          95.0            0.684      1.793               True                     0.386
+16        family_size=3      110    0.120                    64       0.582  1.523          49.0            0.531      1.390               True                     0.183
+24  fare in (31.3, inf]      225    0.246                   129       0.573  1.500          98.0            0.612      1.604               True                     0.369
+8            embarked=C      194    0.212                   111       0.572  1.497          76.0            0.513      1.344               True                     0.317
+5                deck=C       65    0.071                    37       0.569  1.490          29.0            0.690      1.807               True                     0.106
+
+DIED: 60 two-item rules kept (51 confirmed on TEST), 14 one-item rules.
+
+Top 20 two-item rules -> DIED (TRAIN lift, then records):
+                                      antecedent  records  support  records_with_outcome  confidence   lift  best_parent_lift  test_records  test_confidence  test_lift  confirmed_on_test  share_of_train_positives
+156                    sex=male & family_size>=5       30    0.033                    30       1.000  1.618             1.344          11.0            0.727      1.176               True                       NaN
+155                          sex=male & sibsp>=3       24    0.026                    24       1.000  1.618             1.452           8.0            0.750      1.213              False                       NaN
+202  ticket_group_size>=5 & fare in (14.5, 31.3]       24    0.026                    24       1.000  1.618             1.182           5.0            1.000      1.617              False                       NaN
+192              sibsp>=3 & fare in (14.5, 31.3]       19    0.021                    19       1.000  1.618             1.452           7.0            0.571      0.924              False                       NaN
+166                            deck=U & sibsp>=3       36    0.039                    34       0.944  1.528             1.452          17.0            0.765      1.237               True                       NaN
+184                          pclass=3 & sibsp>=3       36    0.039                    34       0.944  1.528             1.452          16.0            0.812      1.314               True                       NaN
+185                    pclass=3 & family_size>=5       49    0.053                    46       0.939  1.519             1.344          20.0            0.900      1.456               True                       NaN
+198        family_size>=5 & fare in (14.5, 31.3]       26    0.028                    24       0.923  1.494             1.344           6.0            0.833      1.348              False                       NaN
+169                      deck=U & family_size>=5       51    0.056                    46       0.902  1.460             1.344          20.0            0.900      1.456               True                       NaN
+197         family_size>=5 & age in (-inf, 21.0]       40    0.044                    36       0.900  1.457             1.344          13.0            0.846      1.368               True                       NaN
+162          title=Master & ticket_group_size>=5       19    0.021                    17       0.895  1.448             1.182           7.0            0.714      1.155              False                       NaN
+153                        sex=male & embarked=Q       47    0.051                    42       0.894  1.446             1.296          16.0            0.875      1.415               True                       NaN
+201   ticket_group_size>=5 & age in (-inf, 21.0]       46    0.050                    41       0.891  1.442             1.182          16.0            0.812      1.314               True                       NaN
+207     age in (36.0, inf] & fare in (-inf, 7.9]       26    0.028                    23       0.885  1.432             1.234           9.0            0.889      1.438              False                       NaN
+164                          title=Mr & pclass=2      101    0.110                    89       0.881  1.426             1.338          49.0            0.959      1.551               True                       NaN
+163                        title=Mr & embarked=Q       41    0.045                    36       0.878  1.421             1.338          15.0            0.867      1.402               True                       NaN
+165               title=Mr & fare in (-inf, 7.9]      184    0.201                   161       0.875  1.416             1.338          77.0            0.883      1.428               True                       NaN
+186              pclass=3 & ticket_group_size>=5       56    0.061                    49       0.875  1.416             1.182          19.0            0.895      1.447               True                       NaN
+196        family_size>=5 & ticket_group_size>=5       56    0.061                    49       0.875  1.416             1.344          21.0            0.810      1.309               True                       NaN
+160               sex=male & fare in (-inf, 7.9]      186    0.203                   162       0.871  1.410             1.296          78.0            0.885      1.431               True                       NaN
+
+One-item reference rules -> DIED:
+               antecedent  records  support  records_with_outcome  confidence   lift  test_records  test_confidence  test_lift  confirmed_on_test  share_of_train_positives
+142              sibsp>=3       39    0.043                    35       0.897  1.452          18.0            0.722      1.168               True                       NaN
+144        family_size>=5       59    0.064                    49       0.831  1.344          23.0            0.783      1.266               True                       NaN
+139              title=Mr      536    0.585                   443       0.826  1.338         221.0            0.864      1.398               True                       NaN
+138              sex=male      597    0.652                   478       0.801  1.296         246.0            0.829      1.341               True                       NaN
+148   fare in (-inf, 7.9]      244    0.266                   186       0.762  1.234          93.0            0.796      1.287               True                       NaN
+141              pclass=3      501    0.547                   366       0.731  1.182         208.0            0.779      1.260               True                       NaN
+146  ticket_group_size>=5       89    0.097                    65       0.730  1.182          32.0            0.656      1.061               True                       NaN
+145   ticket_group_size=1      502    0.548                   363       0.723  1.170         211.0            0.739      1.196               True                       NaN
+147   age in (21.0, 29.0]      320    0.349                   231       0.722  1.168         135.0            0.689      1.114               True                       NaN
+149   fare in (7.9, 14.5]      219    0.239                   156       0.712  1.153         102.0            0.725      1.173               True                       NaN
+151         age_missing=1      190    0.207                   135       0.711  1.150          73.0            0.753      1.219               True                       NaN
+143         family_size=1      559    0.610                   391       0.699  1.132         231.0            0.693      1.120               True                       NaN
+150            is_alone=1      559    0.610                   391       0.699  1.132         231.0            0.693      1.120               True                       NaN
+140                deck=U      715    0.781                   493       0.690  1.116         299.0            0.716      1.158               True                       NaN
+
+Variables in the top 20 two-item SURVIVED rules vs input shuffling rank:
+                   in_top20_survived_rules  overall_rank
+sex                                    8.0             1
+title                                 12.0             2
+pclass                                 4.0             3
+sibsp                                  NaN             4
+is_alone                               NaN             5
+age                                    NaN             6
+fare                                   3.0             7
+deck                                   2.0             8
+parch                                  1.0             9
+embarked                               3.0            10
+ticket_group_size                      4.0            11
+cabin_known                            3.0            12
+family_size                            NaN            13
+
+TRAIN lift -> TEST lift for two-item rules: median 1.68 -> 1.62; 83% confirmed. The drop is the cost of searching 1,050 rules on 916 passengers.
+Interactions such as sex x class are what a main-effects logistic regression cannot represent without an explicit interaction term.
+
+Runtime:
+              operation  seconds  rules
+0  matrix rule counting    0.011   1050
+==============================================================================
+STEP 12 COMPLETE — 0.6 s (0.01 min)
+Objects created: ar_train_df, ar_test_df, ar_bin_edges, transaction_matrix_train/test, supervised_rules_all, association_rules_survived/died
+Notes: rule counting 0.01 s
+==============================================================================

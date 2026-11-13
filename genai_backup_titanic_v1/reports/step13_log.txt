@@ -1,0 +1,54 @@
+==============================================================================
+RUNNING STEP 13 — FINAL NOTEBOOK TIMING REPORT
+Start: 2026-11-13 22:43:03
+==============================================================================
+
+Step runtimes:
+    step_number                                             step_name  elapsed_seconds  elapsed_minutes              major_runtime_notes
+0             1                                   LOAD DATA AND AUDIT             0.03            0.001                                 
+1             2  NON-LEARNED DATA PREPARATION AND FEATURE ENGINEERING             0.02            0.000                                 
+2             3                                TRAIN / HOLD-OUT SPLIT             0.78            0.013                                 
+3             4            FITTED PREPARATION (LEARNED ON TRAIN ONLY)             0.03            0.000                                 
+4             5                           BUILD CLASSIFICATION MODELS             7.60            0.127                                 
+5             6                                   CAPACITY EVALUATION             0.31            0.005                                 
+6             7                                FINAL MODEL COMPARISON             2.53            0.042                                 
+7             8                                 HYPERPARAMETER TUNING            23.26            0.388          21 combinations in 23 s
+8             9                MEMORY OPTIMIZATION AND OBJECT CLEANUP             0.14            0.002                                 
+9            10                   INPUT SHUFFLING VARIABLE IMPORTANCE             2.66            0.044  input shuffling 2 s (framework)
+10           11                   RESPONSE PROFILES FOR TOP VARIABLES             0.58            0.010                                 
+11           12                 SUPERVISED ASSOCIATION RULE DISCOVERY             0.60            0.010             rule counting 0.01 s
+
+Total notebook runtime: 39 s (0.6 min)
+
+Longest steps:
+                             step_name  elapsed_seconds
+7                HYPERPARAMETER TUNING            23.26
+4          BUILD CLASSIFICATION MODELS             7.60
+9  INPUT SHUFFLING VARIABLE IMPORTANCE             2.66
+
+Longest-running algorithms:
+        model_name  train_runtime_seconds  scoring_runtime_seconds  cv_runtime_seconds  total_runtime_seconds
+3         model_nn                   0.40                     0.04                2.26                   2.70
+4         model_rf                   0.36                     0.09                1.73                   2.18
+2        model_gbm                   0.08                     0.02                0.44                   0.55
+1         model_nb                   0.04                     0.03                0.26                   0.33
+0         model_lr                   0.03                     0.03                0.15                   0.21
+5  model_gbm_tuned                    NaN                      NaN                 NaN                    NaN
+6   model_nn_tuned                    NaN                      NaN                 NaN                    NaN
+
+Every random action and its seed:
+   step_number                                              action_name  seed_value                                               function_or_parameter                                                      notes
+0            3                                         train/test split          42                                      train_test_split(random_state)                      stratified on survived, test_size=0.3
+1            5                                       score tie-breaking          42                       np.random.default_rng(RANDOM_STATE).random(n)  ties in the score are ordered at random, fixed per record
+2            5         5-fold CV inside TRAIN (out-of-fold predictions)          42                         StratifiedKFold(shuffle=True, random_state)                                                           
+3            5  model random_state (RF, GBM, MLP, NB calibration folds)          42                                           random_state=RANDOM_STATE                                                           
+4            5             permutation importance (NB, NN top features)          42                                permutation_importance(random_state)                                         5 repeats on TRAIN
+5            7                                 paired bootstrap of TEST          42                        np.random.default_rng(RANDOM_STATE).integers                                             1000 resamples
+6            8                                          tuning CV folds          42  StratifiedKFold(shuffle=True, random_state) (same folds as Step 5)                                                           
+7           10                             input shuffling permutations          42                     seeded per (seed, feature index, shuffle index)                                   50 shuffles per variable
+
+Saved model_metadata, timing, seeds, and TEST predictions for 7 models to reports/
+==============================================================================
+STEP 13 COMPLETE — 0.2 s (0.00 min)
+Objects created: notebook_timing_df, model_runtime_summary_df, random_seed_df
+==============================================================================

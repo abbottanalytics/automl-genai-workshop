@@ -1,0 +1,68 @@
+==============================================================================
+RUNNING STEP 15 — FINAL NOTEBOOK TIMING REPORT
+Start: 2026-11-13 22:42:18
+==============================================================================
+
+Step runtimes:
+    step_number                               step_name  elapsed_seconds  elapsed_minutes               major_runtime_notes
+0             1                               LOAD DATA             0.32            0.005                                  
+1             2                        DATA PREPARATION             0.26            0.004                                  
+2             3                  TRAIN / HOLD-OUT SPLIT             1.73            0.029                                  
+3             4    BUILD TARGET_B CLASSIFICATION MODELS            16.00            0.267                                  
+4             5        BUILD TARGET_D REGRESSION MODELS             2.01            0.033                                  
+5             6       BUILD TRANSFORMED TARGET_D MODELS             2.61            0.043                                  
+6             7       CUMULATIVE NET REVENUE EVALUATION             1.54            0.026                                  
+7             8             BUILD EXPECTED VALUE SCORES             0.64            0.011                                  
+8             9                  FINAL MODEL COMPARISON             0.03            0.000                                  
+9            10                   HYPERPARAMETER TUNING             9.05            0.151                                  
+10           11  MEMORY OPTIMIZATION AND OBJECT CLEANUP             0.06            0.001                                  
+11           12     INPUT SHUFFLING VARIABLE IMPORTANCE            50.01            0.833  input shuffling 49 s (framework)
+12           13     RESPONSE PROFILES FOR TOP VARIABLES             0.97            0.016                                  
+13           14   SUPERVISED ASSOCIATION RULE DISCOVERY             2.87            0.048        matrix rule counting 1.2 s
+
+Total notebook runtime: 88 s (1.5 min)
+
+Longest steps:
+                               step_name  elapsed_seconds
+11   INPUT SHUFFLING VARIABLE IMPORTANCE            50.01
+3   BUILD TARGET_B CLASSIFICATION MODELS            16.00
+9                  HYPERPARAMETER TUNING             9.05
+
+Longest-running algorithms:
+                model_name                    approach_type  train_runtime_seconds  scoring_runtime_seconds  total_runtime_seconds
+4        model_rf_target_b          target_b_classification                   4.69                     1.29                   5.98
+3        model_nn_target_b          target_b_classification                   3.07                     0.12                   3.19
+2       model_gbm_target_b          target_b_classification                   1.46                     0.22                   1.69
+11   model_nn_log_target_d  transformed_target_d_regression                   0.92                     0.12                   1.04
+12   model_rf_log_target_d  transformed_target_d_regression                   0.71                     0.08                   0.79
+8        model_rf_target_d              target_d_regression                   0.59                     0.09                   0.68
+10  model_gbm_log_target_d  transformed_target_d_regression                   0.55                     0.01                   0.56
+7        model_nn_target_d              target_d_regression                   0.38                     0.00                   0.39
+
+Every random action and its seed:
+    step_number                                              action_name seed_value                                      function_or_parameter                          notes
+0             3                                         train/test split         42                train_test_split(random_state=RANDOM_STATE)  stratified on TARGET_B, 70/30
+1             4                                                 lr model         42                                  random_state=RANDOM_STATE                       logistic
+2             4                                                gbm model         42                                  random_state=RANDOM_STATE                            gbm
+3             4                                                 nn model         42                                  random_state=RANDOM_STATE                             nn
+4             4                                                 rf model         42                                  random_state=RANDOM_STATE                             rf
+5             4                               isotonic calibration folds        n/a  CalibratedClassifierCV(cv=3): unshuffled stratified folds                  deterministic
+6             4                  permutation importance sample + repeats         42    DataFrame.sample / permutation_importance(random_state)                      NB and NN
+7             5                                             XGBRegressor         42                                  random_state=RANDOM_STATE           TARGET_D, responders
+8             5                                             MLPRegressor         42                                  random_state=RANDOM_STATE           TARGET_D, responders
+9             5                                    RandomForestRegressor         42                                  random_state=RANDOM_STATE           TARGET_D, responders
+10           10  tune gbm_target_b {'max_depth': 2, 'n_estimators': 150}         42                                 clone() keeps random_state                               
+11           10  tune gbm_target_b {'max_depth': 2, 'n_estimators': 400}         42                                 clone() keeps random_state                               
+12           10  tune gbm_target_b {'max_depth': 3, 'n_estimators': 150}         42                                 clone() keeps random_state                               
+13           10  tune gbm_target_b {'max_depth': 3, 'n_estimators': 400}         42                                 clone() keeps random_state                               
+14           10  tune gbm_target_b {'max_depth': 4, 'n_estimators': 150}         42                                 clone() keeps random_state                               
+15           10  tune gbm_target_b {'max_depth': 4, 'n_estimators': 400}         42                                 clone() keeps random_state                               
+16           10                 tune linreg_target_d {'positive': False}         42                                 clone() keeps random_state                               
+17           10                  tune linreg_target_d {'positive': True}         42                                 clone() keeps random_state                               
+18           12                             input shuffling permutations         42                             seeded per feature and shuffle       20 shuffles per variable
+
+Saved model_metadata, timing, seeds, and TEST predictions for 53 models to reports/
+==============================================================================
+STEP 15 COMPLETE — 0.4 s (0.01 min)
+Objects created: notebook_timing_df, model_runtime_summary_df, random_seed_df
+==============================================================================

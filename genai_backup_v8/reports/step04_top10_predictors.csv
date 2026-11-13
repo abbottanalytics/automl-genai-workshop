@@ -1,0 +1,51 @@
+model,rank,variable,importance,method
+lr,1,G_RFA_2A,0.21764525381226385,|standardized coefficient|
+lr,2,F_RFA_2A,0.14863813267591316,|standardized coefficient|
+lr,3,NGIFTALL_log10,0.14151059681477404,|standardized coefficient|
+lr,4,LASTDATE,0.13743723523436063,|standardized coefficient|
+lr,5,RFA_2F,0.13344520060418746,|standardized coefficient|
+lr,6,CA_STATE,0.09430330767670556,|standardized coefficient|
+lr,7,MINRAMNT_log10,0.06962186877063725,|standardized coefficient|
+lr,8,NUMPRM12_log10,0.06574608282539769,|standardized coefficient|
+lr,9,51_CLUSTER2,0.052652063880304224,|standardized coefficient|
+lr,10,13_CLUSTER2,0.04974245730663807,|standardized coefficient|
+nb,1,L4D_RFA_2,0.013718603452353281,"permutation importance (ROC AUC, 5,000 test rows)"
+nb,2,L3D_RFA_2,0.013202706693825136,"permutation importance (ROC AUC, 5,000 test rows)"
+nb,3,L4E_RFA_2,0.007343525393509205,"permutation importance (ROC AUC, 5,000 test rows)"
+nb,4,TN_STATE,0.00696222224401873,"permutation importance (ROC AUC, 5,000 test rows)"
+nb,5,L4F_RFA_2,0.005794336606083157,"permutation importance (ROC AUC, 5,000 test rows)"
+nb,6,L2G_RFA_2,0.0056342682957397265,"permutation importance (ROC AUC, 5,000 test rows)"
+nb,7,51_CLUSTER2,0.003608007829315696,"permutation importance (ROC AUC, 5,000 test rows)"
+nb,8,CARDPM12,0.002452382742810603,"permutation importance (ROC AUC, 5,000 test rows)"
+nb,9,LASTDATE,0.0020661753727480767,"permutation importance (ROC AUC, 5,000 test rows)"
+nb,10,AVGGIFT_log10,0.0020529612228728697,"permutation importance (ROC AUC, 5,000 test rows)"
+gbm,1,RFA_2F,0.1069355383515358,built-in importance (mean over calibration folds)
+gbm,2,LASTGIFT_log10,0.04577310010790825,built-in importance (mean over calibration folds)
+gbm,3,CA_STATE,0.038705285638570786,built-in importance (mean over calibration folds)
+gbm,4,AVGGIFT_log10,0.03644925728440285,built-in importance (mean over calibration folds)
+gbm,5,LASTDATE,0.03617659583687782,built-in importance (mean over calibration folds)
+gbm,6,CARDPM12,0.03559860214591026,built-in importance (mean over calibration folds)
+gbm,7,L1G_RFA_2,0.035304758697748184,built-in importance (mean over calibration folds)
+gbm,8,12_CLUSTER2,0.03504491224884987,built-in importance (mean over calibration folds)
+gbm,9,13_CLUSTER2,0.03320939838886261,built-in importance (mean over calibration folds)
+gbm,10,NUMPRM12_log10,0.03270093724131584,built-in importance (mean over calibration folds)
+nn,1,F_RFA_2A,0.032699163122005014,"permutation importance (ROC AUC, 5,000 test rows)"
+nn,2,E_RFA_2A,0.023113727785243048,"permutation importance (ROC AUC, 5,000 test rows)"
+nn,3,G_RFA_2A,0.021262112062529853,"permutation importance (ROC AUC, 5,000 test rows)"
+nn,4,RFA_2F,0.016386363215294186,"permutation importance (ROC AUC, 5,000 test rows)"
+nn,5,LASTGIFT_log10,0.012957223208515445,"permutation importance (ROC AUC, 5,000 test rows)"
+nn,6,L3E_RFA_2,0.012504808860727726,"permutation importance (ROC AUC, 5,000 test rows)"
+nn,7,L4D_RFA_2,0.010763810557588053,"permutation importance (ROC AUC, 5,000 test rows)"
+nn,8,AVGGIFT_log10,0.008659491247056117,"permutation importance (ROC AUC, 5,000 test rows)"
+nn,9,LASTDATE,0.0070020009219934716,"permutation importance (ROC AUC, 5,000 test rows)"
+nn,10,L2E_RFA_2,0.006655844686603962,"permutation importance (ROC AUC, 5,000 test rows)"
+rf,1,AVGGIFT_log10,0.15612978411839515,built-in importance (mean over calibration folds)
+rf,2,AGE_modelimpute,0.11773109830523387,built-in importance (mean over calibration folds)
+rf,3,LASTDATE,0.09736896779832906,built-in importance (mean over calibration folds)
+rf,4,NGIFTALL_log10,0.09527896221852837,built-in importance (mean over calibration folds)
+rf,5,LASTGIFT_log10,0.08807115378616791,built-in importance (mean over calibration folds)
+rf,6,TIMELAG_log10,0.08465572917049129,built-in importance (mean over calibration folds)
+rf,7,NUMPRM12_log10,0.0820611752408894,built-in importance (mean over calibration folds)
+rf,8,RFA_2F,0.05140848922529181,built-in importance (mean over calibration folds)
+rf,9,MINRAMNT_log10,0.04614822645893335,built-in importance (mean over calibration folds)
+rf,10,CARDPM12,0.044224824953059884,built-in importance (mean over calibration folds)

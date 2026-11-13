@@ -1,0 +1,43 @@
+==============================================================================
+RUNNING STEP 11 — MEMORY OPTIMIZATION AND OBJECT CLEANUP
+Start: 2026-11-13 22:41:24
+==============================================================================
+Preserved production artifacts:
+   b_model: model_gbm_target_b
+   d_model: model_linreg_target_d
+   b_features: target_b_feature_sets['gbm']
+   d_features: target_d_feature_sets['linreg']
+   transforms: to_transform
+   prediction_column: pred_ev_gbm_x_linreg
+
+Deleted objects:
+             object         type  approx_mb
+0       tuned_preds         dict       0.00
+1         d_untuned      ndarray       0.23
+2         p_untuned      ndarray       0.23
+3          ev_tuned      ndarray       0.23
+4           tuned_p      ndarray       0.23
+5           tuned_g      ndarray       0.23
+6   tuned_cnr_table    DataFrame       1.60
+7        imp_sample    DataFrame       1.75
+8               fig       Figure       0.00
+9                ax  AxesSubplot       0.00
+10             axes      ndarray       0.00
+11              est     Pipeline       0.00
+12                p      ndarray       0.23
+13                g      ndarray       0.23
+14               ev      ndarray       0.23
+15                t    DataFrame       1.60
+16             stat    DataFrame       0.01
+17              biz    DataFrame       0.01
+18              sub    DataFrame       0.01
+19           df_raw    DataFrame      29.59
+20        dtypes_df    DataFrame       0.01
+
+Memory:
+   rss_before_mb  rss_after_mb  freed_mb  deleted_objects_mb
+0          514.3         534.8     -20.5                36.4
+==============================================================================
+STEP 11 COMPLETE — 0.1 s (0.00 min)
+Objects created: cleanup_summary_df, deleted/preserved/protected summaries, memory_usage_summary_df
+==============================================================================

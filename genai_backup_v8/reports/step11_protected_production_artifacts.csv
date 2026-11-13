@@ -1,0 +1,7 @@
+role,object
+b_model,model_gbm_target_b
+d_model,model_linreg_target_d
+b_features,target_b_feature_sets['gbm']
+d_features,target_d_feature_sets['linreg']
+transforms,to_transform
+prediction_column,pred_ev_gbm_x_linreg

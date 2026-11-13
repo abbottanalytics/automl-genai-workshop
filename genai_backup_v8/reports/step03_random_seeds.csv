@@ -1,0 +1,2 @@
+step_number,action_name,seed_value,function_or_parameter,notes
+3,train/test split,42,train_test_split(random_state=RANDOM_STATE),"stratified on TARGET_B, 70/30"

@@ -1,0 +1,21 @@
+==============================================================================
+RUNNING STEP 3 — TRAIN / HOLD-OUT SPLIT
+Start: 2026-11-13 22:42:24
+==============================================================================
+
+Split:
+  partition  records  positives  target_rate  pct_of_file
+0     TRAIN      916        350        0.382          0.7
+1      TEST      393        150        0.382          0.3
+
+BASE_RATE_TRAIN = 0.3821: the classification threshold for the secondary metric in every later step.
+TEST has 393 passengers and 150 survivors: one survivor = 0.7% of TEST survivors.
+Small differences between models may be noise; Step 7 measures this with a bootstrap.
+
+Random seeds used in this step:
+  step_number      action_name  seed_value          function_or_parameter                                 notes
+           3 train/test split          42 train_test_split(random_state) stratified on survived, test_size=0.3
+==============================================================================
+STEP 3 COMPLETE — 0.8 s (0.01 min)
+Objects created: split_flag, train_df, test_df, BASE_RATE_TRAIN
+==============================================================================

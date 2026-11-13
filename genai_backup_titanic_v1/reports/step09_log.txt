@@ -1,0 +1,31 @@
+==============================================================================
+RUNNING STEP 9 — MEMORY OPTIMIZATION AND OBJECT CLEANUP
+Start: 2026-11-13 22:42:59
+==============================================================================
+
+Largest objects:
+                   object                    type  approx_MB
+0                model_rf               PrepModel      4.032
+1                     est  RandomForestClassifier      4.031
+2                   inner  RandomForestClassifier      4.031
+3   predictions_oof_train               DataFrame      1.462
+4       predictions_train               DataFrame      1.035
+5    modeling_prepared_df               DataFrame      0.747
+6                  df_raw               DataFrame      0.657
+7        predictions_test               DataFrame      0.630
+8                train_df               DataFrame      0.420
+9         model_gbm_tuned               PrepModel      0.340
+10            clean_train               DataFrame      0.305
+11              model_gbm               PrepModel      0.228
+12            Xtree_train               DataFrame      0.220
+13                test_df               DataFrame      0.182
+14             Xlin_train               DataFrame      0.169
+
+Removed temporary objects: ['tuning_rows', 'boot', 'boot_auc', 'P', 'dlt', 'pb', 'yb', 'idx', 'oof', 'Xp', 'pi', 'm', 'g', 'rows']
+Approximate size of notebook objects: 19.9 MB before, 19.2 MB after.
+Kept: modeling_prepared_df, preparation functions, all models, prediction dataframes, feature lists, model_metadata_df, top_features, logs.
+On data this size memory is not a problem; the habit matters on large data.
+==============================================================================
+STEP 9 COMPLETE — 0.1 s (0.00 min)
+Objects created: (cleanup only)
+==============================================================================

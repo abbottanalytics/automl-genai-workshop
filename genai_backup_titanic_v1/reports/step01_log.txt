@@ -1,0 +1,121 @@
+==============================================================================
+RUNNING STEP 1 — LOAD DATA AND AUDIT
+Start: 2026-11-13 22:42:24
+==============================================================================
+   [read_csv] 0.01 s
+RECORD_ID created (1..n, file order).
+1) Rows, columns: (1309, 15)
+
+2) Variable names:
+ ['RECORD_ID', 'pclass', 'survived', 'name', 'sex', 'age', 'sibsp', 'parch', 'ticket', 'fare', 'cabin', 'embarked', 'boat', 'body', 'home.dest']
+
+3) Data types:
+             dtype
+RECORD_ID    int64
+pclass       int64
+survived     int64
+name        object
+sex         object
+age        float64
+sibsp        int64
+parch        int64
+ticket      object
+fare       float64
+cabin       object
+embarked    object
+boat        object
+body       float64
+home.dest   object
+
+4) survived distribution (base rate = 0.382):
+          count       pct
+survived                 
+0           809  0.618029
+1           500  0.381971
+
+5) Unique values of categorical / text variables:
+           n_unique  pct_of_rows
+name           1307     0.998472
+sex               2     0.001528
+ticket          929     0.709702
+cabin           186     0.142093
+embarked          3     0.002292
+boat             27     0.020626
+home.dest       369     0.281895
+pclass            3     0.002292
+
+6) Missing values:
+           n_missing  pct_missing
+body            1188        0.908
+cabin           1014        0.775
+boat             823        0.629
+home.dest        564        0.431
+age              263        0.201
+embarked           2        0.002
+fare               1        0.001
+
+7) Numeric summary:
+         count    mean  std_dev   min    Q1  median      Q3     max
+pclass  1309.0    2.29     0.84  1.00   2.0    3.00    3.00    3.00
+age     1046.0   29.88    14.41  0.17  21.0   28.00   39.00   80.00
+sibsp   1309.0    0.50     1.04  0.00   0.0    0.00    1.00    8.00
+parch   1309.0    0.39     0.87  0.00   0.0    0.00    0.00    9.00
+fare    1308.0   33.30    51.76  0.00   7.9   14.45   31.28  512.33
+body     121.0  160.81    97.70  1.00  72.0  155.00  256.00  328.00
+
+8) Survival rate by level (variables with <= 20 levels):
+    variable   level  records  survival_rate
+0        sex  female      466          0.727
+1        sex    male      843          0.191
+2   embarked       C      270          0.556
+3   embarked       Q      123          0.358
+4   embarked       S      914          0.333
+5   embarked     NaN        2          1.000
+6     pclass       1      323          0.619
+7     pclass       2      277          0.430
+8     pclass       3      709          0.255
+9      sibsp       0      891          0.347
+10     sibsp       1      319          0.511
+11     sibsp       2       42          0.452
+12     sibsp       3       20          0.300
+13     sibsp       4       22          0.136
+14     sibsp       5        6          0.000
+15     sibsp       8        9          0.000
+16     parch       0     1002          0.335
+17     parch       1      170          0.588
+18     parch       2      113          0.504
+19     parch       3        8          0.625
+20     parch       4        6          0.167
+21     parch       5        6          0.167
+22     parch       6        2          0.000
+23     parch       9        2          0.000
+
+9) Survival rate with and without a missing value:
+    variable  n_missing  rate_when_missing  rate_when_present
+0       body       1188              0.421              0.000
+1      cabin       1014              0.303              0.654
+2       boat        823              0.028              0.981
+3  home.dest        564              0.271              0.466
+4        age        263              0.278              0.408
+5   embarked          2              1.000              0.381
+6       fare          1              0.000              0.382
+
+10) Leakage screen (target rate when the column is present vs missing):
+    variable  rate_when_present  rate_when_missing    gap                     flagged
+4       boat              0.981              0.028  0.954  known (PROBLEM PARAMETERS)
+3   embarked              0.381              1.000  0.619             proposed: check
+5       body              0.000              0.421  0.421  known (PROBLEM PARAMETERS)
+1       fare              0.382              0.000  0.382                            
+2      cabin              0.654              0.303  0.351                            
+6  home.dest              0.466              0.271  0.194                            
+0        age              0.408              0.278  0.131                            
+   boat = lifeboat number, filled almost only for survivors; body = body identification number, only for victims. Both are known only after the outcome.
+
+11) Identifier screen (more unique values than half the rows):
+        n_unique  pct_of_rows        flagged
+name        1307        0.998  known ID-like
+ticket       929        0.710  known ID-like
+==============================================================================
+STEP 1 COMPLETE — 0.0 s (0.00 min)
+Objects created: df_raw, leakage_screen_df
+==============================================================================

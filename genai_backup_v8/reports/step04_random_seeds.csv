@@ -1,0 +1,7 @@
+step_number,action_name,seed_value,function_or_parameter,notes
+4,lr model,42,random_state=RANDOM_STATE,logistic
+4,gbm model,42,random_state=RANDOM_STATE,gbm
+4,nn model,42,random_state=RANDOM_STATE,nn
+4,rf model,42,random_state=RANDOM_STATE,rf
+4,isotonic calibration folds,n/a,CalibratedClassifierCV(cv=3): unshuffled stratified folds,deterministic
+4,permutation importance sample + repeats,42,DataFrame.sample / permutation_importance(random_state),NB and NN

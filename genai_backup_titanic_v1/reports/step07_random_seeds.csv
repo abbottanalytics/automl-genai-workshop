@@ -1,0 +1,2 @@
+step_number,action_name,seed_value,function_or_parameter,notes
+7,paired bootstrap of TEST,42,np.random.default_rng(RANDOM_STATE).integers,1000 resamples

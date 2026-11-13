@@ -1,0 +1,6 @@
+topic,note
+top-decile shift,"Variables gaining the most rank in the top 30%: ['RFA_2F', 'AGE_modelimpute', '43_CLUSTER2']."
+instability vs degradation,"A variable can move many scores a little (high IQR) yet barely change who gets mailed (small CNR drop), and the reverse."
+targeting,Variables that matter in the top deciles decide who is mailed; those are the ones to monitor for drift.
+vs other methods,Input shuffling needs no target and measures score movement per record; permutation importance measures a metric drop; SHAP splits a score additively.
+per-record view,"Per-record dispersion shows where the model is fragile, not just an average effect."

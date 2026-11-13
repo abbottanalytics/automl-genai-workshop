@@ -1,0 +1,18 @@
+# Allowlist: only the folders and files below go to GitHub.
+# Everything else in this workshop folder (decks, papers, older prompt versions, automl_harness) stays local.
+/*
+!/.gitignore
+!/README.md
+!/LICENSE
+!/data/
+!/prompts/
+!/slides/
+!/genai_backup_v8/
+!/genai_backup_titanic_v1/
+
+# never upload these, even inside allowed folders
+.DS_Store
+~$*
+.ipynb_checkpoints/
+__pycache__/
+slides/*.pptx

@@ -1,0 +1,28 @@
+==============================================================================
+RUNNING STEP 6 — CAPACITY EVALUATION
+Start: 2026-11-13 22:42:33
+==============================================================================
+
+Capacity metrics on TEST (ranked by depth to capture 80%, lower is better):
+  model  rank_depth80  depth_50_pct  depth_50_passengers  depth_80_pct  depth_80_passengers  depth_95_pct  depth_95_passengers  capture_at_10pct  capture_at_20pct  capture_at_30pct  capture_at_40pct  capture_at_50pct  ties_near_depth80  roc_auc  pct_correct_at_prior
+0   gbm             1         0.198                   78         0.392                  154         0.735                  289             0.247             0.507             0.687             0.800             0.860                  1    0.893                 0.807
+1    nn             2         0.206                   81         0.392                  154         0.804                  316             0.253             0.487             0.660             0.800             0.880                  0    0.882                 0.827
+2    rf             3         0.198                   78         0.397                  156         0.705                  277             0.253             0.507             0.707             0.800             0.873                  0    0.898                 0.822
+3    lr             4         0.204                   80         0.399                  157         0.776                  305             0.247             0.493             0.673             0.800             0.867                  0    0.885                 0.817
+4    nb             5         0.239                   94         0.453                  178         0.814                  320             0.220             0.420             0.600             0.747             0.847                  0    0.838                 0.771
+
+Reference: random ranking needs 80% of the file; a perfect ranking needs 80% x base rate = 30.5%.
+As a decision: to find 80% of survivors with gbm, act on the top 39% of passengers: 154 of 393 TEST passengers, or about 513 of all 1,309.
+
+TEST-measured depth vs the depth chosen on TRAIN (what production would use) and what that TRAIN depth captured on TEST:
+  model  depth_80_pct  train_chosen_depth  test_capture_depth_rule
+0   gbm         0.392               0.452                    0.833
+1    nn         0.392               0.480                    0.873
+2    rf         0.397               0.466                    0.847
+3    lr         0.399               0.469                    0.853
+4    nb         0.453               0.548                    0.893
+Depth measured on TEST fairly evaluates the ranking, but it is not an operating point: TEST outcomes are unknown in advance.
+==============================================================================
+STEP 6 COMPLETE — 0.3 s (0.01 min)
+Objects created: capacity_df
+==============================================================================

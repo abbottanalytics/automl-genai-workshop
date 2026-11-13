@@ -1,0 +1,53 @@
+==============================================================================
+RUNNING STEP 2 — DATA PREPARATION
+Start: 2026-11-13 22:40:49
+==============================================================================
+Missing values: none in this file
+
+Near-zero-variance variables (>99% one value): none
+
+6) Skewness of non-binary numeric variables (22 binary 0/1 variables excluded):
+                 skewness  abs_skew
+TIMELAG_log10       1.894     1.894
+NUMPRM12_log10      0.814     0.814
+RFA_2F              0.786     0.786
+LASTDATE            0.720     0.720
+LASTGIFT_log10     -0.480     0.480
+MINRAMNT_log10      0.393     0.393
+AVGGIFT_log10       0.382     0.382
+CARDPM12            0.312     0.312
+NGIFTALL_log10     -0.074     0.074
+AGE_modelimpute    -0.044     0.044
+Highly skewed (|skew| > 1): ['TIMELAG_log10']
+
+5) Monetary variables present (raw LASTGIFT / AVGGIFT / RAMNT are not in this file; only log10 versions):
+         variable  already_transformed  skewness
+0  NGIFTALL_log10                 True    -0.074
+1  MINRAMNT_log10                 True     0.393
+2  LASTGIFT_log10                 True    -0.480
+3   AVGGIFT_log10                 True     0.382
+
+Leakage screen: top |correlation| with TARGET_B
+                abs_corr_with_TARGET_B
+RFA_2F                           0.072
+LASTGIFT_log10                   0.061
+AVGGIFT_log10                    0.058
+NGIFTALL_log10                   0.055
+L4D_RFA_2                        0.047
+MINRAMNT_log10                   0.046
+LASTDATE                         0.041
+L1F_RFA_2                        0.038
+L1G_RFA_2                        0.036
+G_RFA_2A                         0.035
+Suspicious leakage variables (|r| > 0.3): none (TARGET_D is excluded from all inputs)
+
+N-1 / overlapping-encoding check:
+                          feature_set  n_features  rank_with_intercept  columns_with_intercept
+0    all inputs (tree models, NB, NN)          32                   32                      33
+1  linear/logistic (L*_RFA_2 dropped)          23                   24                      24
+E_RFA_2A + F_RFA_2A + G_RFA_2A + L3D_RFA_2 + L4D_RFA_2 = 1 for every row: True
+Linear and logistic models drop the combined RFA_2 dummies: ['L3D_RFA_2', 'L4E_RFA_2', 'L1F_RFA_2', 'L2G_RFA_2', 'L1G_RFA_2', 'L3E_RFA_2', 'L2E_RFA_2', 'L4D_RFA_2', 'L4F_RFA_2']
+==============================================================================
+STEP 2 COMPLETE — 0.3 s (0.00 min)
+Objects created: modeling_prepared_df, skewness_df, model_features_base, linear_features_base
+==============================================================================

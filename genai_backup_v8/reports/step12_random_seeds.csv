@@ -1,0 +1,2 @@
+step_number,action_name,seed_value,function_or_parameter,notes
+12,input shuffling permutations,42,seeded per feature and shuffle,20 shuffles per variable

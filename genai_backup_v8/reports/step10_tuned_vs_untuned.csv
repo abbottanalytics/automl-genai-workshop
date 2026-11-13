@@ -1,0 +1,3 @@
+model,version,TEST_peak_CNR_optimistic,depth,mailed,roi
+model_ev_gbm_x_linreg,untuned,4750.599999999999,0.3582657909446618,10255,0.6812458771904665
+"gbm{""max_depth"": 3, ""n_estimators"": 400} x linreg{""positive"": false}",tuned,4766.119999999999,0.45210313024035775,12941,0.5416119310717872

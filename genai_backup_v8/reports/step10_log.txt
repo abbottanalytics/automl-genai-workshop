@@ -1,0 +1,62 @@
+==============================================================================
+RUNNING STEP 10 — HYPERPARAMETER TUNING
+Start: 2026-11-13 22:41:14
+==============================================================================
+Best business strategy so far: model_ev_gbm_x_linreg TEST peak $4,751
+Best expected value model: model_ev_gbm_x_linreg  (response component: gbm, gift component: linreg)
+Tuning 8 combinations (limit 20). Each component is tuned with the other held at its untuned version.
+   [tune gbm {'max_depth': 2, 'n_estimators': 150}] 0.88 s
+   [tune gbm {'max_depth': 2, 'n_estimators': 400}] 1.92 s
+   [tune gbm {'max_depth': 3, 'n_estimators': 150}] 0.82 s
+   [tune gbm {'max_depth': 3, 'n_estimators': 400}] 1.62 s
+   [tune gbm {'max_depth': 4, 'n_estimators': 150}] 0.95 s
+   [tune gbm {'max_depth': 4, 'n_estimators': 400}] 2.03 s
+   [tune linreg {'positive': False}] 0.00 s
+   [tune linreg {'positive': True}] 0.01 s
+
+Tuning results (EV TEST peak, optimistic):
+         component                                 params  test_auc  ev_TEST_peak_cnr   depth  mailed     roi  seconds
+0     gbm_target_b  {"max_depth": 2, "n_estimators": 150}    0.6207           4437.08  0.4094   11719  0.5568   0.8791
+1     gbm_target_b  {"max_depth": 2, "n_estimators": 400}    0.6246           4524.76  0.4443   12718  0.5232   1.9219
+2     gbm_target_b  {"max_depth": 3, "n_estimators": 150}    0.6238           4654.92  0.3426    9806  0.6981   0.8153
+3     gbm_target_b  {"max_depth": 3, "n_estimators": 400}    0.6249           4766.12  0.4521   12941  0.5416   1.6217
+4     gbm_target_b  {"max_depth": 4, "n_estimators": 150}    0.6254           4660.24  0.3706   10607  0.6461   0.9490
+5     gbm_target_b  {"max_depth": 4, "n_estimators": 400}    0.6237           4712.12  0.4704   13466  0.5146   2.0296
+6  linreg_target_d                    {"positive": false}       NaN           4750.60  0.3583   10255  0.6812   0.0034
+7  linreg_target_d                     {"positive": true}       NaN           4565.80  0.3874   11090  0.6054   0.0138
+
+Tuned vs untuned:
+                                                                  model  version  TEST_peak_CNR_optimistic  depth  mailed    roi
+0                                                 model_ev_gbm_x_linreg  untuned                   4750.60  0.358   10255  0.681
+1  gbm{"max_depth": 3, "n_estimators": 400} x linreg{"positive": false}    tuned                   4766.12  0.452   12941  0.542
+
+Tuning discussion:
+         topic                                                                                                note
+0  tuning gain                                                                    $16 change in TEST peak (+0.3%).
+1         risk  Settings were chosen on TEST, so the gain is optimistic; small gains are within TEST-sample noise.
+2   deployment         Prefer the simpler untuned model unless the gain holds under cross-validation inside TRAIN.
+3     decision                              Production strategy: untuned (keep tuned only if the gain exceeds 2%).
+
+Final recommended production model:
+                                                                                                      0
+production_strategy                                                                             untuned
+response_model                                                                            gbm (untuned)
+gift_model                                                                             linreg (untuned)
+score                                                     EV = P(TARGET_B) * max(predicted TARGET_D, 0)
+TEST_peak_CNR_optimistic                                                                         4750.6
+caveat                    Depth and settings chosen on TEST; set the production depth on training data.
+
+Random seeds used in this step:
+  step_number                                             action_name seed_value      function_or_parameter notes
+          10 tune gbm_target_b {'max_depth': 2, 'n_estimators': 150}         42 clone() keeps random_state      
+          10 tune gbm_target_b {'max_depth': 2, 'n_estimators': 400}         42 clone() keeps random_state      
+          10 tune gbm_target_b {'max_depth': 3, 'n_estimators': 150}         42 clone() keeps random_state      
+          10 tune gbm_target_b {'max_depth': 3, 'n_estimators': 400}         42 clone() keeps random_state      
+          10 tune gbm_target_b {'max_depth': 4, 'n_estimators': 150}         42 clone() keeps random_state      
+          10 tune gbm_target_b {'max_depth': 4, 'n_estimators': 400}         42 clone() keeps random_state      
+          10                tune linreg_target_d {'positive': False}         42 clone() keeps random_state      
+          10                 tune linreg_target_d {'positive': True}         42 clone() keeps random_state      
+==============================================================================
+STEP 10 COMPLETE — 9.0 s (0.15 min)
+Objects created: tuning_results_df, tuned_model_*, tuned_vs_untuned_df, final_recommendation_df
+==============================================================================

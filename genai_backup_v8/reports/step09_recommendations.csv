@@ -1,0 +1,4 @@
+recommendation,model,approach_type,roc_auc,rmse,TEST_peak_CNR_optimistic,optimal_depth_pct
+best statistical TARGET_B (ROC AUC),model_gbm_target_b,target_b_classification,0.6254721473795122,,3249.6399999999994,0.914512297372834
+best statistical TARGET_D (RMSE),model_gbm_log_target_d,transformed_target_d_regression,,8.374778860586737,3938.5599999999995,0.7068543879262158
+"best business model (TEST peak, optimistic)",model_ev_gbm_x_linreg,expected_value,,,4750.599999999999,0.3582657909446618

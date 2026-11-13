@@ -1,0 +1,56 @@
+==============================================================================
+RUNNING STEP 11 — RESPONSE PROFILES FOR TOP VARIABLES
+Start: 2026-11-13 22:43:01
+==============================================================================
+Variables profiled: ['sex', 'title', 'pclass']
+
+Sparse bins (not connected in the plots):
+  variable           bin  records  records_top
+0    title        Master       17           11
+1    title            Dr        3            1
+2    title           Rev        2            0
+3    title           Mme        1            1
+4    title          Lady        1            1
+5    title           Sir        1            1
+6    title           Col        1            1
+7    title         Major        1            0
+8    title      Jonkheer        1            0
+9    title  the Countess        1            1
+
+sex:
+    label  records  mean_score  survival_rate  records_top  mean_score_top
+0    male      246        0.20          0.171           44           0.521
+1  female      147        0.72          0.735          140           0.753
+
+title:
+           label  records  mean_score  survival_rate  records_top  mean_score_top
+0             Mr      221       0.173          0.136           31           0.453
+1           Miss       83       0.684          0.687           77           0.733
+2            Mrs       60       0.760          0.783           59           0.769
+3         Master       17       0.529          0.529           11           0.732
+4             Dr        3       0.438          0.333            1           0.805
+5            Rev        2       0.154          0.000            0             NaN
+6            Mme        1       0.976          1.000            1           0.976
+7           Lady        1       0.853          1.000            1           0.853
+8            Sir        1       0.499          1.000            1           0.499
+9            Col        1       0.339          1.000            1           0.339
+10         Major        1       0.227          1.000            0             NaN
+11      Jonkheer        1       0.135          0.000            0             NaN
+12  the Countess        1       0.867          1.000            1           0.867
+
+pclass:
+  label  records  mean_score  survival_rate  records_top  mean_score_top
+0     3      208       0.271          0.221           64           0.637
+1     1       95       0.627          0.684           76           0.734
+2     2       90       0.435          0.433           44           0.721
+
+Discussion:
+             topic                                                                                                                                                                    note
+0            shape                                                  Read each panel left to right: direction and thresholds (e.g. children vs adults in age, class steps, female vs male).
+1  score vs actual  Largest gap between mean score and actual survival rate per variable: sex 0.03, title 0.77, pclass 0.06. With ~40-80 passengers per bin, gaps of 0.1 are within noise.
+2        top group                                                    The top group is mostly female and upper class, so within it the remaining variables separate a narrower population.
+3      sparse bins                                                                                                          10 sparse bins; conclusions there rest on very few passengers.
+==============================================================================
+STEP 11 COMPLETE — 0.6 s (0.01 min)
+Objects created: response_profile_variables, response_profile_bin_edges, response_profile_plot_dataframes, response_profile_sparse_bins_df
+==============================================================================

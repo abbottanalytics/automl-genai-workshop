@@ -1,0 +1,39 @@
+==============================================================================
+RUNNING STEP 13 — RESPONSE PROFILES FOR TOP VARIABLES
+Start: 2026-11-13 22:42:14
+==============================================================================
+Profile variables (top 3 overall + top 3 in the top deciles, no duplicates): ['AVGGIFT_log10', 'F_RFA_2A', 'RFA_2F']
+
+AVGGIFT_log10:
+             mid     n  mean_score  n_top  mean_score_top  sparse_overall  sparse_top
+bin_order                                                                            
+0          0.644  2914       0.458    154           1.164           False       False
+1          0.892  2840       0.637    300           1.132           False       False
+2          0.969  3034       0.729    509           1.136           False       False
+3          1.024  2662       0.780    599           1.121           False       False
+4          1.076  3057       0.764    668           1.106           False       False
+5          1.124  2766       0.804    778           1.105           False       False
+6          1.175  3913       0.824   1270           1.126           False       False
+7          1.236  1855       0.990    992           1.215           False       False
+8          1.311  2728       0.946   1324           1.218           False       False
+9          1.942  2855       1.279   1993           1.510           False       False
+
+F_RFA_2A:
+           mid      n  mean_score  n_top  mean_score_top  sparse_overall  sparse_top
+bin_order                                                                           
+0          0.0  14536       0.854   5208           1.326           False       False
+1          1.0  14088       0.771   3379           1.100           False       False
+
+RFA_2F:
+           mid      n  mean_score  n_top  mean_score_top  sparse_overall  sparse_top
+bin_order                                                                           
+0          1.0  14249       0.794   3634           1.200           False       False
+1          2.0   6198       0.932   2658           1.256           False       False
+2          3.0   4626       0.787   1358           1.254           False       False
+3          4.0   3551       0.719    937           1.308           False       False
+
+Sparse bins flagged: 0
+==============================================================================
+STEP 13 COMPLETE — 1.0 s (0.02 min)
+Objects created: response_profile_* objects
+==============================================================================

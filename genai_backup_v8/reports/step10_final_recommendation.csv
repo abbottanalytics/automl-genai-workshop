@@ -1,0 +1,2 @@
+production_strategy,response_model,gift_model,score,TEST_peak_CNR_optimistic,caveat
+untuned,gbm (untuned),linreg (untuned),"EV = P(TARGET_B) * max(predicted TARGET_D, 0)",4750.599999999999,Depth and settings chosen on TEST; set the production depth on training data.

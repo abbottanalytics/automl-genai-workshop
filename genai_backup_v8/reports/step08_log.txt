@@ -1,0 +1,38 @@
+==============================================================================
+RUNNING STEP 8 — BUILD EXPECTED VALUE SCORES
+Start: 2026-11-13 22:41:14
+==============================================================================
+   [expected value combinations] 0.31 s
+
+Top 15 expected value combinations, by TEST peak (optimistic):
+                        model  TEST_peak_CNR_optimistic  optimal_depth_pct  roi_at_optimum  donation_capture  ev_rule_cnr  ev_rule_mailed_pct
+16      model_ev_gbm_x_linreg                   4750.60              0.358           0.681             0.523      4207.28               0.612
+20  model_ev_gbm_x_linreg_log                   4745.36              0.376           0.648             0.539      4733.20               0.510
+12   model_ev_nb_x_linreg_log                   4716.20              0.544           0.445             0.684      4526.32               0.572
+22      model_ev_gbm_x_nn_log                   4710.72              0.479           0.505             0.627      4613.60               0.506
+23      model_ev_gbm_x_rf_log                   4682.32              0.379           0.635             0.539      4403.48               0.507
+17         model_ev_gbm_x_gbm                   4670.68              0.417           0.575             0.571      4346.12               0.588
+18          model_ev_gbm_x_nn                   4648.32              0.397           0.602             0.552      4322.24               0.567
+21     model_ev_gbm_x_gbm_log                   4647.80              0.441           0.542             0.591      4376.00               0.511
+19          model_ev_gbm_x_rf                   4621.76              0.398           0.597             0.552      4155.52               0.590
+14       model_ev_nb_x_nn_log                   4606.88              0.576           0.411             0.706      4441.64               0.556
+36   model_ev_rf_x_linreg_log                   4590.40              0.521           0.452             0.658      4484.44               0.503
+4    model_ev_lr_x_linreg_log                   4579.52              0.515           0.457             0.652      4502.84               0.512
+9           model_ev_nb_x_gbm                   4577.88              0.530           0.443             0.665      4159.96               0.665
+8        model_ev_nb_x_linreg                   4559.28              0.455           0.515             0.599      4213.12               0.670
+39       model_ev_rf_x_rf_log                   4557.00              0.371           0.631             0.526      4281.76               0.499
+
+Best model per approach type (TEST peak, optimistic):
+                      approach_type                  model  TEST_peak_CNR_optimistic  optimal_depth_pct  roi_at_optimum  donation_capture
+0                    expected_value  model_ev_gbm_x_linreg                   4750.60              0.358           0.681             0.523
+40              target_d_regression  model_linreg_target_d                   4013.20              0.731           0.282             0.815
+41  transformed_target_d_regression  model_nn_log_target_d                   3953.64              0.721           0.282             0.803
+48          target_b_classification      model_rf_target_b                   3330.20              0.888           0.193             0.920
+
+Mail everyone: $2,933
+
+NOTE: 'TEST peak (optimistic)' is the best mailing depth found by looking at the TEST data itself. It is an upper bound, not what the model would earn. In production, set the threshold or depth on TRAINING data (e.g. where cumulative net revenue peaks on out-of-fold training predictions) and apply it unchanged.
+==============================================================================
+STEP 8 COMPLETE — 0.6 s (0.01 min)
+Objects created: pred_ev_* columns, ev_summary_df, all_approaches_df
+==============================================================================

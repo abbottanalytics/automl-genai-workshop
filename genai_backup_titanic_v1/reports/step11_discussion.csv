@@ -1,0 +1,5 @@
+topic,note
+shape,"Read each panel left to right: direction and thresholds (e.g. children vs adults in age, class steps, female vs male)."
+score vs actual,"Largest gap between mean score and actual survival rate per variable: sex 0.03, title 0.77, pclass 0.06. With ~40-80 passengers per bin, gaps of 0.1 are within noise."
+top group,"The top group is mostly female and upper class, so within it the remaining variables separate a narrower population."
+sparse bins,10 sparse bins; conclusions there rest on very few passengers.

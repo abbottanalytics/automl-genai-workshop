@@ -1,0 +1,2 @@
+step_number,action_name,seed_value,function_or_parameter,notes
+10,input shuffling permutations,42,"seeded per (seed, feature index, shuffle index)",50 shuffles per variable

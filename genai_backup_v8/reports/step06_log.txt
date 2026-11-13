@@ -1,0 +1,37 @@
+==============================================================================
+RUNNING STEP 6 — BUILD TRANSFORMED TARGET_D MODELS
+Start: 2026-11-13 22:41:10
+==============================================================================
+
+Continuous predictors (22 binary dummies are never transformed):
+          variable  skew_before         transformation  skew_after
+0         CARDPM12        0.312     none (|skew| <= 1)         NaN
+1         LASTDATE        0.720     none (|skew| <= 1)         NaN
+2           RFA_2F        0.786     none (|skew| <= 1)         NaN
+3  AGE_modelimpute       -0.044     none (|skew| <= 1)         NaN
+4   NUMPRM12_log10        0.814  already log10 in file         NaN
+5   NGIFTALL_log10       -0.074  already log10 in file         NaN
+6   MINRAMNT_log10        0.393  already log10 in file         NaN
+7   LASTGIFT_log10       -0.480  already log10 in file         NaN
+8    TIMELAG_log10        1.894  already log10 in file         NaN
+9    AVGGIFT_log10        0.382  already log10 in file         NaN
+   [fit linreg_log] 0.01 s
+   [score linreg_log] 0.03 s
+   [fit gbm_log] 0.55 s
+   [score gbm_log] 0.01 s
+   [fit nn_log] 0.92 s
+   [score nn_log] 0.12 s
+   [fit rf_log] 0.71 s
+   [score rf_log] 0.08 s
+
+Transformed vs raw target (test responders, dollar scale after expm1):
+    model  raw_test_rmse  log_test_rmse  raw_test_mae  log_test_mae  raw_test_r2  log_test_r2  raw_lift3  log_lift3
+0  linreg          9.090          8.476         4.634         4.028        0.497        0.562      1.650      1.644
+1     gbm          8.707          8.375         4.140         4.037        0.538        0.573      1.650      1.660
+2      nn          8.829          9.125         4.423         4.507        0.525        0.493      1.630      1.629
+3      rf          8.862          8.992         4.174         4.129        0.521        0.507      1.659      1.666
+Note: expm1 of a log-scale prediction estimates the median gift, not the mean, so log models tend to under-predict dollars.
+==============================================================================
+STEP 6 COMPLETE — 2.6 s (0.04 min)
+Objects created: TARGET_D_log1p, model_*_log_target_d, pred_*_log_target_d, transformed_vs_raw_df
+==============================================================================

@@ -1,0 +1,110 @@
+==============================================================================
+RUNNING STEP 1 — LOAD DATA
+Start: 2026-11-13 22:40:49
+==============================================================================
+   [read_csv] 0.21 s
+RECORD_ID created (1..n).
+1) Rows, columns: (95412, 35)
+
+2) Variable names:
+ ['RECORD_ID', 'CARDPM12', 'LASTDATE', 'RFA_2F', 'AGE_modelimpute', 'CA_STATE', 'TN_STATE', 'R2_DOMAIN', 'C3_DOMAIN', 'HIT_gt4_HIT', 'L3D_RFA_2', 'L4E_RFA_2', 'L1F_RFA_2', 'L2G_RFA_2', 'L1G_RFA_2', 'L3E_RFA_2', 'L2E_RFA_2', 'L4D_RFA_2', 'L4F_RFA_2', 'E_RFA_2A', 'F_RFA_2A', 'G_RFA_2A', '12_CLUSTER2', '54_CLUSTER2', '43_CLUSTER2', '13_CLUSTER2', '51_CLUSTER2', 'NUMPRM12_log10', 'NGIFTALL_log10', 'MINRAMNT_log10', 'LASTGIFT_log10', 'TIMELAG_log10', 'AVGGIFT_log10', 'TARGET_B', 'TARGET_D']
+
+3) Data types:
+                   dtype
+RECORD_ID          int64
+CARDPM12           int64
+LASTDATE           int64
+RFA_2F             int64
+AGE_modelimpute    int64
+CA_STATE           int64
+TN_STATE           int64
+R2_DOMAIN          int64
+C3_DOMAIN          int64
+HIT_gt4_HIT        int64
+L3D_RFA_2          int64
+L4E_RFA_2          int64
+L1F_RFA_2          int64
+L2G_RFA_2          int64
+L1G_RFA_2          int64
+L3E_RFA_2          int64
+L2E_RFA_2          int64
+L4D_RFA_2          int64
+L4F_RFA_2          int64
+E_RFA_2A           int64
+F_RFA_2A           int64
+G_RFA_2A           int64
+12_CLUSTER2        int64
+54_CLUSTER2        int64
+43_CLUSTER2        int64
+13_CLUSTER2        int64
+51_CLUSTER2        int64
+NUMPRM12_log10   float64
+NGIFTALL_log10   float64
+MINRAMNT_log10   float64
+LASTGIFT_log10   float64
+TIMELAG_log10    float64
+AVGGIFT_log10    float64
+TARGET_B           int64
+TARGET_D           int64
+
+4) TARGET_B distribution:
+          count       pct
+TARGET_B                 
+0         90569  0.949241
+1          4843  0.050759
+
+5) TARGET_D summary:
+       all_records  responders
+count     95412.00     4843.00
+mean          0.79       15.62
+std           4.43       12.45
+min           0.00        1.00
+25%           0.00       10.00
+50%           0.00       13.00
+75%           0.00       20.00
+max         200.00      200.00
+
+6) Categorical variables: none (all inputs are numeric: dummies, counts, log10 amounts)
+
+7) Variables with missing values: none
+
+8) Numeric summary:
+                      min       max      mean    median  std_dev        Q1        Q3  n_unique
+CARDPM12            0.000    19.000     5.349     6.000    1.220     5.000     6.000        19
+LASTDATE         9503.000  9702.000  9548.100  9512.000   49.236  9509.000  9602.000        24
+RFA_2F              1.000     4.000     1.910     2.000    1.073     1.000     3.000         4
+AGE_modelimpute     1.000   162.000    61.242    61.000   14.709    52.000    72.000        97
+CA_STATE            0.000     1.000     0.182     0.000    0.386     0.000     0.000         2
+TN_STATE            0.000     1.000     0.026     0.000    0.159     0.000     0.000         2
+R2_DOMAIN           0.000     1.000     0.143     0.000    0.350     0.000     0.000         2
+C3_DOMAIN           0.000     1.000     0.055     0.000    0.229     0.000     0.000         2
+HIT_gt4_HIT         0.000     1.000     0.207     0.000    0.405     0.000     0.000         2
+L3D_RFA_2           0.000     1.000     0.026     0.000    0.160     0.000     0.000         2
+L4E_RFA_2           0.000     1.000     0.042     0.000    0.200     0.000     0.000         2
+L1F_RFA_2           0.000     1.000     0.318     0.000    0.466     0.000     1.000         2
+L2G_RFA_2           0.000     1.000     0.048     0.000    0.214     0.000     0.000         2
+L1G_RFA_2           0.000     1.000     0.130     0.000    0.336     0.000     0.000         2
+L3E_RFA_2           0.000     1.000     0.081     0.000    0.273     0.000     0.000         2
+L2E_RFA_2           0.000     1.000     0.052     0.000    0.223     0.000     0.000         2
+L4D_RFA_2           0.000     1.000     0.052     0.000    0.221     0.000     0.000         2
+L4F_RFA_2           0.000     1.000     0.022     0.000    0.147     0.000     0.000         2
+E_RFA_2A            0.000     1.000     0.227     0.000    0.419     0.000     0.000         2
+F_RFA_2A            0.000     1.000     0.492     0.000    0.500     0.000     1.000         2
+G_RFA_2A            0.000     1.000     0.203     0.000    0.402     0.000     0.000         2
+12_CLUSTER2         0.000     1.000     0.021     0.000    0.145     0.000     0.000         2
+54_CLUSTER2         0.000     1.000     0.014     0.000    0.117     0.000     0.000         2
+43_CLUSTER2         0.000     1.000     0.020     0.000    0.142     0.000     0.000         2
+13_CLUSTER2         0.000     1.000     0.036     0.000    0.187     0.000     0.000         2
+51_CLUSTER2         0.000     1.000     0.011     0.000    0.106     0.000     0.000         2
+NUMPRM12_log10      0.301     1.898     1.124     1.114    0.116     1.079     1.146        63
+NGIFTALL_log10      0.301     2.377     0.896     0.903    0.345     0.602     1.146        89
+MINRAMNT_log10      0.000     3.000     0.848     0.778    0.285     0.602     1.041        69
+LASTGIFT_log10      0.000     3.000     1.199     1.204    0.235     1.041     1.322       132
+TIMELAG_log10       0.000     3.037     1.092     0.903    0.719     0.699     1.146        68
+AVGGIFT_log10       0.359     3.000     1.104     1.102    0.204     0.972     1.217      7713
+TARGET_B            0.000     1.000     0.051     0.000    0.220     0.000     0.000         2
+TARGET_D            0.000   200.000     0.793     0.000    4.429     0.000     0.000        60
+==============================================================================
+STEP 1 COMPLETE — 0.3 s (0.01 min)
+Objects created: df_raw, numeric_audit_df
+==============================================================================

@@ -1,0 +1,9 @@
+step_number,action_name,seed_value,function_or_parameter,notes
+3,train/test split,42,train_test_split(random_state),"stratified on survived, test_size=0.3"
+5,score tie-breaking,42,np.random.default_rng(RANDOM_STATE).random(n),"ties in the score are ordered at random, fixed per record"
+5,5-fold CV inside TRAIN (out-of-fold predictions),42,"StratifiedKFold(shuffle=True, random_state)",
+5,"model random_state (RF, GBM, MLP, NB calibration folds)",42,random_state=RANDOM_STATE,
+5,"permutation importance (NB, NN top features)",42,permutation_importance(random_state),5 repeats on TRAIN
+7,paired bootstrap of TEST,42,np.random.default_rng(RANDOM_STATE).integers,1000 resamples
+8,tuning CV folds,42,"StratifiedKFold(shuffle=True, random_state) (same folds as Step 5)",
+10,input shuffling permutations,42,"seeded per (seed, feature index, shuffle index)",50 shuffles per variable

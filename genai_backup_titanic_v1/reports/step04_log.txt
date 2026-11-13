@@ -1,0 +1,105 @@
+==============================================================================
+RUNNING STEP 4 — FITTED PREPARATION (LEARNED ON TRAIN ONLY)
+Start: 2026-11-13 22:42:25
+==============================================================================
+1) Title mapping: variants {'Mlle': 'Miss', 'Ms': 'Miss', 'Mme': 'Mrs'} ; levels with < 10 TRAIN records -> 'Rare'
+
+   title mapping:
+       mapped_to  train_records
+title                          
+Capt        Rare              1
+Col         Rare              3
+Don         Rare              1
+Dona        Rare              1
+Dr          Rare              5
+Major       Rare              1
+Master    Master             44
+Miss        Miss            177
+Mlle        Miss              2
+Mr            Mr            536
+Mrs          Mrs            137
+Ms          Miss              2
+Rev         Rare              6
+
+   deck mapping:
+     mapped_to  train_records
+deck                         
+A            A             16
+B            B             45
+C            C             65
+D            D             35
+E            E             28
+F         Rare              8
+G         Rare              3
+T         Rare              1
+U            U            715
+
+2) Imputation (values learned on TRAIN):
+   variable                             rule                                                                 value  filled_train  filled_test
+0       age  TRAIN median within title group  {"Master": 4.0, "Miss": 21.0, "Mr": 29.0, "Mrs": 36.0, "Rare": 48.5}           190           73
+1      fare       TRAIN median within pclass                                   {"1": 60.59, "2": 15.05, "3": 8.05}             1            0
+2  embarked              TRAIN most frequent                                                                     S             0            2
+
+   TRAIN survival rate with (0) and without (1) a recorded age:
+             records  survival_rate
+age_missing                        
+0                726          0.406
+1                190          0.289
+
+3) fare = 0: 11 TRAIN records, classes {1: 5, 2: 5, 3: 1}, survival rate 0.09
+   fare_log = log10(fare + 1) for logistic regression, Naive Bayes and the neural network; trees use raw fare.
+
+4) Encoding: trees get all dummies; linear models (and NN, NB) get N-1 dummies. Reference levels: {'pclass': 3, 'sex': 'female', 'embarked': 'S', 'title': 'Mr', 'deck': 'U'}
+
+   Columns dropped for linear models:
+             column                                                              why dropped for linear models
+0  pclass (numeric)  replaced by N-1 dummies pclass_1, pclass_2 (reference 3): survival is not linear in class
+1       family_size                                              = sibsp + parch + 1, exact linear combination
+2       cabin_known                       = sum of the non-reference deck dummies (reference deck U = unknown)
+3              fare                                                                replaced by fare_log (skew)
+4          pclass_3                                                                        N-1 reference level
+5        sex_female                                                                        N-1 reference level
+6        embarked_S                                                                        N-1 reference level
+7          title_Mr                                                                        N-1 reference level
+8            deck_U                                                                        N-1 reference level
+   pclass enters linear models as N-1 dummies: the survival rate does not fall evenly from class 1 to 2 to 3.
+   Linear design matrix with intercept: 23 columns, rank 23  (full rank: no exact collinearity)
+
+5) Scaling: StandardScaler inside each linear / NN / NB pipeline, fit on the training rows only.
+6) fit_prep / apply_prep / encode re-derive every prepared column from Step 2 columns (used again in Steps 5, 8, 10).
+
+7) Feature lists:
+        tree_features    linear_features
+0            sex_male           sex_male
+1            pclass_1           pclass_1
+2            pclass_2           pclass_2
+3            pclass_3         embarked_C
+4          embarked_C         embarked_Q
+5          embarked_Q       title_Master
+6          embarked_S         title_Miss
+7        title_Master          title_Mrs
+8          title_Miss         title_Rare
+9            title_Mr             deck_A
+10          title_Mrs             deck_B
+11         title_Rare             deck_C
+12             deck_A             deck_D
+13             deck_B             deck_E
+14             deck_C          deck_Rare
+15             deck_D                age
+16             deck_E        age_missing
+17             deck_U              sibsp
+18          deck_Rare              parch
+19             pclass           is_alone
+20                age  ticket_group_size
+21        age_missing           fare_log
+22              sibsp                   
+23              parch                   
+24           is_alone                   
+25  ticket_group_size                   
+26               fare                   
+27        family_size                   
+28        cabin_known                   
+==============================================================================
+STEP 4 COMPLETE — 0.0 s (0.00 min)
+Objects created: fit_prep, apply_prep, encode, prep_train, clean_train, clean_test
+==============================================================================

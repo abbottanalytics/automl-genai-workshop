@@ -1,0 +1,5 @@
+topic,note
+top-group shift,"Variables gaining the most rank in the top group: ['sex', 'title', 'pclass']."
+instability vs degradation,"A variable can move many scores a little (high IQR) yet barely change who is in the top group (small depth change), and the reverse."
+overlapping inputs,"sex and title carry overlapping information (Mr = male adult): shuffling one leaves the other intact, so each looks less important than the pair."
+vs other methods,Input shuffling needs no target and measures score movement per record; permutation importance measures a metric drop; SHAP splits a score additively.
