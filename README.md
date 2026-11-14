@@ -6,7 +6,12 @@ The theme: **the best statistical model is not necessarily the best business mod
 
 ## Download
 
-Click the green **Code** button above, then **Download ZIP**. Unzip it anywhere. You don't need a GitHub account.
+You don't need a GitHub account.
+
+**[Download everything (ZIP)](https://github.com/abbottanalytics/automl-genai-workshop/archive/refs/heads/main.zip)**: slides, prompts, data sets, notebooks and reports in one file. Unzip it anywhere.
+
+- The same download is under the green **Code** button above: **Download ZIP**.
+- **A single file:** click the file to open it, then click the download button (the arrow pointing down, "Download raw file") at the top right of the file view.
 
 ## What's here
 
@@ -14,7 +19,7 @@ Click the green **Code** button above, then **Download ZIP**. Unzip it anywhere.
 |---|---|
 | `slides/` | the workshop deck as PDF: a slides version and a notes version |
 | `prompts/` | the step-by-step prompt files: `kddcup1998_workshop_modeling_v8.md` (KDD Cup 1998, net revenue) and `titanic_workshop_modeling_v1.md` (Titanic, a capacity metric when there is no dollar value) |
-| `data/` | the two datasets the prompts use, with sources and terms in `data/README.md` |
+| `data/` | the KDD Cup 1998 and Titanic datasets the prompts use, plus a disguised dataset and data dictionary for the data-leakage exercise; sources and terms in `data/README.md` |
 | `genai_backup_v8/` | finished notebook for the KDD Cup prompt file: the code for every step, already run, plus every report table, log and plot in `reports/` |
 | `genai_backup_titanic_v1/` | the same for the Titanic prompt file |
 
@@ -42,4 +47,4 @@ The datasets are not covered by this repository's license; see `data/README.md` 
 
 ## Contact
 
-Dean Abbott, Abbott Analytics.
+Dean Abbott, Abbott Analytics: dean@abbottanalytics.com
