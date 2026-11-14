@@ -18,6 +18,7 @@ You don't need a GitHub account.
 | folder | contents |
 |---|---|
 | `slides/` | the workshop deck as PDF: a slides version and a notes version |
+| `qa/` | questions from attendees, with answers, links and papers, added after the workshop |
 | `prompts/` | the step-by-step prompt files: `kddcup1998_workshop_modeling_v8.md` (KDD Cup 1998, net revenue) and `titanic_workshop_modeling_v1.md` (Titanic, a capacity metric when there is no dollar value) |
 | `data/` | the KDD Cup 1998 and Titanic datasets the prompts use, plus a disguised dataset and data dictionary for the data-leakage exercise; sources and terms in `data/README.md` |
 | `genai_backup_v8/` | finished notebook for the KDD Cup prompt file: the code for every step, already run, plus every report table, log and plot in `reports/` |
@@ -47,4 +48,11 @@ The datasets are not covered by this repository's license; see `data/README.md` 
 
 ## Contact
 
-Dean Abbott, Abbott Analytics: dean@abbottanalytics.com
+Dean Abbott, Abbott Analytics
+
+- Email: dean@abbottanalytics.com
+- LinkedIn: https://www.linkedin.com/in/deanabbott/
+- X (Twitter): [@deanabb](https://x.com/deanabb)
+- YouTube: https://www.youtube.com/@AbbottAnalytics
+- Instagram: https://www.instagram.com/abbottanalytics/
+- Facebook: https://www.facebook.com/abbottanalytics/
