@@ -504,9 +504,25 @@ Use reproducible random seeds where appropriate.
 
 ---
 
+# STEP 0 — ENVIRONMENT SETUP (no analysis yet)
+
+Prepare the environment only. Do not audit, summarize, or model the data in this step.
+
+1) Read and acknowledge the global standards above (Python, random seeds, notebook execution and timing, binning and dtypes, prediction storage). Do not restate them; confirm in one or two lines that they will be followed.
+
+2) Check that these packages import: pandas, numpy, scikit-learn, xgboost, scipy, matplotlib, pyarrow. Print each version. If one is missing, try to install it. If it cannot be installed, say so and name the substitute you will use for the rest of the workshop (for example scikit-learn's HistGradientBoostingClassifier in place of xgboost). Do not change that choice later without telling me.
+
+3) Set the global random seed, start the seed log and the step timing log, and create the output folders for reports, tables and plots.
+
+4) Locate the uploaded file cup98lrn_prepped_allrecords_w_TargetD.tsv and load it once with pandas (tab-separated). Report only the file path used, the number of rows and columns, and the load time. Keep the dataframe in memory and save a copy in Parquet format, so later steps reuse it instead of reading the TSV again. Do not create RECORD_ID yet; that is part of Step 1.
+
+5) Finish with the standard step-completion report and wait. Do not start Step 1.
+
+---
+
 # STEP 1 — LOAD DATA
 
-Load the dataset. If no variable named RECORD_ID is in the data, create it and persist it for all data frames
+Use the dataframe loaded in Step 0 (reload it from the Parquet copy or the uploaded file only if it is no longer in memory). If no variable named RECORD_ID is in the data, create it and persist it for all data frames
 
 Generate a "data audit" report for the following:
 
