@@ -1,18 +1,18 @@
 ==============================================================================
 RUNNING STEP 4 — BUILD TARGET_B CLASSIFICATION MODELS
-Start: 2026-11-13 22:40:51
+Start: 2026-11-14 23:35:45
 ==============================================================================
 Classification threshold = training response rate = 0.0508 (not 0.5)
-   [fit lr] 0.11 s
-   [score lr] 0.03 s
-   [fit nb] 0.15 s
-   [score nb] 0.15 s
-   [fit gbm] 1.46 s
-   [score gbm] 0.22 s
-   [fit nn] 3.07 s
-   [score nn] 0.12 s
-   [fit rf] 4.69 s
-   [score rf] 1.29 s
+   [fit lr] 2.55 s
+   [score lr] 0.07 s
+   [fit nb] 0.10 s
+   [score nb] 0.13 s
+   [fit gbm] 1.24 s
+   [score gbm] 0.21 s
+   [fit nn] 5.70 s
+   [score nn] 0.34 s
+   [fit rf] 5.67 s
+   [score rf] 1.84 s
 
 TARGET_B metrics, ranked by test lift at decile 3, then test ROC AUC:
   model  train_baseline_rate  train_roc_auc  train_f1  train_accuracy  train_precision  train_recall  train_lift_decile3  test_baseline_rate  test_roc_auc  test_f1  test_accuracy  test_precision  test_recall  test_lift_decile3
@@ -53,11 +53,11 @@ rank
 
 Runtime per model:
            model_name  train_runtime_seconds  scoring_runtime_seconds  total_runtime_seconds
-0   model_lr_target_b                   0.11                     0.03                   0.14
-1   model_nb_target_b                   0.15                     0.15                   0.29
-2  model_gbm_target_b                   1.46                     0.22                   1.69
-3   model_nn_target_b                   3.07                     0.12                   3.19
-4   model_rf_target_b                   4.69                     1.29                   5.98
+0   model_lr_target_b                   2.55                     0.07                   2.63
+1   model_nb_target_b                   0.10                     0.13                   0.23
+2  model_gbm_target_b                   1.24                     0.21                   1.45
+3   model_nn_target_b                   5.70                     0.34                   6.04
+4   model_rf_target_b                   5.67                     1.84                   7.51
 
 Random seeds used in this step:
   step_number                             action_name seed_value                                     function_or_parameter         notes
@@ -68,6 +68,6 @@ Random seeds used in this step:
            4              isotonic calibration folds        n/a CalibratedClassifierCV(cv=3): unshuffled stratified folds deterministic
            4 permutation importance sample + repeats         42   DataFrame.sample / permutation_importance(random_state)     NB and NN
 ==============================================================================
-STEP 4 COMPLETE — 16.0 s (0.27 min)
+STEP 4 COMPLETE — 22.3 s (0.37 min)
 Objects created: model_*_target_b, pred_*_target_b, predictions_target_b_*, model_metadata_df, target_b_metrics_df, target_b_top_features
 ==============================================================================

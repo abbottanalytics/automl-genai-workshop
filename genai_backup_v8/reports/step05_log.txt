@@ -1,16 +1,16 @@
 ==============================================================================
 RUNNING STEP 5 — BUILD TARGET_D REGRESSION MODELS
-Start: 2026-11-13 22:41:08
+Start: 2026-11-14 23:36:07
 ==============================================================================
 Responder rows: train 3,390  test 1,453
-   [fit linreg] 0.02 s
-   [score linreg] 0.04 s
+   [fit linreg] 0.03 s
+   [score linreg] 0.03 s
    [fit gbm] 0.37 s
    [score gbm] 0.01 s
-   [fit nn] 0.38 s
-   [score nn] 0.00 s
+   [fit nn] 0.32 s
+   [score nn] 0.05 s
    [fit rf] 0.59 s
-   [score rf] 0.09 s
+   [score rf] 0.07 s
 Linear regression: largest |coefficient| = 4.73 (no collinearity blow-up)
 
 TARGET_D metrics (responders), ranked by test donation lift at decile 3, then RMSE:
@@ -40,6 +40,6 @@ Random seeds used in this step:
            5          MLPRegressor         42 random_state=RANDOM_STATE TARGET_D, responders
            5 RandomForestRegressor         42 random_state=RANDOM_STATE TARGET_D, responders
 ==============================================================================
-STEP 5 COMPLETE — 2.0 s (0.03 min)
+STEP 5 COMPLETE — 1.9 s (0.03 min)
 Objects created: model_*_target_d, pred_*_target_d, predictions_target_d_*, target_d_metrics_df
 ==============================================================================

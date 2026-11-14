@@ -1,6 +1,6 @@
 ==============================================================================
 RUNNING STEP 14 — SUPERVISED ASSOCIATION RULE DISCOVERY
-Start: 2026-11-13 22:42:15
+Start: 2026-11-14 23:37:08
 ==============================================================================
 
 Variable pre-selection (32 inputs kept):
@@ -43,7 +43,7 @@ Outcomes (61 antecedent items, 28,624 TEST rows):
 0           CONS::TARGET_B_1     1453  0.050762                           TARGET_B == 1
 1  CONS::HIGH_DONATION_TOP30      441  0.015407  TARGET_D >= $20.00 (70th pct of gifts)
 2     CONS::TOP_DECILE_DONOR      227  0.007930  TARGET_D >= $25.00 (90th pct of gifts)
-   [matrix rule counting (all 1- and 2-item rules)] 1.23 s
+   [matrix rule counting (all 1- and 2-item rules)] 0.05 s
 Rules counted: 4,236; kept after support / outcome-count / lift / beats-parent filters: 499
 
 Rules counted and kept:
@@ -123,7 +123,7 @@ Top 20 two-antecedent rules -> CONS::TOP_DECILE_DONOR (100 kept):
 3483                          NGIFTALL_log10 in Q4 (1.15, 2.07] & G_RFA_2A=1   0.0011      0.0369  4.6591            3.2649                    31   92.510101
 3273    LASTGIFT_log10 in Q4 (1.32, 2.7] & NGIFTALL_log10 in Q4 (1.15, 2.07]   0.0010      0.0376  4.7429            3.3150                    29   88.734596
 3680  AVGGIFT_log10 in Q4 (1.22, 2.53] & MINRAMNT_log10 in Q2 (0.602, 0.778]   0.0013      0.0306  3.8559            2.7144                    37   82.370102
-   [rule profiling] 0.67 s
+   [rule profiling] 0.57 s
 
 Profiled response rules (top 10 by net revenue):
                                                          antecedent_text        consequent   lift  confidence    chi2  records_matched  response_rate  avg_donation  total_donation  mailing_cost  net_revenue  net_revenue_per_record
@@ -214,7 +214,7 @@ Discussion:
 3            Most profitable / responsive segments                                                                                                                                                      Top segment: LASTGIFT_log10 in Q4 (1.32, 2.7] & AVGGIFT_log10 in Q4 (1.22, 2.53].
 4                        Risk of over-interpreting                                                                                        Thousands of rules were tested on the same TEST data already used in Steps 7, 10 and 12: expect some false discoveries. Validate on fresh data.
 ==============================================================================
-STEP 14 COMPLETE — 2.9 s (0.05 min)
+STEP 14 COMPLETE — 1.4 s (0.02 min)
 Objects created: ar_source_df, variable_preselection_ranking_df, transaction_matrix_supervised, supervised_rules_all, association_rules_*, profile_*_rules, operational_segments_ranked
-Notes: matrix rule counting 1.2 s
+Notes: matrix rule counting 0.0 s
 ==============================================================================

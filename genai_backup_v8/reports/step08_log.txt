@@ -1,8 +1,8 @@
 ==============================================================================
 RUNNING STEP 8 — BUILD EXPECTED VALUE SCORES
-Start: 2026-11-13 22:41:14
+Start: 2026-11-14 23:36:12
 ==============================================================================
-   [expected value combinations] 0.31 s
+   [expected value combinations] 0.22 s
 
 Top 15 expected value combinations, by TEST peak (optimistic):
                         model  TEST_peak_CNR_optimistic  optimal_depth_pct  roi_at_optimum  donation_capture  ev_rule_cnr  ev_rule_mailed_pct
@@ -33,6 +33,6 @@ Mail everyone: $2,933
 
 NOTE: 'TEST peak (optimistic)' is the best mailing depth found by looking at the TEST data itself. It is an upper bound, not what the model would earn. In production, set the threshold or depth on TRAINING data (e.g. where cumulative net revenue peaks on out-of-fold training predictions) and apply it unchanged.
 ==============================================================================
-STEP 8 COMPLETE — 0.6 s (0.01 min)
+STEP 8 COMPLETE — 0.5 s (0.01 min)
 Objects created: pred_ev_* columns, ev_summary_df, all_approaches_df
 ==============================================================================

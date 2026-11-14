@@ -1,9 +1,9 @@
 ==============================================================================
 RUNNING STEP 7 — CUMULATIVE NET REVENUE EVALUATION
-Start: 2026-11-13 22:41:12
+Start: 2026-11-14 23:36:10
 ==============================================================================
 Scored all 28,624 test rows with every model (13 models).
-   [cumulative net revenue, all models] 0.06 s
+   [cumulative net revenue, all models] 0.05 s
 Mail everyone in TEST (28,624 records): $2,933
 
 Cumulative net revenue, ranked by TEST peak (optimistic):
@@ -24,6 +24,6 @@ Cumulative net revenue, ranked by TEST peak (optimistic):
 
 NOTE: 'TEST peak (optimistic)' is the best mailing depth found by looking at the TEST data itself. It is an upper bound, not what the model would earn. In production, set the threshold or depth on TRAINING data (e.g. where cumulative net revenue peaks on out-of-fold training predictions) and apply it unchanged.
 ==============================================================================
-STEP 7 COMPLETE — 1.5 s (0.03 min)
+STEP 7 COMPLETE — 1.4 s (0.02 min)
 Objects created: cnr_summary_df, cnr_tables, cnr_curves_df; model_metadata_df updated
 ==============================================================================

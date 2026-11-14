@@ -1,6 +1,6 @@
 ==============================================================================
 RUNNING STEP 13 — RESPONSE PROFILES FOR TOP VARIABLES
-Start: 2026-11-13 22:42:14
+Start: 2026-11-14 23:37:08
 ==============================================================================
 Profile variables (top 3 overall + top 3 in the top deciles, no duplicates): ['AVGGIFT_log10', 'F_RFA_2A', 'RFA_2F']
 
@@ -34,6 +34,6 @@ bin_order
 
 Sparse bins flagged: 0
 ==============================================================================
-STEP 13 COMPLETE — 1.0 s (0.02 min)
+STEP 13 COMPLETE — 0.7 s (0.01 min)
 Objects created: response_profile_* objects
 ==============================================================================

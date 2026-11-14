@@ -1,11 +1,11 @@
 ==============================================================================
 RUNNING STEP 10 — INPUT SHUFFLING VARIABLE IMPORTANCE
-Start: 2026-11-13 22:42:59
+Start: 2026-11-14 23:35:32
 ==============================================================================
    [one scoring pass] 0.01 s
    estimated shuffling time: 4 s
 Regenerated vs stored production score: max |diff| = 0.00e+00
-   [input shuffling (all variables)] 2.20 s
+   [input shuffling (all variables)] 2.14 s
 
 Production model: lr; analysis set: 393 TEST passengers; top group = top 47% (184 passengers).
 Baseline: {'depth_to_capture_80': 0.399, 'roc_auc': 0.885, 'capture_at_production_depth': 0.853}
@@ -89,7 +89,7 @@ Random seeds used in this step:
   step_number                  action_name  seed_value                           function_or_parameter                    notes
           10 input shuffling permutations          42 seeded per (seed, feature index, shuffle index) 50 shuffles per variable
 ==============================================================================
-STEP 10 COMPLETE — 2.7 s (0.04 min)
+STEP 10 COMPLETE — 2.6 s (0.04 min)
 Objects created: production_scorer, production_score_test, overall/top_group importance, capacity_degradation_df
 Notes: input shuffling 2 s (framework)
 ==============================================================================

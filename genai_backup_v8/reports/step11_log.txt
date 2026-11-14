@@ -1,6 +1,6 @@
 ==============================================================================
 RUNNING STEP 11 — MEMORY OPTIMIZATION AND OBJECT CLEANUP
-Start: 2026-11-13 22:41:24
+Start: 2026-11-14 23:36:21
 ==============================================================================
 Preserved production artifacts:
    b_model: model_gbm_target_b
@@ -36,7 +36,7 @@ Deleted objects:
 
 Memory:
    rss_before_mb  rss_after_mb  freed_mb  deleted_objects_mb
-0          514.3         534.8     -20.5                36.4
+0          795.4         801.1      -5.7                36.4
 ==============================================================================
 STEP 11 COMPLETE — 0.1 s (0.00 min)
 Objects created: cleanup_summary_df, deleted/preserved/protected summaries, memory_usage_summary_df

@@ -1,6 +1,6 @@
 ==============================================================================
 RUNNING STEP 4 — FITTED PREPARATION (LEARNED ON TRAIN ONLY)
-Start: 2026-11-13 22:42:25
+Start: 2026-11-14 23:34:59
 ==============================================================================
 1) Title mapping: variants {'Mlle': 'Miss', 'Ms': 'Miss', 'Mme': 'Mrs'} ; levels with < 10 TRAIN records -> 'Rare'
 
@@ -100,6 +100,6 @@ age_missing
 27        family_size                   
 28        cabin_known                   
 ==============================================================================
-STEP 4 COMPLETE — 0.0 s (0.00 min)
+STEP 4 COMPLETE — 0.1 s (0.00 min)
 Objects created: fit_prep, apply_prep, encode, prep_train, clean_train, clean_test
 ==============================================================================

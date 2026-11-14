@@ -1,6 +1,6 @@
 ==============================================================================
 RUNNING STEP 8 — HYPERPARAMETER TUNING
-Start: 2026-11-13 22:42:35
+Start: 2026-11-14 23:35:10
 ==============================================================================
 Tuning the two best families from Step 7: ['gbm', 'nn']
 
@@ -34,8 +34,8 @@ CV results (depth@80 on out-of-fold TRAIN; lower is better):
 
 Tuning runtime:
   model  combinations  seconds
-0   gbm            12      4.4
-1    nn             9     18.3
+0   gbm            12      4.1
+1    nn             9     17.9
 
 Tuned vs untuned (TEST scored once):
   model                                                         best_params  cv_depth80  untuned_test_depth80  tuned_test_depth80  untuned_auc  tuned_auc  gain_in_depth  bootstrap_sd  helped  train_chosen_depth  test_capture_depth_rule
@@ -50,7 +50,7 @@ Random seeds used in this step:
   step_number     action_name  seed_value                                              function_or_parameter notes
            8 tuning CV folds          42 StratifiedKFold(shuffle=True, random_state) (same folds as Step 5)      
 ==============================================================================
-STEP 8 COMPLETE — 23.3 s (0.39 min)
+STEP 8 COMPLETE — 22.5 s (0.37 min)
 Objects created: tuning_df, tuned_compare_df, model_<fam>_tuned, pred_<fam>_tuned, tuning_runtime_summary_df
-Notes: 21 combinations in 23 s
+Notes: 21 combinations in 22 s
 ==============================================================================

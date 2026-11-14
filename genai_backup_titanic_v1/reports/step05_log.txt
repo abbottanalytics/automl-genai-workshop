@@ -1,32 +1,32 @@
 ==============================================================================
 RUNNING STEP 5 — BUILD CLASSIFICATION MODELS
-Start: 2026-11-13 22:42:25
+Start: 2026-11-14 23:34:59
 ==============================================================================
 
 --- Logistic Regression ---
    [lr fit] 0.03 s
    [lr score] 0.03 s
-   [lr 5-fold out-of-fold] 0.15 s
+   [lr 5-fold out-of-fold] 0.20 s
 
 --- Naive Bayes (Gaussian, Platt-calibrated) ---
-   [nb fit] 0.04 s
+   [nb fit] 0.05 s
    [nb score] 0.03 s
-   [nb 5-fold out-of-fold] 0.26 s
+   [nb 5-fold out-of-fold] 0.24 s
 
 --- Gradient Boosting (XGBoost) ---
-   [gbm fit] 0.08 s
+   [gbm fit] 0.09 s
    [gbm score] 0.02 s
-   [gbm 5-fold out-of-fold] 0.44 s
+   [gbm 5-fold out-of-fold] 0.48 s
 
 --- Neural Network (MLP) ---
-   [nn fit] 0.40 s
-   [nn score] 0.04 s
-   [nn 5-fold out-of-fold] 2.26 s
+   [nn fit] 0.38 s
+   [nn score] 0.03 s
+   [nn 5-fold out-of-fold] 2.29 s
 
 --- Random Forest ---
-   [rf fit] 0.36 s
-   [rf score] 0.09 s
-   [rf 5-fold out-of-fold] 1.73 s
+   [rf fit] 0.44 s
+   [rf score] 0.10 s
+   [rf 5-fold out-of-fold] 1.79 s
 
 Metrics (threshold for percent correct / F1 / precision / recall = BASE_RATE_TRAIN = 0.382):
   model partition  base_rate  roc_auc  pct_correct_at_prior  f1_at_prior  precision_at_prior  recall_at_prior  pct_correct_at_0_5  lift_decile3  depth_50  depth_80  depth_95
@@ -94,11 +94,11 @@ Top 10 predictors per model (top_features):
 
 Runtime:
   model_name  train_runtime_seconds  scoring_runtime_seconds  cv_runtime_seconds  total_runtime_seconds
-0   model_lr                   0.03                     0.03                0.15                   0.21
-1   model_nb                   0.04                     0.03                0.26                   0.33
-2  model_gbm                   0.08                     0.02                0.44                   0.55
-3   model_nn                   0.40                     0.04                2.26                   2.70
-4   model_rf                   0.36                     0.09                1.73                   2.18
+0   model_lr                   0.03                     0.03                0.20                   0.25
+1   model_nb                   0.05                     0.03                0.24                   0.32
+2  model_gbm                   0.09                     0.02                0.48                   0.58
+3   model_nn                   0.38                     0.03                2.29                   2.71
+4   model_rf                   0.44                     0.10                1.79                   2.34
 
 Random seeds used in this step:
   step_number                                             action_name  seed_value                         function_or_parameter                                                     notes
@@ -107,6 +107,6 @@ Random seeds used in this step:
            5 model random_state (RF, GBM, MLP, NB calibration folds)          42                     random_state=RANDOM_STATE                                                          
            5            permutation importance (NB, NN top features)          42          permutation_importance(random_state)                                        5 repeats on TRAIN
 ==============================================================================
-STEP 5 COMPLETE — 7.6 s (0.13 min)
+STEP 5 COMPLETE — 8.0 s (0.13 min)
 Objects created: model_<fam>, <fam>_features, pred_<fam>, oof_<fam>, predictions_*, model_metadata_df, top_features, metric helpers
 ==============================================================================

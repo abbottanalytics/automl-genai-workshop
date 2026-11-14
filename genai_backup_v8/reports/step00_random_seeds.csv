@@ -1,0 +1,2 @@
+step_number,action_name,seed_value,function_or_parameter,notes
+0,global seed,42,random.seed / np.random.seed,every later step also passes random_state explicitly

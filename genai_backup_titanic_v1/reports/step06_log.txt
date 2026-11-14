@@ -1,6 +1,6 @@
 ==============================================================================
 RUNNING STEP 6 — CAPACITY EVALUATION
-Start: 2026-11-13 22:42:33
+Start: 2026-11-14 23:35:07
 ==============================================================================
 
 Capacity metrics on TEST (ranked by depth to capture 80%, lower is better):

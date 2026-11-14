@@ -1,4 +1,5 @@
 step_number,action_name,seed_value,function_or_parameter,notes
+0,global seed,42,random.seed / np.random.seed,every later step also passes random_state explicitly
 3,train/test split,42,train_test_split(random_state),"stratified on survived, test_size=0.3"
 5,score tie-breaking,42,np.random.default_rng(RANDOM_STATE).random(n),"ties in the score are ordered at random, fixed per record"
 5,5-fold CV inside TRAIN (out-of-fold predictions),42,"StratifiedKFold(shuffle=True, random_state)",

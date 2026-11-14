@@ -1,6 +1,6 @@
 ==============================================================================
 RUNNING STEP 3 — TRAIN / HOLD-OUT SPLIT
-Start: 2026-11-13 22:42:24
+Start: 2026-11-14 23:34:59
 ==============================================================================
 
 Split:
@@ -16,6 +16,6 @@ Random seeds used in this step:
   step_number      action_name  seed_value          function_or_parameter                                 notes
            3 train/test split          42 train_test_split(random_state) stratified on survived, test_size=0.3
 ==============================================================================
-STEP 3 COMPLETE — 0.8 s (0.01 min)
+STEP 3 COMPLETE — 0.0 s (0.00 min)
 Objects created: split_flag, train_df, test_df, BASE_RATE_TRAIN
 ==============================================================================

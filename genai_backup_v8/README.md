@@ -1,6 +1,6 @@
 # Backup code for the GenAI workshop prompts (v8)
 
-The code an assistant would generate for `../prompts/kddcup1998_workshop_modeling_v8.md`, one cell per step (Steps 1–14 plus a final timing report). Use it if a live step fails or runs long.
+The code an assistant would generate for `../prompts/kddcup1998_workshop_modeling_v8.md`, one cell per step (Steps 0–14 plus a final timing report). Use it if a live step fails or runs long.
 
 | file | what it is |
 |---|---|
@@ -11,9 +11,11 @@ The code an assistant would generate for `../prompts/kddcup1998_workshop_modelin
 
 **Data path.** The notebook reads `../data/cup98lrn_prepped_allrecords_w_TargetD.tsv` (the repository's `data/` folder). If you move the notebook, it also looks in `data/`, in its own folder, and in your home folder. It prints the path it used.
 
+**Step 0 (environment setup).** Checks and prints package versions, sets the global seed, starts the logs, and loads the data file once. It keeps the data in memory and saves a Parquet copy (`reports/step00_data_copy.parquet`, made when you run it; not included in the repository). Step 1 reuses that data instead of reading the file again.
+
 **Python.** Anaconda base (scikit-learn 1.4, xgboost 2.0, scipy, pandas, matplotlib, pyarrow). Step 12 uses the input shuffling package (github.com/abbottanalytics/input_shuffling, licensed AGPL-3.0) if it is cloned next to this repository or `INPUT_SHUFFLING_SRC` points to its `src/` folder; otherwise it uses the short notebook-native version included here.
 
-**Runtime** (M1, 13 Nov 2026): about 1.5 minutes in total. Step 12 (input shuffling, 20 shuffles × 32 inputs × 28,624 test rows) is 48 s; Step 4 is 15 s; Step 14 counts all association rules in 0.1 s.
+**Runtime** (M1, 14 Nov 2026): about 1.5 minutes in total. Step 0 takes 1.5 s; Step 12 (input shuffling, 20 shuffles × 32 inputs × 28,624 test rows) is 47 s; Step 4 is 22 s; Step 14 counts all association rules in 0.1 s.
 
 **Rerunning.** Rerunning a cell is safe: models, predictions and metadata that already exist are not refit or overwritten. To start fresh, restart the kernel and Run All; the `reports/` files are overwritten.
 

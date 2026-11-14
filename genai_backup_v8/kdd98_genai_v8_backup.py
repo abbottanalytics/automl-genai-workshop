@@ -121,12 +121,43 @@ TEST_PEAK_NOTE = ("NOTE: 'TEST peak (optimistic)' is the best mailing depth foun
                   "TRAINING data (e.g. where cumulative net revenue peaks on out-of-fold training predictions) and apply it unchanged.")
 
 # %% [markdown]
+# ## STEP 0 — ENVIRONMENT SETUP (no analysis yet)
+# Packages, seed, logs and folders, and one load of the data file (kept in memory and saved as Parquet).
+
+# %%
+step_start(0, "ENVIRONMENT SETUP")
+import importlib, random
+print("Global standards (Python, seeds, timing, binning/dtypes, prediction storage): will be followed.")
+PACKAGES = {"pandas": "pandas", "numpy": "numpy", "scikit-learn": "sklearn", "xgboost": "xgboost",
+            "scipy": "scipy", "matplotlib": "matplotlib", "pyarrow": "pyarrow"}
+pkg_rows = []
+for name, mod in PACKAGES.items():
+    try: pkg_rows.append(dict(package=name, version=importlib.import_module(mod).__version__, status="ok"))
+    except ImportError: pkg_rows.append(dict(package=name, version="", status="MISSING"))
+package_versions_df = pd.DataFrame(pkg_rows); show(package_versions_df, "Packages:"); save_table(package_versions_df, "package_versions")
+HAVE_XGBOOST = (package_versions_df.set_index("package").loc["xgboost", "status"] == "ok")
+if not HAVE_XGBOOST: print("xgboost is missing: install it (pip install xgboost) before Step 4; this notebook's GBM models use XGBoost.")
+random.seed(RANDOM_STATE); np.random.seed(RANDOM_STATE)
+log_seed(0, "global seed", RANDOM_STATE, "random.seed / np.random.seed", "every later step also passes random_state explicitly")
+print("Reports folder:", REPORT_DIR, "| plots:", PLOT_DIR)
+PARQUET_COPY = REPORT_DIR / "step00_data_copy.parquet"
+with timed("read_csv"):
+    df_raw = pd.read_csv(DATA_FILE, sep="\t", low_memory=False)
+df_raw.to_parquet(PARQUET_COPY, index=False)
+print(f"Data file: {DATA_FILE} | rows, columns: {df_raw.shape}")
+show_seeds(0)
+step_end("df_raw (in memory), Parquet copy", "setup only: no audit, no RECORD_ID")
+
+# %% [markdown]
 # ## STEP 1 — LOAD DATA
 
 # %%
 step_start(1, "LOAD DATA")
-with timed("read_csv"):
-    df_raw = pd.read_csv(DATA_FILE, sep="\t", low_memory=False)
+if "df_raw" not in globals():                    # reload only if Step 0's dataframe is gone (kernel restart)
+    df_raw = pd.read_parquet(PARQUET_COPY) if PARQUET_COPY.exists() else pd.read_csv(DATA_FILE, sep="\t", low_memory=False)
+    print("df_raw reloaded.")
+else:
+    print("Using the dataframe loaded in Step 0.")
 if "RECORD_ID" not in df_raw.columns:
     df_raw.insert(0, "RECORD_ID", np.arange(1, len(df_raw) + 1)); print("RECORD_ID created (1..n).")
 df_raw = df_raw.set_index("RECORD_ID", drop=False)

@@ -1,6 +1,6 @@
 ==============================================================================
 RUNNING STEP 2 — DATA PREPARATION
-Start: 2026-11-13 22:40:49
+Start: 2026-11-14 23:35:43
 ==============================================================================
 Missing values: none in this file
 
@@ -48,6 +48,6 @@ N-1 / overlapping-encoding check:
 E_RFA_2A + F_RFA_2A + G_RFA_2A + L3D_RFA_2 + L4D_RFA_2 = 1 for every row: True
 Linear and logistic models drop the combined RFA_2 dummies: ['L3D_RFA_2', 'L4E_RFA_2', 'L1F_RFA_2', 'L2G_RFA_2', 'L1G_RFA_2', 'L3E_RFA_2', 'L2E_RFA_2', 'L4D_RFA_2', 'L4F_RFA_2']
 ==============================================================================
-STEP 2 COMPLETE — 0.3 s (0.00 min)
+STEP 2 COMPLETE — 0.8 s (0.01 min)
 Objects created: modeling_prepared_df, skewness_df, model_features_base, linear_features_base
 ==============================================================================

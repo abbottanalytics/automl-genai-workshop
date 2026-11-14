@@ -1,10 +1,10 @@
 ==============================================================================
 RUNNING STEP 12 — INPUT SHUFFLING VARIABLE IMPORTANCE
-Start: 2026-11-13 22:41:24
+Start: 2026-11-14 23:36:21
 ==============================================================================
    [one scoring pass] 0.07 s
 Regenerated vs stored production score: max |diff| = 0.00e+00
-   [input shuffling (all variables)] 49.33 s
+   [input shuffling (all variables)] 46.14 s
 
 Overall importance (top 10):
               model          feature  rank     ranking_stat  ranking_value  mean_record_variance  median_record_variance  mean_record_std  median_record_std  mean_record_iqr  median_record_iqr  mean_record_mad  median_record_mad  mean_abs_delta  median_abs_delta  p90_abs_delta  fraction_abs_delta_gt_eps  n_rows  n_shuffles   eps  overall_rank
@@ -108,7 +108,7 @@ Random seeds used in this step:
   step_number                  action_name seed_value          function_or_parameter                    notes
           12 input shuffling permutations         42 seeded per feature and shuffle 20 shuffles per variable
 ==============================================================================
-STEP 12 COMPLETE — 50.0 s (0.83 min)
+STEP 12 COMPLETE — 46.7 s (0.78 min)
 Objects created: production_scorer, production_score_test, overall/top_decile importance, business_degradation_dataframe
-Notes: input shuffling 49 s (framework)
+Notes: input shuffling 46 s (framework)
 ==============================================================================

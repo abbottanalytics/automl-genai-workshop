@@ -1,0 +1,8 @@
+package,version,status
+pandas,2.3.3,ok
+numpy,1.26.4,ok
+scikit-learn,1.4.0,ok
+xgboost,2.0.3,ok
+scipy,1.10.0,ok
+matplotlib,3.6.3,ok
+pyarrow,16.1.0,ok

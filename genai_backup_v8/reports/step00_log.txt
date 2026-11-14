@@ -1,0 +1,27 @@
+==============================================================================
+RUNNING STEP 0 — ENVIRONMENT SETUP
+Start: 2026-11-14 23:35:42
+==============================================================================
+Global standards (Python, seeds, timing, binning/dtypes, prediction storage): will be followed.
+
+Packages:
+        package version status
+0        pandas   2.3.3     ok
+1         numpy  1.26.4     ok
+2  scikit-learn   1.4.0     ok
+3       xgboost   2.0.3     ok
+4         scipy  1.10.0     ok
+5    matplotlib   3.6.3     ok
+6       pyarrow  16.1.0     ok
+Reports folder: reports | plots: reports/plots
+   [read_csv] 0.19 s
+Data file: ../data/cup98lrn_prepped_allrecords_w_TargetD.tsv | rows, columns: (95412, 34)
+
+Random seeds used in this step:
+  step_number action_name  seed_value        function_or_parameter                                                notes
+           0 global seed          42 random.seed / np.random.seed every later step also passes random_state explicitly
+==============================================================================
+STEP 0 COMPLETE — 1.5 s (0.02 min)
+Objects created: df_raw (in memory), Parquet copy
+Notes: setup only: no audit, no RECORD_ID
+==============================================================================

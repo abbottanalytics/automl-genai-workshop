@@ -1,6 +1,6 @@
 ==============================================================================
 RUNNING STEP 12 — SUPERVISED ASSOCIATION RULE DISCOVERY
-Start: 2026-11-13 22:43:02
+Start: 2026-11-14 23:35:35
 ==============================================================================
 Antecedent items: 49 built, 45 kept (TRAIN support between 0.02 and 0.95).
 Outcome base rates (TRAIN): {'CONS::SURVIVED': 0.382, 'CONS::DIED': 0.618}
@@ -113,7 +113,7 @@ Interactions such as sex x class are what a main-effects logistic regression can
 
 Runtime:
               operation  seconds  rules
-0  matrix rule counting    0.011   1050
+0  matrix rule counting    0.009   1050
 ==============================================================================
 STEP 12 COMPLETE — 0.6 s (0.01 min)
 Objects created: ar_train_df, ar_test_df, ar_bin_edges, transaction_matrix_train/test, supervised_rules_all, association_rules_survived/died

@@ -1,6 +1,6 @@
 ==============================================================================
 RUNNING STEP 2 — NON-LEARNED DATA PREPARATION AND FEATURE ENGINEERING
-Start: 2026-11-13 22:42:24
+Start: 2026-11-14 23:34:59
 ==============================================================================
 1) Removed from inputs as leakage: ['boat', 'body']
 2) Derived: title, deck, cabin_known, family_size, is_alone, ticket_group_size.

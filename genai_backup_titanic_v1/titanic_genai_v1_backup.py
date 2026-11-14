@@ -126,12 +126,44 @@ def show(df, title=None, n=None):
     print((df if n is None else df.head(n)).to_string())
 
 # %% [markdown]
+# ## STEP 0 — ENVIRONMENT SETUP (no analysis yet)
+# Packages, seed, logs and folders, and one load of the data file named in the problem parameters (kept in memory and saved as Parquet).
+
+# %%
+step_start(0, "ENVIRONMENT SETUP")
+import importlib, random
+print("Problem parameters and global standards (Python, seeds, timing, binning/dtypes, prediction storage): will be followed.")
+PACKAGES = {"pandas": "pandas", "numpy": "numpy", "scikit-learn": "sklearn", "xgboost": "xgboost",
+            "scipy": "scipy", "matplotlib": "matplotlib", "pyarrow": "pyarrow"}
+pkg_rows = []
+for name, mod in PACKAGES.items():
+    try: pkg_rows.append(dict(package=name, version=importlib.import_module(mod).__version__, status="ok"))
+    except ImportError: pkg_rows.append(dict(package=name, version="", status="MISSING"))
+package_versions_df = pd.DataFrame(pkg_rows); show(package_versions_df, "Packages:"); save_table(package_versions_df, "package_versions")
+HAVE_XGBOOST = (package_versions_df.set_index("package").loc["xgboost", "status"] == "ok")
+if not HAVE_XGBOOST: print("xgboost is missing: Step 5 will use scikit-learn's GradientBoostingClassifier for the GBM model instead.")
+random.seed(RANDOM_STATE); np.random.seed(RANDOM_STATE)
+log_seed(0, "global seed", RANDOM_STATE, "random.seed / np.random.seed", "every later step also passes random_state explicitly")
+print("Reports folder:", REPORT_DIR, "| plots:", PLOT_DIR)
+PARQUET_COPY = REPORT_DIR / "step00_data_copy.parquet"
+READERS = {".csv": pd.read_csv, ".tsv": lambda f: pd.read_csv(f, sep="\t"), ".parquet": pd.read_parquet}
+with timed("read data file"):
+    df_raw = READERS[DATA_FILE.suffix.lower()](DATA_FILE)
+df_raw.to_parquet(PARQUET_COPY, index=False)
+print(f"Data file: {DATA_FILE} | rows, columns: {df_raw.shape}")
+show_seeds(0)
+step_end("df_raw (in memory), Parquet copy", "setup only: no audit, no RECORD_ID, no columns dropped")
+
+# %% [markdown]
 # ## STEP 1 — LOAD DATA AND AUDIT
 
 # %%
 step_start(1, "LOAD DATA AND AUDIT")
-with timed("read_csv"):
-    df_raw = pd.read_csv(DATA_FILE)
+if "df_raw" not in globals():                    # reload only if Step 0's dataframe is gone (kernel restart)
+    df_raw = pd.read_parquet(PARQUET_COPY) if PARQUET_COPY.exists() else READERS[DATA_FILE.suffix.lower()](DATA_FILE)
+    print("df_raw reloaded.")
+else:
+    print("Using the dataframe loaded in Step 0.")
 for c in df_raw.select_dtypes(include="object"):                       # empty / whitespace-only strings are missing
     df_raw[c] = df_raw[c].str.strip().replace("", np.nan)
 if "RECORD_ID" not in df_raw.columns:
