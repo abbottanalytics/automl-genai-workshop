@@ -2,6 +2,8 @@
 
 The code an assistant would generate for `../prompts/titanic_workshop_modeling_v1.md`, one cell per step (Steps 0–12 plus a final timing report). Use it if a live step fails or runs long, or as a reference answer.
 
+**Where this fits.** The Titanic prompt file is a second analysis, not the main path through the workshop: the workshop proceeds step by step inside the GenAI assistant, as the slides show. The Titanic prompts are provided to revisit the Titanic data with the same methodology as the KDD Cup 1998 analysis if there is time or need, and to explain in more detail how to customize the prompts for your own workflows.
+
 | file | what it is |
 |---|---|
 | `titanic_genai_v1_backup.ipynb` | the notebook, already run, with all outputs. Open it in Jupyter and run one cell per step, or Run All. |
