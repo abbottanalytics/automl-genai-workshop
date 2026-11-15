@@ -1,0 +1,471 @@
+train 47,706  test 47,706  features 38  rate 0.0507
+[WARNING] [2026-11-13 13:27:03,381:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 13:27:33,431:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 13:28:04,893:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 13:28:16,688:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 13:28:34,269:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 13:28:35,370:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 13:29:37,214:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 13:30:38,463:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 13:30:39,425:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 13:32:39,124:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 13:33:36,794:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 13:33:40,586:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 13:33:57,586:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 13:36:43,065:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 13:36:57,839:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 13:36:58,911:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 13:36:59,669:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 13:37:13,979:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 13:39:58,959:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 13:40:02,244:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 13:40:45,245:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 13:41:23,535:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+cross-fit fold 1/5
+[WARNING] [2026-11-13 13:46:51,386:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 13:47:12,767:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 13:47:21,679:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 13:47:38,426:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 13:47:39,405:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 13:47:58,126:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 13:49:52,704:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 13:49:53,557:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 13:50:59,392:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 13:51:46,056:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 13:52:01,789:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 13:52:55,118:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 13:55:04,298:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 13:55:55,571:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 13:55:56,415:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 13:55:58,048:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 13:56:02,913:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 13:57:12,798:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 13:57:32,077:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 13:57:34,998:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 13:59:04,602:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 13:59:54,071:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 14:01:19,652:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+cross-fit fold 2/5
+[WARNING] [2026-11-13 14:06:48,226:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 14:07:13,418:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 14:07:39,702:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 14:07:59,050:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 14:08:13,497:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 14:08:14,582:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 14:08:36,901:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 14:09:26,136:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 14:11:38,385:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 14:11:39,126:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 14:12:24,239:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 14:12:27,367:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 14:12:41,213:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 14:15:29,478:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 14:15:42,559:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 14:16:19,339:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 14:16:20,880:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 14:16:23,989:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+cross-fit fold 3/5
+cross-fit fold 4/5
+[WARNING] [2026-11-13 14:47:15,720:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 14:47:34,781:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 14:47:42,997:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 14:47:56,687:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 14:47:57,556:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 14:48:14,599:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 14:50:16,834:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 14:50:17,462:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 14:51:16,049:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 14:51:58,698:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 14:52:13,924:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 14:53:19,308:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 14:55:15,754:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 14:56:03,629:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 14:56:21,059:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 14:56:22,649:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 14:56:54,270:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 14:57:14,159:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 14:57:32,860:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 14:57:35,660:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 14:59:36,867:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 14:59:55,548:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 15:01:38,316:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 15:01:40,698:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 15:01:47,493:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+cross-fit fold 5/5
+[WARNING] [2026-11-13 15:07:13,590:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 15:07:32,647:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 15:07:52,593:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 15:08:00,492:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 15:08:15,352:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 15:08:16,645:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 15:08:33,787:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 15:09:55,301:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 15:09:55,996:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 15:11:34,974:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 15:12:19,130:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 15:12:33,998:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 15:12:57,445:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 15:15:35,821:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 15:15:58,620:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 15:16:23,454:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 15:16:25,082:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 15:16:34,170:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 15:17:11,539:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 15:17:32,846:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 15:17:35,637:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 15:18:15,397:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 15:19:35,464:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 15:20:47,189:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 15:20:49,671:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 15:21:07,978:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 15:21:18,696:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 15:21:25,654:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 15:21:40,548:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+[WARNING] [2026-11-13 15:21:43,954:Client-EnsembleBuilder] No models better than random - using Dummy losses!
+	Models besides current dummy model: 0
+	Dummy models: 1
+{
+  "run_name": "kdd98_autosklearn_default",
+  "python": "3.9.23",
+  "machine": "Darwin arm64",
+  "finished_at": "2026-11-13 15:26:54",
+  "tool": "auto-sklearn",
+  "tool_version": "0.15.0",
+  "data": "../data/cup98lrn_automl_prepped_with_split.tsv",
+  "target": "TARGET_B",
+  "settings": "defaults (metric=accuracy), time_limit=900s, n_jobs=2, memory_limit=None, max_models_on_disc=10, seed=42",
+  "n_train": 47706,
+  "n_features": 38,
+  "fit_seconds": 896.7532160282135,
+  "predict_seconds": 0.05232405662536621,
+  "n_test": 47706,
+  "true_rate": 0.05076929526684275,
+  "accuracy_default": 0.9492307047331573,
+  "accuracy_baseline": 0.9492307047331573,
+  "pct_predicted_positive": 0.0,
+  "roc_auc": 0.5,
+  "log_loss": 0.6931471805599453,
+  "mean_pred": 0.5,
+  "lift_top10": 0.9619342085518393,
+  "cnr_peak": 5406.959999999004,
+  "cnr_peak_depth_pct": 0.9999371148283235,
+  "cnr_top10": 415.7199999999889,
+  "cnr_top50": 2750.9600000010832,
+  "cnr_mail_all": 5404.919999999003,
+  "cnr_default_decision": 0.0,
+  "mailed_pct_default_decision": 0.0,
+  "n_models_in_ensemble": 1,
+  "ensemble_members": {},
+  "sprint_statistics": "auto-sklearn results:\n  Dataset name: 75717ed8-df5d-11f1-9364-050a7d4ed622\n  Metric: accuracy\n  Best validation score: 0.949247\n  Number of target algorithm runs: 23\n  Number of successful target algorithm runs: 12\n  Number of crashed target algorithm runs: 3\n  Number of target algorithms that exceeded the time limit: 8\n  Number of target algorithms that exceeded the memory limit: 0\n",
+  "gift_fit_seconds": 294.8573467731476,
+  "gift_mae_resp": 4.446952294124541,
+  "gift_rmse_resp": 11.737693892040669,
+  "gift_spearman_resp": 0.7885560492844651,
+  "ev_rule_cnr": 5404.920000000007,
+  "ev_rule_mailed_pct": 1.0,
+  "ev_cnr_peak": 6473.719999992304,
+  "ev_cnr_peak_depth_pct": 0.7791682387959585,
+  "ev_cnr_top10": 3081.7200000004655,
+  "ev_cnr_top50": 5672.95999999618,
+  "ev_cnr_mail_all": 5404.919999989238,
+  "cutoff_method": "5-fold cross-fit of the full AutoML run",
+  "cutoff_cv_seconds": 6025.4627850055695,
+  "n_cutoff_rows": 47706,
+  "cutoff_folds": [
+    {
+      "fold": 1,
+      "ensemble_members": {},
+      "oof_auc": 0.5,
+      "oof_mean_p": 0.5
+    },
+    {
+      "fold": 2,
+      "ensemble_members": {
+        "random_forest": 1
+      },
+      "oof_auc": 0.5898243630560172,
+      "oof_mean_p": 0.1018910796633375
+    },
+    {
+      "fold": 3,
+      "ensemble_members": {
+        "adaboost": 1,
+        "random_forest": 1
+      },
+      "oof_auc": 0.565032571491664,
+      "oof_mean_p": 0.40288093931326163
+    },
+    {
+      "fold": 4,
+      "ensemble_members": {},
+      "oof_auc": 0.5,
+      "oof_mean_p": 0.5
+    },
+    {
+      "fold": 5,
+      "ensemble_members": {},
+      "oof_auc": 0.5,
+      "oof_mean_p": 0.5
+    }
+  ],
+  "p_cut_threshold": 0.06294841915151667,
+  "p_cut_train_depth_pct": 0.9542405567433866,
+  "p_cut_train_peak": 5440.35999999789,
+  "p_cut_cnr": 5404.920000000007,
+  "p_cut_mailed_pct": 1.0,
+  "p_cut_cnr_at_depth": 4964.360000000008,
+  "ev_cut_threshold": 1.1757157779864078,
+  "ev_cut_train_depth_pct": 0.9324822873433111,
+  "ev_cut_train_peak": 5727.199999991292,
+  "ev_cut_cnr": 5404.920000000007,
+  "ev_cut_mailed_pct": 1.0,
+  "ev_cut_cnr_at_depth": 5951.200000000007,
+  "cvavg_p_cut_threshold": 0.06294841915151667,
+  "cvavg_p_cut_train_depth_pct": 0.9542405567433866,
+  "cvavg_p_cut_train_peak": 5440.35999999789,
+  "cvavg_p_cut_cnr": 5404.920000000007,
+  "cvavg_p_cut_mailed_pct": 1.0,
+  "cvavg_p_cut_cnr_at_depth": 5410.360000000008,
+  "cvavg_ev_cut_threshold": 1.1757157779864078,
+  "cvavg_ev_cut_train_depth_pct": 0.9324822873433111,
+  "cvavg_ev_cut_train_peak": 5727.199999991292,
+  "cvavg_ev_cut_cnr": 5404.920000000007,
+  "cvavg_ev_cut_mailed_pct": 1.0,
+  "cvavg_ev_cut_cnr_at_depth": 5898.200000000006,
+  "cvavg_roc_auc": 0.5928384280479317,
+  "cvavg_mean_pred": 0.40090253851612956
+}

@@ -10,6 +10,7 @@
 !/qa/
 !/genai_backup_v8/
 !/genai_backup_titanic_v1/
+!/automl_harness/
 
 # never upload these, even inside allowed folders
 .DS_Store
@@ -18,3 +19,11 @@
 __pycache__/
 slides/*.pptx
 genai_backup_*/reports/step00_data_copy.parquet
+
+# automl_harness: instructor-machine scripts, notes and side experiments stay local
+automl_harness/run_rerun_guarded.sh
+automl_harness/run_autosklearn_kdd_guarded.sh
+automl_harness/run_kdd_cutoff_all.sh
+automl_harness/automl_engines_kdd98_whitepaper.md
+automl_harness/results/*/
+automl_harness/results/*smoke*

@@ -1,0 +1,835 @@
+Verbosity: 2 (Standard Logging)
+=================== System Info ===================
+AutoGluon Version:  1.6.3
+Python Version:     3.11.18
+Operating System:   Darwin
+Platform Machine:   arm64
+Platform Version:   Darwin Kernel Version 27.0.0: Tue Aug 11 21:05:27 PDT 2026; root:xnu-13432.1.9~1/RELEASE_ARM64_T8103
+CPU Count:          8
+Pytorch Version:    2.10.0
+CUDA Version:       CUDA is not available
+GPU Count:          WARNING: Exception was raised when calculating GPU count (AssertionError)
+Memory Avail:       2.70 GB / 16.00 GB (16.9%)
+Disk Space Avail:   22.74 GB / 460.43 GB (4.9%)
+===================================================
+Presets specified: ['best_quality']
+Using hyperparameters preset: hyperparameters='zeroshot'
+Setting dynamic_stacking from 'auto' to True. Reason: Enable dynamic_stacking when use_bag_holdout is disabled. (use_bag_holdout=False)
+Stack configuration (auto_stack=True): num_stack_levels=1, num_bag_folds=8, num_bag_sets=1
+DyStack is enabled (dynamic_stacking=True). AutoGluon will try to determine whether the input data is affected by stacked overfitting and enable or disable stacking as a consequence.
+	This is used to identify the optimal `num_stack_levels` value. Copies of AutoGluon will be fit on subsets of the data. Then holdout validation data is used to detect stacked overfitting.
+	Running DyStack for up to 900s of the 3600s of remaining time (25%).
+DyStack: Disabling memory safe fit mode in DyStack because GPUs were detected and num_gpus='auto' (GPUs cannot be used in memory safe fit mode). If you want to use memory safe fit mode, manually set `num_gpus=0`.
+Running DyStack sub-fit ...
+Beginning AutoGluon training ... Time limit = 900s
+AutoGluon will save models to "<tmp>/ag_7s3vrvsw/final/clf/ds_sub_fit/sub_fit_ho"
+Train Data Rows:    42405
+Train Data Columns: 38
+Label Column:       TARGET_B
+Problem Type:       binary
+Preprocessing data...
+Selected class <--> label mapping:  class 1 = 1, class 0 = 0
+Using Feature Generators to preprocess the data ...
+Fitting AutoMLPipelineFeatureGenerator...
+	Available Memory:                    2770.68 MB
+	Train Data (Original)  Memory Usage: 9.47 MB (0.3% of available memory)
+	Inferring data type of each feature based on column values. Set feature_metadata_in to manually specify special dtypes of the features.
+	Stage 1 Generators:
+		Fitting AsTypeFeatureGenerator...
+			Note: Converting 1 features to boolean dtype as they only contain 2 unique values.
+	Stage 2 Generators:
+		Fitting FillNaFeatureGenerator...
+	Stage 3 Generators:
+		Fitting IdentityFeatureGenerator...
+		Fitting CategoryFeatureGenerator...
+			Fitting CategoryMemoryMinimizeFeatureGenerator...
+	Stage 4 Generators:
+		Fitting DropUniqueFeatureGenerator...
+	Stage 5 Generators:
+		Fitting DropDuplicatesFeatureGenerator...
+	Types of features in original data (raw dtype, special dtypes):
+		('category', []) : 10 | ['STATE', 'DOMAIN', 'GENDER', 'PEPSTRFL', 'RFA_2', ...]
+		('float', [])    : 10 | ['AGE', 'WEALTH1', 'SOLP3', 'WEALTH2', 'GEOCODE', ...]
+		('int', [])      : 18 | ['HIT', 'CARDPROM', 'NUMPROM', 'CARDPM12', 'NUMPRM12', ...]
+	Types of features in processed data (raw dtype, special dtypes):
+		('category', [])  :  9 | ['STATE', 'DOMAIN', 'GENDER', 'RFA_2', 'RFA_3', ...]
+		('float', [])     : 10 | ['AGE', 'WEALTH1', 'SOLP3', 'WEALTH2', 'GEOCODE', ...]
+		('int', [])       : 18 | ['HIT', 'CARDPROM', 'NUMPROM', 'CARDPM12', 'NUMPRM12', ...]
+		('int', ['bool']) :  1 | ['PEPSTRFL']
+	0.1s = Fit runtime
+	38 features in original data used to generate 38 features in processed data.
+	Train Data (Processed) Memory Usage: 9.47 MB (0.3% of available memory)
+Data preprocessing and feature engineering runtime = 0.1s ...
+AutoGluon will gauge predictive performance using evaluation metric: 'roc_auc'
+	This metric expects predicted probabilities rather than predicted class labels, so you'll need to use predict_proba() instead of predict()
+	To change this, specify the eval_metric parameter of Predictor()
+Large model count detected (110 configs) ... Only displaying the first 3 models of each family. To see all, set `verbosity=3`.
+User-specified model hyperparameters to be fit:
+{
+	'NN_TORCH': [{}, {'activation': 'elu', 'dropout_prob': 0.10077639529843717, 'hidden_size': 108, 'learning_rate': 0.002735937344002146, 'num_layers': 4, 'use_batchnorm': True, 'weight_decay': 1.356433327634438e-12, 'ag_args': {'name_suffix': '_r79', 'priority': -2}}, {'activation': 'elu', 'dropout_prob': 0.11897478034205347, 'hidden_size': 213, 'learning_rate': 0.0010474382260641949, 'num_layers': 4, 'use_batchnorm': False, 'weight_decay': 5.594471067786272e-10, 'ag_args': {'name_suffix': '_r22', 'priority': -7}}],
+	'GBM': [{'extra_trees': True, 'ag_args': {'name_suffix': 'XT'}}, {}, {'learning_rate': 0.03, 'num_leaves': 128, 'feature_fraction': 0.9, 'min_data_in_leaf': 3, 'ag_args': {'name_suffix': 'Large', 'priority': 0, 'hyperparameter_tune_kwargs': None}}],
+	'CAT': [{}, {'depth': 6, 'grow_policy': 'SymmetricTree', 'l2_leaf_reg': 2.1542798306067823, 'learning_rate': 0.06864209415792857, 'max_ctr_complexity': 4, 'one_hot_max_size': 10, 'ag_args': {'name_suffix': '_r177', 'priority': -1}}, {'depth': 8, 'grow_policy': 'Depthwise', 'l2_leaf_reg': 2.7997999596449104, 'learning_rate': 0.031375015734637225, 'max_ctr_complexity': 2, 'one_hot_max_size': 3, 'ag_args': {'name_suffix': '_r9', 'priority': -5}}],
+	'XGB': [{}, {'colsample_bytree': 0.6917311125174739, 'enable_categorical': False, 'learning_rate': 0.018063876087523967, 'max_depth': 10, 'min_child_weight': 0.6028633586934382, 'ag_args': {'name_suffix': '_r33', 'priority': -8}}, {'colsample_bytree': 0.6628423832084077, 'enable_categorical': False, 'learning_rate': 0.08775715546881824, 'max_depth': 5, 'min_child_weight': 0.6294123374222513, 'ag_args': {'name_suffix': '_r89', 'priority': -16}}],
+	'FASTAI': [{}, {'bs': 256, 'emb_drop': 0.5411770367537934, 'epochs': 43, 'layers': [800, 400], 'lr': 0.01519848858318159, 'ps': 0.23782946566604385, 'ag_args': {'name_suffix': '_r191', 'priority': -4}}, {'bs': 2048, 'emb_drop': 0.05070411322605811, 'epochs': 29, 'layers': [200, 100], 'lr': 0.08974235041576624, 'ps': 0.10393466140748028, 'ag_args': {'name_suffix': '_r102', 'priority': -11}}],
+	'RF': [{'criterion': 'gini', 'ag_args': {'name_suffix': 'Gini', 'problem_types': ['binary', 'multiclass']}}, {'criterion': 'entropy', 'ag_args': {'name_suffix': 'Entr', 'problem_types': ['binary', 'multiclass']}}, {'criterion': 'squared_error', 'ag_args': {'name_suffix': 'MSE', 'problem_types': ['regression', 'quantile']}}],
+	'XT': [{'criterion': 'gini', 'ag_args': {'name_suffix': 'Gini', 'problem_types': ['binary', 'multiclass']}}, {'criterion': 'entropy', 'ag_args': {'name_suffix': 'Entr', 'problem_types': ['binary', 'multiclass']}}, {'criterion': 'squared_error', 'ag_args': {'name_suffix': 'MSE', 'problem_types': ['regression', 'quantile']}}],
+}
+AutoGluon will fit 2 stack levels (L1 to L2) ...
+Fitting 108 L1 models, fit_strategy="sequential" ...
+Fitting model: LightGBMXT_BAG_L1 ... Training model for up to 599.78s of the 899.89s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=4.83%)
+	0.6115	 = Validation score   (roc_auc)
+	1.71s	 = Training   runtime
+	0.2s	 = Validation runtime
+Fitting model: LightGBM_BAG_L1 ... Training model for up to 585.87s of the 885.98s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=4.80%)
+	0.607	 = Validation score   (roc_auc)
+	1.41s	 = Training   runtime
+	0.14s	 = Validation runtime
+Fitting model: RandomForestGini_BAG_L1 ... Training model for up to 580.79s of the 880.90s of remaining time.
+	Fitting 1 model on all data (use_child_oof=True) | Fitting with cpus=8, gpus=0, mem=0.2/2.7 GB
+	0.5673	 = Validation score   (roc_auc)
+	3.94s	 = Training   runtime
+	0.96s	 = Validation runtime
+Fitting model: RandomForestEntr_BAG_L1 ... Training model for up to 575.64s of the 875.75s of remaining time.
+	Fitting 1 model on all data (use_child_oof=True) | Fitting with cpus=8, gpus=0, mem=0.2/2.7 GB
+	0.5778	 = Validation score   (roc_auc)
+	3.73s	 = Training   runtime
+	1.04s	 = Validation runtime
+Fitting model: CatBoost_BAG_L1 ... Training model for up to 570.60s of the 870.71s of remaining time.
+	Memory not enough to fit 8 folds in parallel. Will train 4 folds in parallel instead (Estimated 10.46% memory usage per fold, 41.85%/80.00% total).
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (4 workers, per: cpus=2, gpus=0, memory=10.46%)
+	0.6202	 = Validation score   (roc_auc)
+	56.48s	 = Training   runtime
+	0.12s	 = Validation runtime
+Fitting model: ExtraTreesGini_BAG_L1 ... Training model for up to 511.44s of the 811.56s of remaining time.
+	Fitting 1 model on all data (use_child_oof=True) | Fitting with cpus=8, gpus=0, mem=0.2/2.7 GB
+	0.572	 = Validation score   (roc_auc)
+	1.57s	 = Training   runtime
+	1.12s	 = Validation runtime
+Fitting model: ExtraTreesEntr_BAG_L1 ... Training model for up to 505.59s of the 805.70s of remaining time.
+	Fitting 1 model on all data (use_child_oof=True) | Fitting with cpus=8, gpus=0, mem=0.2/2.7 GB
+	0.5731	 = Validation score   (roc_auc)
+	1.73s	 = Training   runtime
+	1.11s	 = Validation runtime
+Fitting model: NeuralNetFastAI_BAG_L1 ... Training model for up to 502.04s of the 802.15s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=3.92%)
+	0.5967	 = Validation score   (roc_auc)
+	36.12s	 = Training   runtime
+	0.43s	 = Validation runtime
+Fitting model: XGBoost_BAG_L1 ... Training model for up to 461.29s of the 761.40s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=3.56%)
+	0.6139	 = Validation score   (roc_auc)
+	4.49s	 = Training   runtime
+	0.15s	 = Validation runtime
+Fitting model: NeuralNetTorch_BAG_L1 ... Training model for up to 453.03s of the 753.14s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=2.15%)
+	0.6026	 = Validation score   (roc_auc)
+	33.27s	 = Training   runtime
+	0.36s	 = Validation runtime
+Fitting model: LightGBMLarge_BAG_L1 ... Training model for up to 416.49s of the 716.60s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=6.52%)
+	0.6009	 = Validation score   (roc_auc)
+	2.01s	 = Training   runtime
+	0.25s	 = Validation runtime
+Fitting model: CatBoost_r177_BAG_L1 ... Training model for up to 410.39s of the 710.50s of remaining time.
+	Memory not enough to fit 8 folds in parallel. Will train 4 folds in parallel instead (Estimated 15.49% memory usage per fold, 61.97%/80.00% total).
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (4 workers, per: cpus=2, gpus=0, memory=15.49%)
+	0.6217	 = Validation score   (roc_auc)
+	24.29s	 = Training   runtime
+	0.09s	 = Validation runtime
+Fitting model: NeuralNetTorch_r79_BAG_L1 ... Training model for up to 383.69s of the 683.80s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=2.13%)
+	0.6038	 = Validation score   (roc_auc)
+	57.94s	 = Training   runtime
+	0.42s	 = Validation runtime
+Fitting model: LightGBM_r131_BAG_L1 ... Training model for up to 322.07s of the 622.18s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=5.15%)
+	0.6084	 = Validation score   (roc_auc)
+	2.96s	 = Training   runtime
+	0.63s	 = Validation runtime
+Fitting model: NeuralNetFastAI_r191_BAG_L1 ... Training model for up to 311.04s of the 611.15s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=3.28%)
+	0.6059	 = Validation score   (roc_auc)
+	104.47s	 = Training   runtime
+	0.7s	 = Validation runtime
+Fitting model: CatBoost_r9_BAG_L1 ... Training model for up to 203.23s of the 503.34s of remaining time.
+	Memory not enough to fit 8 folds in parallel. Will train 4 folds in parallel instead (Estimated 18.73% memory usage per fold, 74.92%/80.00% total).
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (4 workers, per: cpus=2, gpus=0, memory=18.73%)
+	0.62	 = Validation score   (roc_auc)
+	42.68s	 = Training   runtime
+	0.17s	 = Validation runtime
+Fitting model: LightGBM_r96_BAG_L1 ... Training model for up to 156.63s of the 456.75s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=4.49%)
+	0.6122	 = Validation score   (roc_auc)
+	3.61s	 = Training   runtime
+	0.82s	 = Validation runtime
+Fitting model: NeuralNetTorch_r22_BAG_L1 ... Training model for up to 148.96s of the 449.07s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=1.78%)
+	0.5999	 = Validation score   (roc_auc)
+	61.7s	 = Training   runtime
+	0.6s	 = Validation runtime
+Fitting model: XGBoost_r33_BAG_L1 ... Training model for up to 83.72s of the 383.83s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=7.40%)
+	0.6033	 = Validation score   (roc_auc)
+	8.8s	 = Training   runtime
+	0.35s	 = Validation runtime
+Fitting model: ExtraTrees_r42_BAG_L1 ... Training model for up to 70.85s of the 370.96s of remaining time.
+	Fitting 1 model on all data (use_child_oof=True) | Fitting with cpus=8, gpus=0, mem=0.2/2.9 GB
+	0.5636	 = Validation score   (roc_auc)
+	4.73s	 = Training   runtime
+	1.1s	 = Validation runtime
+Fitting model: CatBoost_r137_BAG_L1 ... Training model for up to 64.15s of the 364.26s of remaining time.
+	Memory not enough to fit 8 folds in parallel. Will train 4 folds in parallel instead (Estimated 11.41% memory usage per fold, 45.63%/80.00% total).
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (4 workers, per: cpus=2, gpus=0, memory=11.41%)
+	0.6207	 = Validation score   (roc_auc)
+	48.43s	 = Training   runtime
+	0.1s	 = Validation runtime
+Fitting model: NeuralNetFastAI_r102_BAG_L1 ... Training model for up to 12.89s of the 313.00s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=1.36%)
+	0.6013	 = Validation score   (roc_auc)
+	12.54s	 = Training   runtime
+	0.23s	 = Validation runtime
+Fitting model: WeightedEnsemble_L2 ... Training model for up to 360.00s of the 296.90s of remaining time.
+	Fitting 1 model on all data | Fitting with cpus=8, gpus=0, mem=0.0/6.3 GB
+	Ensemble Weights: {'CatBoost_r177_BAG_L1': 0.32, 'NeuralNetTorch_r79_BAG_L1': 0.12, 'NeuralNetFastAI_r102_BAG_L1': 0.12, 'NeuralNetFastAI_BAG_L1': 0.08, 'XGBoost_BAG_L1': 0.08, 'NeuralNetFastAI_r191_BAG_L1': 0.08, 'CatBoost_r137_BAG_L1': 0.08, 'LightGBMXT_BAG_L1': 0.04, 'CatBoost_BAG_L1': 0.04, 'CatBoost_r9_BAG_L1': 0.04}
+	0.6282	 = Validation score   (roc_auc)
+	2.54s	 = Training   runtime
+	0.0s	 = Validation runtime
+Fitting 108 L2 models, fit_strategy="sequential" ...
+Fitting model: LightGBMXT_BAG_L2 ... Training model for up to 294.34s of the 294.28s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=1.88%)
+	0.6219	 = Validation score   (roc_auc)
+	2.46s	 = Training   runtime
+	0.14s	 = Validation runtime
+Fitting model: LightGBM_BAG_L2 ... Training model for up to 288.71s of the 288.64s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=1.92%)
+	0.618	 = Validation score   (roc_auc)
+	1.78s	 = Training   runtime
+	0.15s	 = Validation runtime
+Fitting model: RandomForestGini_BAG_L2 ... Training model for up to 283.72s of the 283.65s of remaining time.
+	Fitting 1 model on all data (use_child_oof=True) | Fitting with cpus=8, gpus=0, mem=0.2/6.9 GB
+	0.5808	 = Validation score   (roc_auc)
+	9.0s	 = Training   runtime
+	1.14s	 = Validation runtime
+Fitting model: RandomForestEntr_BAG_L2 ... Training model for up to 273.22s of the 273.16s of remaining time.
+	Fitting 1 model on all data (use_child_oof=True) | Fitting with cpus=8, gpus=0, mem=0.2/7.8 GB
+	0.5915	 = Validation score   (roc_auc)
+	8.11s	 = Training   runtime
+	1.13s	 = Validation runtime
+Fitting model: CatBoost_BAG_L2 ... Training model for up to 263.62s of the 263.55s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=6.86%)
+	0.6252	 = Validation score   (roc_auc)
+	34.03s	 = Training   runtime
+	0.08s	 = Validation runtime
+Fitting model: ExtraTreesGini_BAG_L2 ... Training model for up to 226.39s of the 226.33s of remaining time.
+	Fitting 1 model on all data (use_child_oof=True) | Fitting with cpus=8, gpus=0, mem=0.2/5.7 GB
+	0.5934	 = Validation score   (roc_auc)
+	2.16s	 = Training   runtime
+	1.36s	 = Validation runtime
+Fitting model: ExtraTreesEntr_BAG_L2 ... Training model for up to 222.43s of the 222.37s of remaining time.
+	Fitting 1 model on all data (use_child_oof=True) | Fitting with cpus=8, gpus=0, mem=0.2/5.8 GB
+	0.5948	 = Validation score   (roc_auc)
+	2.07s	 = Training   runtime
+	1.38s	 = Validation runtime
+Fitting model: NeuralNetFastAI_BAG_L2 ... Training model for up to 218.52s of the 218.45s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=2.65%)
+	0.6007	 = Validation score   (roc_auc)
+	39.03s	 = Training   runtime
+	0.56s	 = Validation runtime
+Fitting model: XGBoost_BAG_L2 ... Training model for up to 175.04s of the 174.98s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=2.93%)
+	0.6193	 = Validation score   (roc_auc)
+	6.02s	 = Training   runtime
+	0.26s	 = Validation runtime
+Fitting model: NeuralNetTorch_BAG_L2 ... Training model for up to 164.90s of the 164.84s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=1.99%)
+	0.6082	 = Validation score   (roc_auc)
+	50.36s	 = Training   runtime
+	0.71s	 = Validation runtime
+Fitting model: LightGBMLarge_BAG_L2 ... Training model for up to 110.01s of the 109.95s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=6.91%)
+	0.61	 = Validation score   (roc_auc)
+	4.62s	 = Training   runtime
+	0.27s	 = Validation runtime
+Fitting model: CatBoost_r177_BAG_L2 ... Training model for up to 98.41s of the 98.34s of remaining time.
+	Memory not enough to fit 8 folds in parallel. Will train 4 folds in parallel instead (Estimated 13.18% memory usage per fold, 52.74%/80.00% total).
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (4 workers, per: cpus=2, gpus=0, memory=13.18%)
+	0.6258	 = Validation score   (roc_auc)
+	36.85s	 = Training   runtime
+	0.23s	 = Validation runtime
+Fitting model: NeuralNetTorch_r79_BAG_L2 ... Training model for up to 58.97s of the 58.90s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=2.49%)
+	0.6082	 = Validation score   (roc_auc)
+	50.41s	 = Training   runtime
+	1.71s	 = Validation runtime
+Fitting model: WeightedEnsemble_L3 ... Training model for up to 360.00s of the 3.42s of remaining time.
+	Fitting 1 model on all data | Fitting with cpus=8, gpus=0, mem=0.0/3.4 GB
+	Ensemble Weights: {'CatBoost_r177_BAG_L1': 0.16, 'XGBoost_BAG_L2': 0.12, 'CatBoost_r177_BAG_L2': 0.12, 'LightGBMXT_BAG_L2': 0.08, 'ExtraTreesEntr_BAG_L2': 0.08, 'NeuralNetFastAI_BAG_L2': 0.08, 'NeuralNetTorch_BAG_L2': 0.08, 'NeuralNetFastAI_BAG_L1': 0.04, 'NeuralNetTorch_r79_BAG_L1': 0.04, 'NeuralNetFastAI_r191_BAG_L1': 0.04, 'NeuralNetFastAI_r102_BAG_L1': 0.04, 'LightGBM_BAG_L2': 0.04, 'LightGBMLarge_BAG_L2': 0.04, 'NeuralNetTorch_r79_BAG_L2': 0.04}
+	0.6327	 = Validation score   (roc_auc)
+	4.44s	 = Training   runtime
+	0.01s	 = Validation runtime
+AutoGluon training complete, total runtime = 901.3s ... Best model: WeightedEnsemble_L3 | Estimated inference throughput: 498.4 rows/s (5301 batch size)
+TabularPredictor saved. To load, use: predictor = TabularPredictor.load("<tmp>/ag_7s3vrvsw/final/clf/ds_sub_fit/sub_fit_ho")
+Deleting DyStack predictor artifacts (clean_up_fits=True) ...
+Leaderboard on holdout data (DyStack):
+                          model  score_holdout  score_val eval_metric  pred_time_test  pred_time_val    fit_time  pred_time_test_marginal  pred_time_val_marginal  fit_time_marginal  stack_level  can_infer  fit_order
+0        NeuralNetFastAI_BAG_L2       0.591100   0.600733     roc_auc        6.740622      11.668034  557.624671                 0.398546                0.561512          39.028748            2       True         31
+1          CatBoost_r177_BAG_L1       0.589541   0.621664     roc_auc        0.073668       0.088437   24.292001                 0.073668                0.088437          24.292001            1       True         12
+2           WeightedEnsemble_L2       0.589363   0.628173     roc_auc        3.633981       2.609329  391.693308                 0.003628                0.004565           2.541935            2       True         23
+3                XGBoost_BAG_L2       0.589226   0.619322     roc_auc        6.513370      11.364025  524.612308                 0.171295                0.257504           6.016385            2       True         32
+4          CatBoost_r177_BAG_L2       0.589148   0.625770     roc_auc        6.437772      11.338834  555.447386                 0.095696                0.232312          36.851463            2       True         35
+5           WeightedEnsemble_L3       0.588575   0.632667     roc_auc        8.664067      16.513806  716.633115                 0.002843                0.005275           4.440064            3       True         37
+6            CatBoost_r9_BAG_L1       0.587200   0.619998     roc_auc        0.122446       0.165864   42.677691                 0.122446                0.165864          42.677691            1       True         16
+7   NeuralNetFastAI_r102_BAG_L1       0.586538   0.601261     roc_auc        0.340073       0.225853   12.536201                 0.340073                0.225853          12.536201            1       True         22
+8             LightGBMXT_BAG_L2       0.586155   0.621939     roc_auc        6.425532      11.247377  521.059341                 0.083457                0.140855           2.463418            2       True         24
+9               LightGBM_BAG_L2       0.586063   0.618017     roc_auc        6.404790      11.256024  520.375491                 0.062715                0.149502           1.779568            2       True         25
+10           XGBoost_r33_BAG_L1       0.586025   0.603335     roc_auc        0.209411       0.353943    8.795188                 0.209411                0.353943           8.795188            1       True         19
+11              CatBoost_BAG_L2       0.585808   0.625186     roc_auc        6.433262      11.189509  552.629674                 0.091186                0.082988          34.033751            2       True         28
+12  NeuralNetFastAI_r191_BAG_L1       0.585419   0.605886     roc_auc        0.542147       0.701017  104.466844                 0.542147                0.701017         104.466844            1       True         15
+13               XGBoost_BAG_L1       0.584859   0.613899     roc_auc        0.173570       0.153698    4.489891                 0.173570                0.153698           4.489891            1       True          9
+14         LightGBM_r131_BAG_L1       0.584697   0.608418     roc_auc        0.329771       0.634408    2.955267                 0.329771                0.634408           2.955267            1       True         14
+15              CatBoost_BAG_L1       0.584209   0.620235     roc_auc        0.244096       0.120713   56.481729                 0.244096                0.120713          56.481729            1       True          5
+16    NeuralNetTorch_r79_BAG_L2       0.584138   0.608164     roc_auc        7.039189      12.813086  569.005321                 0.697114                1.706564          50.409398            2       True         36
+17         CatBoost_r137_BAG_L1       0.583027   0.620685     roc_auc        0.089112       0.098930   48.431054                 0.089112                0.098930          48.431054            1       True         21
+18         LightGBMLarge_BAG_L1       0.582934   0.600937     roc_auc        0.085727       0.251949    2.009269                 0.085727                0.251949           2.009269            1       True         11
+19          LightGBM_r96_BAG_L1       0.582668   0.612229     roc_auc        0.323321       0.824179    3.608853                 0.323321                0.824179           3.608853            1       True         17
+20      RandomForestEntr_BAG_L2       0.582503   0.591473     roc_auc        6.527136      12.237428  526.705008                 0.185061                1.130906           8.109085            2       True         27
+21              LightGBM_BAG_L1       0.580677   0.606973     roc_auc        0.051480       0.142566    1.406726                 0.051480                0.142566           1.406726            1       True          2
+22       NeuralNetFastAI_BAG_L1       0.579549   0.596701     roc_auc        1.447106       0.432918   36.122918                 1.447106                0.432918          36.122918            1       True          8
+23            LightGBMXT_BAG_L1       0.577258   0.611506     roc_auc        0.240256       0.197110    1.712864                 0.240256                0.197110           1.712864            1       True          1
+24    NeuralNetTorch_r79_BAG_L1       0.576478   0.603776     roc_auc        0.357879       0.420224   57.940181                 0.357879                0.420224          57.940181            1       True         13
+25         LightGBMLarge_BAG_L2       0.576407   0.609984     roc_auc        6.451519      11.376452  523.214082                 0.109444                0.269930           4.618159            2       True         34
+26        ExtraTreesGini_BAG_L2       0.576182   0.593391     roc_auc        6.541778      12.467888  520.754496                 0.199703                1.361366           2.158573            2       True         29
+27      RandomForestGini_BAG_L2       0.575005   0.580839     roc_auc        6.527236      12.243719  527.590973                 0.185161                1.137197           8.995050            2       True         26
+28        ExtraTrees_r42_BAG_L1       0.574277   0.563628     roc_auc        0.198112       1.098585    4.733029                 0.198112                1.098585           4.733029            1       True         20
+29        NeuralNetTorch_BAG_L2       0.574167   0.608193     roc_auc        6.840218      11.814507  568.955637                 0.498143                0.707985          50.359714            2       True         33
+30      RandomForestGini_BAG_L1       0.573525   0.567288     roc_auc        0.235666       0.962432    3.942602                 0.235666                0.962432           3.942602            1       True          3
+31      RandomForestEntr_BAG_L1       0.572914   0.577805     roc_auc        0.175313       1.043742    3.727350                 0.175313                1.043742           3.727350            1       True          4
+32    NeuralNetTorch_r22_BAG_L1       0.567304   0.599929     roc_auc        0.362432       0.599823   61.698899                 0.362432                0.599823          61.698899            1       True         18
+33        ExtraTreesEntr_BAG_L1       0.567148   0.573138     roc_auc        0.206694       1.110530    1.727181                 0.206694                1.110530           1.727181            1       True          7
+34        ExtraTreesEntr_BAG_L2       0.565892   0.594807     roc_auc        6.544814      12.482366  520.666198                 0.202739                1.375845           2.070275            2       True         30
+35        ExtraTreesGini_BAG_L1       0.564784   0.571958     roc_auc        0.258625       1.120172    1.572774                 0.258625                1.120172           1.572774            1       True          6
+36        NeuralNetTorch_BAG_L1       0.561607   0.602609     roc_auc        0.275170       0.359429   33.267411                 0.275170                0.359429          33.267411            1       True         10
+	0	 = Optimal   num_stack_levels (Stacked Overfitting Occurred: True)
+	912s	 = DyStack   runtime |	2688s	 = Remaining runtime
+Starting main fit with num_stack_levels=0.
+	For future fit calls on this dataset, you can skip DyStack to save time: `predictor.fit(..., dynamic_stacking=False, num_stack_levels=0)`
+Beginning AutoGluon training ... Time limit = 2688s
+AutoGluon will save models to "<tmp>/ag_7s3vrvsw/final/clf"
+Train Data Rows:    47706
+Train Data Columns: 38
+Label Column:       TARGET_B
+Problem Type:       binary
+Preprocessing data...
+Selected class <--> label mapping:  class 1 = 1, class 0 = 0
+Using Feature Generators to preprocess the data ...
+Fitting AutoMLPipelineFeatureGenerator...
+	Available Memory:                    3308.69 MB
+	Train Data (Original)  Memory Usage: 10.66 MB (0.3% of available memory)
+	Inferring data type of each feature based on column values. Set feature_metadata_in to manually specify special dtypes of the features.
+	Stage 1 Generators:
+		Fitting AsTypeFeatureGenerator...
+			Note: Converting 1 features to boolean dtype as they only contain 2 unique values.
+	Stage 2 Generators:
+		Fitting FillNaFeatureGenerator...
+	Stage 3 Generators:
+		Fitting IdentityFeatureGenerator...
+		Fitting CategoryFeatureGenerator...
+			Fitting CategoryMemoryMinimizeFeatureGenerator...
+	Stage 4 Generators:
+		Fitting DropUniqueFeatureGenerator...
+	Stage 5 Generators:
+		Fitting DropDuplicatesFeatureGenerator...
+	Types of features in original data (raw dtype, special dtypes):
+		('category', []) : 10 | ['STATE', 'DOMAIN', 'GENDER', 'PEPSTRFL', 'RFA_2', ...]
+		('float', [])    : 10 | ['AGE', 'WEALTH1', 'SOLP3', 'WEALTH2', 'GEOCODE', ...]
+		('int', [])      : 18 | ['HIT', 'CARDPROM', 'NUMPROM', 'CARDPM12', 'NUMPRM12', ...]
+	Types of features in processed data (raw dtype, special dtypes):
+		('category', [])  :  9 | ['STATE', 'DOMAIN', 'GENDER', 'RFA_2', 'RFA_3', ...]
+		('float', [])     : 10 | ['AGE', 'WEALTH1', 'SOLP3', 'WEALTH2', 'GEOCODE', ...]
+		('int', [])       : 18 | ['HIT', 'CARDPROM', 'NUMPROM', 'CARDPM12', 'NUMPRM12', ...]
+		('int', ['bool']) :  1 | ['PEPSTRFL']
+	0.1s = Fit runtime
+	38 features in original data used to generate 38 features in processed data.
+	Train Data (Processed) Memory Usage: 10.65 MB (0.3% of available memory)
+Data preprocessing and feature engineering runtime = 0.15s ...
+AutoGluon will gauge predictive performance using evaluation metric: 'roc_auc'
+	This metric expects predicted probabilities rather than predicted class labels, so you'll need to use predict_proba() instead of predict()
+	To change this, specify the eval_metric parameter of Predictor()
+Large model count detected (110 configs) ... Only displaying the first 3 models of each family. To see all, set `verbosity=3`.
+User-specified model hyperparameters to be fit:
+{
+	'NN_TORCH': [{}, {'activation': 'elu', 'dropout_prob': 0.10077639529843717, 'hidden_size': 108, 'learning_rate': 0.002735937344002146, 'num_layers': 4, 'use_batchnorm': True, 'weight_decay': 1.356433327634438e-12, 'ag_args': {'name_suffix': '_r79', 'priority': -2}}, {'activation': 'elu', 'dropout_prob': 0.11897478034205347, 'hidden_size': 213, 'learning_rate': 0.0010474382260641949, 'num_layers': 4, 'use_batchnorm': False, 'weight_decay': 5.594471067786272e-10, 'ag_args': {'name_suffix': '_r22', 'priority': -7}}],
+	'GBM': [{'extra_trees': True, 'ag_args': {'name_suffix': 'XT'}}, {}, {'learning_rate': 0.03, 'num_leaves': 128, 'feature_fraction': 0.9, 'min_data_in_leaf': 3, 'ag_args': {'name_suffix': 'Large', 'priority': 0, 'hyperparameter_tune_kwargs': None}}],
+	'CAT': [{}, {'depth': 6, 'grow_policy': 'SymmetricTree', 'l2_leaf_reg': 2.1542798306067823, 'learning_rate': 0.06864209415792857, 'max_ctr_complexity': 4, 'one_hot_max_size': 10, 'ag_args': {'name_suffix': '_r177', 'priority': -1}}, {'depth': 8, 'grow_policy': 'Depthwise', 'l2_leaf_reg': 2.7997999596449104, 'learning_rate': 0.031375015734637225, 'max_ctr_complexity': 2, 'one_hot_max_size': 3, 'ag_args': {'name_suffix': '_r9', 'priority': -5}}],
+	'XGB': [{}, {'colsample_bytree': 0.6917311125174739, 'enable_categorical': False, 'learning_rate': 0.018063876087523967, 'max_depth': 10, 'min_child_weight': 0.6028633586934382, 'ag_args': {'name_suffix': '_r33', 'priority': -8}}, {'colsample_bytree': 0.6628423832084077, 'enable_categorical': False, 'learning_rate': 0.08775715546881824, 'max_depth': 5, 'min_child_weight': 0.6294123374222513, 'ag_args': {'name_suffix': '_r89', 'priority': -16}}],
+	'FASTAI': [{}, {'bs': 256, 'emb_drop': 0.5411770367537934, 'epochs': 43, 'layers': [800, 400], 'lr': 0.01519848858318159, 'ps': 0.23782946566604385, 'ag_args': {'name_suffix': '_r191', 'priority': -4}}, {'bs': 2048, 'emb_drop': 0.05070411322605811, 'epochs': 29, 'layers': [200, 100], 'lr': 0.08974235041576624, 'ps': 0.10393466140748028, 'ag_args': {'name_suffix': '_r102', 'priority': -11}}],
+	'RF': [{'criterion': 'gini', 'ag_args': {'name_suffix': 'Gini', 'problem_types': ['binary', 'multiclass']}}, {'criterion': 'entropy', 'ag_args': {'name_suffix': 'Entr', 'problem_types': ['binary', 'multiclass']}}, {'criterion': 'squared_error', 'ag_args': {'name_suffix': 'MSE', 'problem_types': ['regression', 'quantile']}}],
+	'XT': [{'criterion': 'gini', 'ag_args': {'name_suffix': 'Gini', 'problem_types': ['binary', 'multiclass']}}, {'criterion': 'entropy', 'ag_args': {'name_suffix': 'Entr', 'problem_types': ['binary', 'multiclass']}}, {'criterion': 'squared_error', 'ag_args': {'name_suffix': 'MSE', 'problem_types': ['regression', 'quantile']}}],
+}
+Fitting 108 L1 models, fit_strategy="sequential" ...
+Fitting model: LightGBMXT_BAG_L1 ... Training model for up to 2687.44s of the 2687.44s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=4.23%)
+	0.6079	 = Validation score   (roc_auc)
+	2.08s	 = Training   runtime
+	0.26s	 = Validation runtime
+Fitting model: LightGBM_BAG_L1 ... Training model for up to 2679.92s of the 2679.91s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=4.52%)
+	0.6071	 = Validation score   (roc_auc)
+	1.38s	 = Training   runtime
+	0.22s	 = Validation runtime
+Fitting model: RandomForestGini_BAG_L1 ... Training model for up to 2673.44s of the 2673.43s of remaining time.
+	Fitting 1 model on all data (use_child_oof=True) | Fitting with cpus=8, gpus=0, mem=0.3/2.8 GB
+	0.5716	 = Validation score   (roc_auc)
+	5.07s	 = Training   runtime
+	1.15s	 = Validation runtime
+Fitting model: RandomForestEntr_BAG_L1 ... Training model for up to 2666.98s of the 2666.98s of remaining time.
+	Fitting 1 model on all data (use_child_oof=True) | Fitting with cpus=8, gpus=0, mem=0.3/3.0 GB
+	0.5733	 = Validation score   (roc_auc)
+	5.46s	 = Training   runtime
+	1.31s	 = Validation runtime
+Fitting model: CatBoost_BAG_L1 ... Training model for up to 2659.76s of the 2659.76s of remaining time.
+	Memory not enough to fit 8 folds in parallel. Will train 4 folds in parallel instead (Estimated 16.65% memory usage per fold, 66.60%/80.00% total).
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (4 workers, per: cpus=2, gpus=0, memory=16.65%)
+	0.6216	 = Validation score   (roc_auc)
+	105.19s	 = Training   runtime
+	0.21s	 = Validation runtime
+Fitting model: ExtraTreesGini_BAG_L1 ... Training model for up to 2548.31s of the 2548.31s of remaining time.
+	Fitting 1 model on all data (use_child_oof=True) | Fitting with cpus=8, gpus=0, mem=0.3/5.4 GB
+	0.5669	 = Validation score   (roc_auc)
+	1.95s	 = Training   runtime
+	1.36s	 = Validation runtime
+Fitting model: ExtraTreesEntr_BAG_L1 ... Training model for up to 2544.62s of the 2544.62s of remaining time.
+	Fitting 1 model on all data (use_child_oof=True) | Fitting with cpus=8, gpus=0, mem=0.3/5.3 GB
+	0.5718	 = Validation score   (roc_auc)
+	2.19s	 = Training   runtime
+	1.3s	 = Validation runtime
+Fitting model: NeuralNetFastAI_BAG_L1 ... Training model for up to 2540.81s of the 2540.80s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=2.07%)
+	0.593	 = Validation score   (roc_auc)
+	41.34s	 = Training   runtime
+	0.45s	 = Validation runtime
+Fitting model: XGBoost_BAG_L1 ... Training model for up to 2495.69s of the 2495.68s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=1.92%)
+	0.6079	 = Validation score   (roc_auc)
+	4.74s	 = Training   runtime
+	0.16s	 = Validation runtime
+Fitting model: NeuralNetTorch_BAG_L1 ... Training model for up to 2487.39s of the 2487.39s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=1.03%)
+	0.6008	 = Validation score   (roc_auc)
+	31.96s	 = Training   runtime
+	0.35s	 = Validation runtime
+Fitting model: LightGBMLarge_BAG_L1 ... Training model for up to 2452.12s of the 2452.11s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=3.23%)
+	0.5967	 = Validation score   (roc_auc)
+	2.35s	 = Training   runtime
+	0.16s	 = Validation runtime
+Fitting model: CatBoost_r177_BAG_L1 ... Training model for up to 2446.35s of the 2446.34s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=8.50%)
+	0.6191	 = Validation score   (roc_auc)
+	28.59s	 = Training   runtime
+	0.12s	 = Validation runtime
+Fitting model: NeuralNetTorch_r79_BAG_L1 ... Training model for up to 2412.89s of the 2412.89s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=1.15%)
+	0.6056	 = Validation score   (roc_auc)
+	55.24s	 = Training   runtime
+	0.49s	 = Validation runtime
+Fitting model: LightGBM_r131_BAG_L1 ... Training model for up to 2354.31s of the 2354.30s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=2.66%)
+	0.608	 = Validation score   (roc_auc)
+	3.51s	 = Training   runtime
+	0.67s	 = Validation runtime
+Fitting model: NeuralNetFastAI_r191_BAG_L1 ... Training model for up to 2347.16s of the 2347.15s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=2.11%)
+	0.603	 = Validation score   (roc_auc)
+	123.85s	 = Training   runtime
+	0.73s	 = Validation runtime
+Fitting model: CatBoost_r9_BAG_L1 ... Training model for up to 2219.59s of the 2219.59s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=10.00%)
+	0.6184	 = Validation score   (roc_auc)
+	38.47s	 = Training   runtime
+	0.17s	 = Validation runtime
+Fitting model: LightGBM_r96_BAG_L1 ... Training model for up to 2176.96s of the 2176.95s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=2.45%)
+	0.6128	 = Validation score   (roc_auc)
+	3.86s	 = Training   runtime
+	0.94s	 = Validation runtime
+Fitting model: NeuralNetTorch_r22_BAG_L1 ... Training model for up to 2169.25s of the 2169.24s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=1.14%)
+	0.6021	 = Validation score   (roc_auc)
+	75.48s	 = Training   runtime
+	0.62s	 = Validation runtime
+Fitting model: XGBoost_r33_BAG_L1 ... Training model for up to 2090.43s of the 2090.43s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=4.05%)
+	0.6007	 = Validation score   (roc_auc)
+	8.31s	 = Training   runtime
+	0.35s	 = Validation runtime
+Fitting model: ExtraTrees_r42_BAG_L1 ... Training model for up to 2078.85s of the 2078.84s of remaining time.
+	Fitting 1 model on all data (use_child_oof=True) | Fitting with cpus=8, gpus=0, mem=0.3/5.5 GB
+	0.5621	 = Validation score   (roc_auc)
+	4.62s	 = Training   runtime
+	1.08s	 = Validation runtime
+Fitting model: CatBoost_r137_BAG_L1 ... Training model for up to 2072.81s of the 2072.80s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=8.79%)
+	0.6205	 = Validation score   (roc_auc)
+	86.8s	 = Training   runtime
+	0.17s	 = Validation runtime
+Fitting model: NeuralNetFastAI_r102_BAG_L1 ... Training model for up to 1982.76s of the 1982.75s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=2.35%)
+	0.5909	 = Validation score   (roc_auc)
+	21.18s	 = Training   runtime
+	0.38s	 = Validation runtime
+Fitting model: CatBoost_r13_BAG_L1 ... Training model for up to 1957.65s of the 1957.65s of remaining time.
+	Memory not enough to fit 8 folds in parallel. Will train 4 folds in parallel instead (Estimated 10.67% memory usage per fold, 42.66%/80.00% total).
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (4 workers, per: cpus=2, gpus=0, memory=10.67%)
+	0.6195	 = Validation score   (roc_auc)
+	141.45s	 = Training   runtime
+	0.19s	 = Validation runtime
+Fitting model: RandomForest_r195_BAG_L1 ... Training model for up to 1813.36s of the 1813.36s of remaining time.
+	Fitting 1 model on all data (use_child_oof=True) | Fitting with cpus=8, gpus=0, mem=0.3/4.5 GB
+	0.5525	 = Validation score   (roc_auc)
+	26.1s	 = Training   runtime
+	1.1s	 = Validation runtime
+Fitting model: LightGBM_r188_BAG_L1 ... Training model for up to 1785.87s of the 1785.86s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=4.45%)
+	0.6092	 = Validation score   (roc_auc)
+	2.73s	 = Training   runtime
+	0.38s	 = Validation runtime
+Fitting model: NeuralNetFastAI_r145_BAG_L1 ... Training model for up to 1778.37s of the 1778.37s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=2.67%)
+	0.604	 = Validation score   (roc_auc)
+	128.67s	 = Training   runtime
+	1.47s	 = Validation runtime
+Fitting model: XGBoost_r89_BAG_L1 ... Training model for up to 1646.15s of the 1646.14s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=2.55%)
+	0.6128	 = Validation score   (roc_auc)
+	5.34s	 = Training   runtime
+	0.17s	 = Validation runtime
+Fitting model: NeuralNetTorch_r30_BAG_L1 ... Training model for up to 1636.20s of the 1636.19s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=1.27%)
+	0.6065	 = Validation score   (roc_auc)
+	85.52s	 = Training   runtime
+	1.04s	 = Validation runtime
+Fitting model: LightGBM_r130_BAG_L1 ... Training model for up to 1547.03s of the 1547.02s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=4.46%)
+	0.5991	 = Validation score   (roc_auc)
+	2.76s	 = Training   runtime
+	0.27s	 = Validation runtime
+Fitting model: NeuralNetTorch_r86_BAG_L1 ... Training model for up to 1539.54s of the 1539.53s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=1.52%)
+	0.6014	 = Validation score   (roc_auc)
+	42.3s	 = Training   runtime
+	0.49s	 = Validation runtime
+Fitting model: CatBoost_r50_BAG_L1 ... Training model for up to 1493.36s of the 1493.36s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=9.90%)
+	0.6208	 = Validation score   (roc_auc)
+	25.41s	 = Training   runtime
+	0.28s	 = Validation runtime
+Fitting model: NeuralNetFastAI_r11_BAG_L1 ... Training model for up to 1464.56s of the 1464.55s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=4.30%)
+	0.578	 = Validation score   (roc_auc)
+	178.2s	 = Training   runtime
+	1.66s	 = Validation runtime
+Fitting model: XGBoost_r194_BAG_L1 ... Training model for up to 1281.04s of the 1281.04s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=3.16%)
+	0.5898	 = Validation score   (roc_auc)
+	2.7s	 = Training   runtime
+	0.18s	 = Validation runtime
+Fitting model: ExtraTrees_r172_BAG_L1 ... Training model for up to 1273.67s of the 1273.66s of remaining time.
+	Fitting 1 model on all data (use_child_oof=True) | Fitting with cpus=8, gpus=0, mem=0.3/3.7 GB
+	0.5775	 = Validation score   (roc_auc)
+	6.12s	 = Training   runtime
+	1.13s	 = Validation runtime
+Fitting model: CatBoost_r69_BAG_L1 ... Training model for up to 1266.20s of the 1266.20s of remaining time.
+	Memory not enough to fit 8 folds in parallel. Will train 4 folds in parallel instead (Estimated 11.72% memory usage per fold, 46.90%/80.00% total).
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (4 workers, per: cpus=2, gpus=0, memory=11.72%)
+	0.62	 = Validation score   (roc_auc)
+	67.18s	 = Training   runtime
+	0.14s	 = Validation runtime
+Fitting model: NeuralNetFastAI_r103_BAG_L1 ... Training model for up to 1196.49s of the 1196.48s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=3.14%)
+	0.595	 = Validation score   (roc_auc)
+	68.81s	 = Training   runtime
+	0.52s	 = Validation runtime
+Fitting model: NeuralNetTorch_r14_BAG_L1 ... Training model for up to 1123.33s of the 1123.33s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=1.62%)
+	0.5931	 = Validation score   (roc_auc)
+	21.34s	 = Training   runtime
+	0.31s	 = Validation runtime
+Fitting model: LightGBM_r161_BAG_L1 ... Training model for up to 1097.39s of the 1097.38s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=7.61%)
+	0.6018	 = Validation score   (roc_auc)
+	4.29s	 = Training   runtime
+	0.96s	 = Validation runtime
+Fitting model: NeuralNetFastAI_r143_BAG_L1 ... Training model for up to 1089.21s of the 1089.21s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=2.66%)
+	0.6121	 = Validation score   (roc_auc)
+	29.17s	 = Training   runtime
+	0.34s	 = Validation runtime
+Fitting model: CatBoost_r70_BAG_L1 ... Training model for up to 1056.39s of the 1056.39s of remaining time.
+	Memory not enough to fit 8 folds in parallel. Will train 4 folds in parallel instead (Estimated 14.39% memory usage per fold, 57.56%/80.00% total).
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (4 workers, per: cpus=2, gpus=0, memory=14.39%)
+	0.6197	 = Validation score   (roc_auc)
+	34.11s	 = Training   runtime
+	0.14s	 = Validation runtime
+Fitting model: NeuralNetFastAI_r156_BAG_L1 ... Training model for up to 1019.11s of the 1019.10s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=2.90%)
+	0.589	 = Validation score   (roc_auc)
+	30.09s	 = Training   runtime
+	0.33s	 = Validation runtime
+Fitting model: LightGBM_r196_BAG_L1 ... Training model for up to 985.59s of the 985.58s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=5.62%)
+	0.6127	 = Validation score   (roc_auc)
+	7.05s	 = Training   runtime
+	2.8s	 = Validation runtime
+Fitting model: RandomForest_r39_BAG_L1 ... Training model for up to 974.76s of the 974.76s of remaining time.
+	Fitting 1 model on all data (use_child_oof=True) | Fitting with cpus=8, gpus=0, mem=0.3/4.2 GB
+	0.566	 = Validation score   (roc_auc)
+	18.12s	 = Training   runtime
+	0.97s	 = Validation runtime
+Fitting model: CatBoost_r167_BAG_L1 ... Training model for up to 955.45s of the 955.44s of remaining time.
+	Memory not enough to fit 8 folds in parallel. Will train 4 folds in parallel instead (Estimated 12.12% memory usage per fold, 48.48%/80.00% total).
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (4 workers, per: cpus=2, gpus=0, memory=12.12%)
+	0.6188	 = Validation score   (roc_auc)
+	49.22s	 = Training   runtime
+	0.13s	 = Validation runtime
+Fitting model: NeuralNetFastAI_r95_BAG_L1 ... Training model for up to 903.50s of the 903.50s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=2.98%)
+	0.6007	 = Validation score   (roc_auc)
+	86.0s	 = Training   runtime
+	0.76s	 = Validation runtime
+Fitting model: NeuralNetTorch_r41_BAG_L1 ... Training model for up to 813.85s of the 813.84s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=1.62%)
+	0.6008	 = Validation score   (roc_auc)
+	35.51s	 = Training   runtime
+	0.35s	 = Validation runtime
+Fitting model: XGBoost_r98_BAG_L1 ... Training model for up to 774.80s of the 774.79s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=3.78%)
+	0.6041	 = Validation score   (roc_auc)
+	10.34s	 = Training   runtime
+	0.76s	 = Validation runtime
+Fitting model: LightGBM_r15_BAG_L1 ... Training model for up to 760.90s of the 760.90s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=3.01%)
+	0.6097	 = Validation score   (roc_auc)
+	1.96s	 = Training   runtime
+	0.37s	 = Validation runtime
+Fitting model: NeuralNetTorch_r158_BAG_L1 ... Training model for up to 755.70s of the 755.69s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=1.49%)
+	0.5843	 = Validation score   (roc_auc)
+	295.62s	 = Training   runtime
+	0.63s	 = Validation runtime
+Fitting model: CatBoost_r86_BAG_L1 ... Training model for up to 456.83s of the 456.82s of remaining time.
+	Memory not enough to fit 8 folds in parallel. Will train 4 folds in parallel instead (Estimated 12.45% memory usage per fold, 49.79%/80.00% total).
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (4 workers, per: cpus=2, gpus=0, memory=12.45%)
+	0.6184	 = Validation score   (roc_auc)
+	95.94s	 = Training   runtime
+	0.16s	 = Validation runtime
+Fitting model: NeuralNetFastAI_r37_BAG_L1 ... Training model for up to 358.11s of the 358.11s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=2.97%)
+	0.6043	 = Validation score   (roc_auc)
+	50.47s	 = Training   runtime
+	0.46s	 = Validation runtime
+Fitting model: NeuralNetTorch_r197_BAG_L1 ... Training model for up to 304.03s of the 304.03s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=1.77%)
+	0.579	 = Validation score   (roc_auc)
+	21.02s	 = Training   runtime
+	0.39s	 = Validation runtime
+Fitting model: CatBoost_r49_BAG_L1 ... Training model for up to 279.35s of the 279.35s of remaining time.
+	Memory not enough to fit 8 folds in parallel. Will train 4 folds in parallel instead (Estimated 10.88% memory usage per fold, 43.51%/80.00% total).
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (4 workers, per: cpus=2, gpus=0, memory=10.88%)
+	0.6189	 = Validation score   (roc_auc)
+	22.99s	 = Training   runtime
+	0.08s	 = Validation runtime
+Fitting model: ExtraTrees_r49_BAG_L1 ... Training model for up to 253.82s of the 253.82s of remaining time.
+	Fitting 1 model on all data (use_child_oof=True) | Fitting with cpus=8, gpus=0, mem=0.3/4.5 GB
+	0.5669	 = Validation score   (roc_auc)
+	1.69s	 = Training   runtime
+	1.09s	 = Validation runtime
+Fitting model: LightGBM_r143_BAG_L1 ... Training model for up to 250.58s of the 250.58s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=5.77%)
+	0.5919	 = Validation score   (roc_auc)
+	3.39s	 = Training   runtime
+	0.61s	 = Validation runtime
+Fitting model: RandomForest_r127_BAG_L1 ... Training model for up to 243.69s of the 243.68s of remaining time.
+	Fitting 1 model on all data (use_child_oof=True) | Fitting with cpus=8, gpus=0, mem=0.3/4.4 GB
+	0.5703	 = Validation score   (roc_auc)
+	22.69s	 = Training   runtime
+	1.0s	 = Validation runtime
+Fitting model: NeuralNetFastAI_r134_BAG_L1 ... Training model for up to 219.72s of the 219.72s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=2.95%)
+	0.5871	 = Validation score   (roc_auc)
+	75.6s	 = Training   runtime
+	0.62s	 = Validation runtime
+Fitting model: RandomForest_r34_BAG_L1 ... Training model for up to 140.70s of the 140.70s of remaining time.
+	Fitting 1 model on all data (use_child_oof=True) | Fitting with cpus=8, gpus=0, mem=0.3/4.5 GB
+	0.6002	 = Validation score   (roc_auc)
+	11.76s	 = Training   runtime
+	0.91s	 = Validation runtime
+Fitting model: LightGBM_r94_BAG_L1 ... Training model for up to 127.95s of the 127.94s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=2.73%)
+	0.6143	 = Validation score   (roc_auc)
+	2.25s	 = Training   runtime
+	0.43s	 = Validation runtime
+Fitting model: NeuralNetTorch_r143_BAG_L1 ... Training model for up to 122.33s of the 122.33s of remaining time.
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (8 workers, per: cpus=1, gpus=0, memory=1.34%)
+	0.6012	 = Validation score   (roc_auc)
+	97.69s	 = Training   runtime
+	0.72s	 = Validation runtime
+Fitting model: CatBoost_r128_BAG_L1 ... Training model for up to 21.35s of the 21.35s of remaining time.
+	Memory not enough to fit 8 folds in parallel. Will train 4 folds in parallel instead (Estimated 13.22% memory usage per fold, 52.89%/80.00% total).
+	Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy (4 workers, per: cpus=2, gpus=0, memory=13.22%)
+	0.6199	 = Validation score   (roc_auc)
+	19.35s	 = Training   runtime
+	0.13s	 = Validation runtime
+Fitting model: WeightedEnsemble_L2 ... Training model for up to 360.00s of the -0.79s of remaining time.
+	Fitting 1 model on all data | Fitting with cpus=8, gpus=0, mem=0.0/3.9 GB
+	Ensemble Weights: {'CatBoost_BAG_L1': 0.28, 'CatBoost_r167_BAG_L1': 0.12, 'NeuralNetFastAI_r145_BAG_L1': 0.08, 'NeuralNetTorch_r86_BAG_L1': 0.08, 'NeuralNetFastAI_r156_BAG_L1': 0.08, 'NeuralNetFastAI_BAG_L1': 0.04, 'NeuralNetFastAI_r191_BAG_L1': 0.04, 'NeuralNetTorch_r30_BAG_L1': 0.04, 'CatBoost_r50_BAG_L1': 0.04, 'NeuralNetFastAI_r143_BAG_L1': 0.04, 'CatBoost_r70_BAG_L1': 0.04, 'NeuralNetTorch_r41_BAG_L1': 0.04, 'NeuralNetTorch_r197_BAG_L1': 0.04, 'NeuralNetTorch_r143_BAG_L1': 0.04}
+	0.6292	 = Validation score   (roc_auc)
+	6.69s	 = Training   runtime
+	0.0s	 = Validation runtime
+AutoGluon training complete, total runtime = 2695.11s ... Best model: WeightedEnsemble_L2 | Estimated inference throughput: 843.0 rows/s (5964 batch size)
+TabularPredictor saved. To load, use: predictor = TabularPredictor.load("<tmp>/ag_7s3vrvsw/final/clf")
+DyStack: Disabling memory safe fit mode in DyStack because GPUs were detected and num_gpus='auto' (GPUs cannot be used in memory safe fit mode). If you want to use memory safe fit mode, manually set `num_gpus=0`.
+	Memory not enough to fit 8 folds in parallel. Will train 4 folds in parallel instead (Estimated 10.57% memory usage per fold, 42.29%/80.00% total).
+	Memory not enough to fit 8 folds in parallel. Will train 4 folds in parallel instead (Estimated 10.08% memory usage per fold, 40.33%/80.00% total).
+	Memory not enough to fit 8 folds in parallel. Will train 4 folds in parallel instead (Estimated 10.41% memory usage per fold, 41.65%/80.00% total).
+	Memory not enough to fit 8 folds in parallel. Will train 4 folds in parallel instead (Estimated 10.02% memory usage per fold, 40.07%/80.00% total).
+	Memory not enough to fit 8 folds in parallel. Will train 4 folds in parallel instead (Estimated 11.46% memory usage per fold, 45.85%/80.00% total).
+	Memory not enough to fit 8 folds in parallel. Will train 4 folds in parallel instead (Estimated 13.56% memory usage per fold, 54.23%/80.00% total).
+	Memory not enough to fit 8 folds in parallel. Will train 4 folds in parallel instead (Estimated 11.38% memory usage per fold, 45.52%/80.00% total).
+	Memory not enough to fit 8 folds in parallel. Will train 4 folds in parallel instead (Estimated 12.67% memory usage per fold, 50.67%/80.00% total).
+	Memory not enough to fit 8 folds in parallel. Will train 4 folds in parallel instead (Estimated 10.32% memory usage per fold, 41.30%/80.00% total).
+	Memory not enough to fit 8 folds in parallel. Will train 4 folds in parallel instead (Estimated 11.76% memory usage per fold, 47.05%/80.00% total).
+	Memory not enough to fit 8 folds in parallel. Will train 4 folds in parallel instead (Estimated 10.04% memory usage per fold, 40.15%/80.00% total).
+	Memory not enough to fit 8 folds in parallel. Will train 4 folds in parallel instead (Estimated 10.52% memory usage per fold, 42.07%/80.00% total).
+	Memory not enough to fit 8 folds in parallel. Will train 4 folds in parallel instead (Estimated 11.48% memory usage per fold, 45.93%/80.00% total).
+	Memory not enough to fit 8 folds in parallel. Will train 4 folds in parallel instead (Estimated 11.31% memory usage per fold, 45.25%/80.00% total).
+	Memory not enough to fit 8 folds in parallel. Will train 4 folds in parallel instead (Estimated 12.80% memory usage per fold, 51.21%/80.00% total).
+	Memory not enough to fit 8 folds in parallel. Will train 4 folds in parallel instead (Estimated 17.04% memory usage per fold, 68.14%/80.00% total).
+train 47,706  test 47,706  features 38  rate 0.0507
+{
+  "run_name": "kdd98_autogluon_best_auc",
+  "python": "3.11.18",
+  "machine": "Darwin arm64",
+  "finished_at": "2026-11-13 13:26:19",
+  "tool": "AutoGluon",
+  "tool_version": "1.6.3",
+  "data": "../data/cup98lrn_automl_prepped_with_split.tsv",
+  "target": "TARGET_B",
+  "settings": "presets=best_quality, eval_metric=roc_auc, time_limit=3600",
+  "n_train": 47706,
+  "n_features": 38,
+  "fit_seconds": 3609.1131319999695,
+  "predict_seconds": 39.15351486206055,
+  "best_model": "WeightedEnsemble_L2",
+  "best_val_score": 0.6292188483448052,
+  "n_models_trained": 62,
+  "models": [
+    "WeightedEnsemble_L2",
+    "CatBoost_BAG_L1",
+    "CatBoost_r50_BAG_L1",
+    "CatBoost_r137_BAG_L1",
+    "CatBoost_r69_BAG_L1",
+    "CatBoost_r128_BAG_L1",
+    "CatBoost_r70_BAG_L1",
+    "CatBoost_r13_BAG_L1",
+    "CatBoost_r177_BAG_L1",
+    "CatBoost_r49_BAG_L1",
+    "CatBoost_r167_BAG_L1",
+    "CatBoost_r86_BAG_L1",
+    "CatBoost_r9_BAG_L1",
+    "LightGBM_r94_BAG_L1",
+    "LightGBM_r96_BAG_L1",
+    "XGBoost_r89_BAG_L1",
+    "LightGBM_r196_BAG_L1",
+    "NeuralNetFastAI_r143_BAG_L1",
+    "LightGBM_r15_BAG_L1",
+    "LightGBM_r188_BAG_L1",
+    "LightGBM_r131_BAG_L1",
+    "XGBoost_BAG_L1",
+    "LightGBMXT_BAG_L1",
+    "LightGBM_BAG_L1",
+    "NeuralNetTorch_r30_BAG_L1",
+    "NeuralNetTorch_r79_BAG_L1",
+    "NeuralNetFastAI_r37_BAG_L1",
+    "XGBoost_r98_BAG_L1",
+    "NeuralNetFastAI_r145_BAG_L1",
+    "NeuralNetFastAI_r191_BAG_L1",
+    "NeuralNetTorch_r22_BAG_L1",
+    "LightGBM_r161_BAG_L1",
+    "NeuralNetTorch_r86_BAG_L1",
+    "NeuralNetTorch_r143_BAG_L1",
+    "NeuralNetTorch_BAG_L1",
+    "NeuralNetTorch_r41_BAG_L1",
+    "XGBoost_r33_BAG_L1",
+    "NeuralNetFastAI_r95_BAG_L1",
+    "RandomForest_r34_BAG_L1",
+    "LightGBM_r130_BAG_L1",
+    "LightGBMLarge_BAG_L1",
+    "NeuralNetFastAI_r103_BAG_L1",
+    "NeuralNetTorch_r14_BAG_L1",
+    "NeuralNetFastAI_BAG_L1",
+    "LightGBM_r143_BAG_L1",
+    "NeuralNetFastAI_r102_BAG_L1",
+    "XGBoost_r194_BAG_L1",
+    "NeuralNetFastAI_r156_BAG_L1",
+    "NeuralNetFastAI_r134_BAG_L1",
+    "NeuralNetTorch_r158_BAG_L1",
+    "NeuralNetTorch_r197_BAG_L1",
+    "NeuralNetFastAI_r11_BAG_L1",
+    "ExtraTrees_r172_BAG_L1",
+    "RandomForestEntr_BAG_L1",
+    "ExtraTreesEntr_BAG_L1",
+    "RandomForestGini_BAG_L1",
+    "RandomForest_r127_BAG_L1",
+    "ExtraTrees_r49_BAG_L1",
+    "ExtraTreesGini_BAG_L1",
+    "RandomForest_r39_BAG_L1",
+    "ExtraTrees_r42_BAG_L1",
+    "RandomForest_r195_BAG_L1"
+  ],
+  "n_test": 47706,
+  "true_rate": 0.05076929526684275,
+  "accuracy_default": 0.9492307047331573,
+  "accuracy_baseline": 0.9492307047331573,
+  "pct_predicted_positive": 0.0,
+  "roc_auc": 0.6335810764631341,
+  "log_loss": 0.19495236198149768,
+  "mean_pred": 0.05063855689757604,
+  "lift_top10": 2.175705269986349,
+  "cnr_peak": 5628.95999999546,
+  "cnr_peak_depth_pct": 0.9789753909361506,
+  "cnr_top10": 1276.720000000069,
+  "cnr_top50": 4065.960000002024,
+  "cnr_mail_all": 5404.919999995168,
+  "cnr_default_decision": 0.0,
+  "mailed_pct_default_decision": 0.0,
+  "gift_fit_seconds": 1198.1070477962494,
+  "gift_eval_metric": "root_mean_squared_error",
+  "gift_mae_resp": 4.343523236762188,
+  "gift_rmse_resp": 9.75378810341673,
+  "gift_spearman_resp": 0.7929213126504931,
+  "ev_rule_cnr": 8337.000000000004,
+  "ev_rule_mailed_pct": 0.5780195363266675,
+  "ev_cnr_peak": 8455.799999994071,
+  "ev_cnr_peak_depth_pct": 0.5369345574980087,
+  "ev_cnr_top10": 4739.720000000138,
+  "ev_cnr_top50": 8123.959999994584,
+  "ev_cnr_mail_all": 5404.919999987642,
+  "cutoff_method": "bagged out-of-fold (AutoGluon predict_proba_oof)",
+  "cutoff_cv_seconds": 0.0,
+  "n_cutoff_rows": 47706,
+  "p_cut_threshold": 0.02029867097735405,
+  "p_cut_train_depth_pct": 0.9946966838552802,
+  "p_cut_train_peak": 5444.9599999948705,
+  "p_cut_cnr": 5341.280000000006,
+  "p_cut_mailed_pct": 0.997337861065694,
+  "p_cut_cnr_at_depth": 5426.960000000006,
+  "ev_cut_threshold": 0.6644631701849661,
+  "ev_cut_train_depth_pct": 0.6042426529157758,
+  "ev_cut_train_peak": 7922.319999993003,
+  "ev_cut_cnr": 8183.160000000004,
+  "ev_cut_mailed_pct": 0.6139269693539596,
+  "ev_cut_cnr_at_depth": 8238.320000000005
+}

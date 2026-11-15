@@ -1,0 +1,132 @@
+{
+  "run_name": "kdd98_autosklearn_auc",
+  "python": "3.9.23",
+  "machine": "Darwin arm64",
+  "finished_at": "2026-11-13 17:28:07",
+  "tool": "auto-sklearn",
+  "tool_version": "0.15.0",
+  "data": "../data/cup98lrn_automl_prepped_with_split.tsv",
+  "target": "TARGET_B",
+  "settings": "metric=roc_auc, time_limit=900s, n_jobs=2, memory_limit=None, max_models_on_disc=10, seed=42",
+  "n_train": 47706,
+  "n_features": 38,
+  "fit_seconds": 905.3777089118958,
+  "predict_seconds": 19.59614610671997,
+  "n_test": 47706,
+  "true_rate": 0.05076929526684275,
+  "accuracy_default": 0.9492307047331573,
+  "accuracy_baseline": 0.9492307047331573,
+  "pct_predicted_positive": 0.0,
+  "roc_auc": 0.6262336492962554,
+  "log_loss": 0.19987232043577904,
+  "mean_pred": 0.06067318883158283,
+  "lift_top10": 2.1137781750152005,
+  "cnr_peak": 5747.5199999989045,
+  "cnr_peak_depth_pct": 0.9592294470297237,
+  "cnr_top10": 1218.720000000087,
+  "cnr_top50": 3388.9600000018777,
+  "cnr_mail_all": 5404.919999998338,
+  "cnr_default_decision": 0.0,
+  "mailed_pct_default_decision": 0.0,
+  "n_models_in_ensemble": 6,
+  "ensemble_members": {
+    "random_forest": 3,
+    "qda": 1,
+    "extra_trees": 1,
+    "gradient_boosting": 1
+  },
+  "sprint_statistics": "auto-sklearn results:\n  Dataset name: 4ad1813a-df6e-11f1-b44d-75f9e3445df4\n  Metric: roc_auc\n  Best validation score: 0.601878\n  Number of target algorithm runs: 40\n  Number of successful target algorithm runs: 35\n  Number of crashed target algorithm runs: 1\n  Number of target algorithms that exceeded the time limit: 4\n  Number of target algorithms that exceeded the memory limit: 0\n",
+  "gift_fit_seconds": 295.23816299438477,
+  "gift_mae_resp": 4.423660484191052,
+  "gift_rmse_resp": 10.131513748066405,
+  "gift_spearman_resp": 0.7825942130554822,
+  "ev_rule_cnr": 6484.800000000007,
+  "ev_rule_mailed_pct": 0.7994801492474741,
+  "ev_cnr_peak": 6555.999999994929,
+  "ev_cnr_peak_depth_pct": 0.5140862784555402,
+  "ev_cnr_top10": 3800.7200000005337,
+  "ev_cnr_top50": 6316.959999995124,
+  "ev_cnr_mail_all": 5404.919999988182,
+  "cutoff_method": "5-fold cross-fit of the full AutoML run",
+  "cutoff_cv_seconds": 6033.779182910919,
+  "n_cutoff_rows": 47706,
+  "cutoff_folds": [
+    {
+      "fold": 1,
+      "ensemble_members": {
+        "qda": 2,
+        "random_forest": 1,
+        "sgd": 1,
+        "lda": 1,
+        "adaboost": 1
+      },
+      "oof_auc": 0.6079592136400733,
+      "oof_mean_p": 0.463064673324954
+    },
+    {
+      "fold": 2,
+      "ensemble_members": {
+        "sgd": 1
+      },
+      "oof_auc": 0.604424275274045,
+      "oof_mean_p": 0.5000002580767573
+    },
+    {
+      "fold": 3,
+      "ensemble_members": {
+        "random_forest": 1,
+        "sgd": 1,
+        "qda": 1
+      },
+      "oof_auc": 0.6113215931789211,
+      "oof_mean_p": 0.4193984464872339
+    },
+    {
+      "fold": 4,
+      "ensemble_members": {
+        "random_forest": 1,
+        "sgd": 1
+      },
+      "oof_auc": 0.6013366219635604,
+      "oof_mean_p": 0.4910149686903305
+    },
+    {
+      "fold": 5,
+      "ensemble_members": {
+        "random_forest": 2,
+        "gradient_boosting": 2,
+        "sgd": 1,
+        "extra_trees": 1,
+        "adaboost": 1
+      },
+      "oof_auc": 0.5921836176209991,
+      "oof_mean_p": 0.3787034310255151
+    }
+  ],
+  "p_cut_threshold": 0.37046649525458064,
+  "p_cut_train_depth_pct": 0.9984069089841948,
+  "p_cut_train_peak": 5394.599999999034,
+  "p_cut_cnr": 0.0,
+  "p_cut_mailed_pct": 0.0,
+  "p_cut_cnr_at_depth": 5431.600000000007,
+  "ev_cut_threshold": 4.93353715460922,
+  "ev_cut_train_depth_pct": 0.7966503165220308,
+  "ev_cut_train_peak": 6223.59999999348,
+  "ev_cut_cnr": 590.9999999999999,
+  "ev_cut_mailed_pct": 0.001572129291912967,
+  "ev_cut_cnr_at_depth": 6467.600000000006,
+  "cvavg_p_cut_threshold": 0.37046649525458064,
+  "cvavg_p_cut_train_depth_pct": 0.9984069089841948,
+  "cvavg_p_cut_train_peak": 5394.599999999034,
+  "cvavg_p_cut_cnr": 5404.920000000007,
+  "cvavg_p_cut_mailed_pct": 1.0,
+  "cvavg_p_cut_cnr_at_depth": 5456.600000000008,
+  "cvavg_ev_cut_threshold": 4.93353715460922,
+  "cvavg_ev_cut_train_depth_pct": 0.7966503165220308,
+  "cvavg_ev_cut_train_peak": 6223.59999999348,
+  "cvavg_ev_cut_cnr": 6150.120000000006,
+  "cvavg_ev_cut_mailed_pct": 0.8073617574309311,
+  "cvavg_ev_cut_cnr_at_depth": 6056.600000000005,
+  "cvavg_roc_auc": 0.6260837284115932,
+  "cvavg_mean_pred": 0.450416829033403
+}

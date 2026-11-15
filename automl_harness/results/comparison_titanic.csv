@@ -1,0 +1,4 @@
+run_name,tool,tool_version,settings,n_train,fit_seconds,predict_seconds,accuracy_default,accuracy_baseline,roc_auc,log_loss,best_val_score
+titanic_autogluon_best_auc,AutoGluon,1.6.3,"presets=best_quality, eval_metric=roc_auc, time_limit=600",916,604.4185740947723,0.6046030521392822,0.8371501272264631,0.6183206106870229,0.8936762688614541,0.39352725324202203,0.8690030287733468
+titanic_autogluon_default,AutoGluon,1.6.3,"presets=default (medium_quality), eval_metric=accuracy, time_limit=None",916,44.708688259124756,0.008687019348144531,0.811704834605598,0.6183206106870229,0.8727297668038407,0.4249489108351753,0.8315217391304348
+titanic_autosklearn_default,auto-sklearn,0.15.0,"defaults (metric=accuracy), time_limit=600s, n_jobs=8, memory_limit=None, seed=42",916,603.8067982196808,0.3589136600494385,0.8371501272264631,0.6183206106870229,0.8896707818930041,0.47476733947890887,

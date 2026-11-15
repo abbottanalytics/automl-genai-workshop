@@ -1,0 +1,239 @@
+Verbosity: 2 (Standard Logging)
+=================== System Info ===================
+AutoGluon Version:  1.6.3
+Python Version:     3.11.18
+Operating System:   Darwin
+Platform Machine:   arm64
+Platform Version:   Darwin Kernel Version 27.0.0: Tue Aug 11 21:05:27 PDT 2026; root:xnu-13432.1.9~1/RELEASE_ARM64_T8103
+CPU Count:          8
+Pytorch Version:    2.10.0
+CUDA Version:       CUDA is not available
+GPU Count:          WARNING: Exception was raised when calculating GPU count (AssertionError)
+Memory Avail:       6.18 GB / 16.00 GB (38.6%)
+Disk Space Avail:   21.92 GB / 460.43 GB (4.8%)
+===================================================
+No presets specified! To achieve strong results with AutoGluon, it is recommended to use the available presets. Defaulting to `'medium'`...
+	Recommended Presets (For more details refer to https://auto.gluon.ai/stable/tutorials/tabular/tabular-essentials.html#presets):
+	presets='extreme'  : Use this if you have a GPU. The go-to preset for best results, and the one to use for benchmark comparisons. New in v1.6: far better than 'best' on datasets <100000 samples by using Tabular Foundation Models (TFMs) meta-learned on https://tabarena.ai: Nori, TabICLv2, and TabDPT-Turbo. Every model is free for commercial use. Requires `pip install autogluon.tabular[tabarena]`.
+	presets='noncommercial': New in v1.6: 'extreme' plus TabPFN-3, a frontier tabular foundation model created by Prior Labs. Stronger still, but commercial use requires a TabPFN-3 license: https://docs.priorlabs.ai/models#tabpfn-model-license
+	presets='best'     : Use this if you do not have a GPU. Maximize accuracy. Use in competitions.
+	presets='best_v150': New in v1.5: Better quality than 'best' and 5x+ faster to train. Give it a try!
+	presets='high'     : Strong accuracy with fast inference speed.
+	presets='high_v150': New in v1.5: Better quality than 'high' and 5x+ faster to train. Give it a try!
+	presets='good'     : Good accuracy with very fast inference speed.
+	presets='medium'   : Fast training time, ideal for initial prototyping.
+Using hyperparameters preset: hyperparameters='default'
+Beginning AutoGluon training ...
+AutoGluon will save models to "<tmp>/ag_3eocseea/final/clf"
+Train Data Rows:    47706
+Train Data Columns: 38
+Label Column:       TARGET_B
+Problem Type:       binary
+Preprocessing data...
+Selected class <--> label mapping:  class 1 = 1, class 0 = 0
+Using Feature Generators to preprocess the data ...
+Fitting AutoMLPipelineFeatureGenerator...
+	Available Memory:                    6332.97 MB
+	Train Data (Original)  Memory Usage: 10.66 MB (0.2% of available memory)
+	Inferring data type of each feature based on column values. Set feature_metadata_in to manually specify special dtypes of the features.
+	Stage 1 Generators:
+		Fitting AsTypeFeatureGenerator...
+			Note: Converting 1 features to boolean dtype as they only contain 2 unique values.
+	Stage 2 Generators:
+		Fitting FillNaFeatureGenerator...
+	Stage 3 Generators:
+		Fitting IdentityFeatureGenerator...
+		Fitting CategoryFeatureGenerator...
+			Fitting CategoryMemoryMinimizeFeatureGenerator...
+	Stage 4 Generators:
+		Fitting DropUniqueFeatureGenerator...
+	Stage 5 Generators:
+		Fitting DropDuplicatesFeatureGenerator...
+	Types of features in original data (raw dtype, special dtypes):
+		('category', []) : 10 | ['STATE', 'DOMAIN', 'GENDER', 'PEPSTRFL', 'RFA_2', ...]
+		('float', [])    : 10 | ['AGE', 'WEALTH1', 'SOLP3', 'WEALTH2', 'GEOCODE', ...]
+		('int', [])      : 18 | ['HIT', 'CARDPROM', 'NUMPROM', 'CARDPM12', 'NUMPRM12', ...]
+	Types of features in processed data (raw dtype, special dtypes):
+		('category', [])  :  9 | ['STATE', 'DOMAIN', 'GENDER', 'RFA_2', 'RFA_3', ...]
+		('float', [])     : 10 | ['AGE', 'WEALTH1', 'SOLP3', 'WEALTH2', 'GEOCODE', ...]
+		('int', [])       : 18 | ['HIT', 'CARDPROM', 'NUMPROM', 'CARDPM12', 'NUMPRM12', ...]
+		('int', ['bool']) :  1 | ['PEPSTRFL']
+	0.1s = Fit runtime
+	38 features in original data used to generate 38 features in processed data.
+	Train Data (Processed) Memory Usage: 10.65 MB (0.2% of available memory)
+Data preprocessing and feature engineering runtime = 0.08s ...
+AutoGluon will gauge predictive performance using evaluation metric: 'accuracy'
+	To change this, specify the eval_metric parameter of Predictor()
+Automatically generating train/validation split with holdout_frac=0.0524, Train Rows: 45206, Val Rows: 2500
+User-specified model hyperparameters to be fit:
+{
+	'NN_TORCH': [{}],
+	'GBM': [{'extra_trees': True, 'ag_args': {'name_suffix': 'XT'}}, {}, {'learning_rate': 0.03, 'num_leaves': 128, 'feature_fraction': 0.9, 'min_data_in_leaf': 3, 'ag_args': {'name_suffix': 'Large', 'priority': 0, 'hyperparameter_tune_kwargs': None}}],
+	'CAT': [{}],
+	'XGB': [{}],
+	'FASTAI': [{}],
+	'RF': [{'criterion': 'gini', 'ag_args': {'name_suffix': 'Gini', 'problem_types': ['binary', 'multiclass']}}, {'criterion': 'entropy', 'ag_args': {'name_suffix': 'Entr', 'problem_types': ['binary', 'multiclass']}}, {'criterion': 'squared_error', 'ag_args': {'name_suffix': 'MSE', 'problem_types': ['regression', 'quantile']}}],
+	'XT': [{'criterion': 'gini', 'ag_args': {'name_suffix': 'Gini', 'problem_types': ['binary', 'multiclass']}}, {'criterion': 'entropy', 'ag_args': {'name_suffix': 'Entr', 'problem_types': ['binary', 'multiclass']}}, {'criterion': 'squared_error', 'ag_args': {'name_suffix': 'MSE', 'problem_types': ['regression', 'quantile']}}],
+}
+Fitting 11 L1 models, fit_strategy="sequential" ...
+Fitting model: LightGBMXT ...
+	Fitting with cpus=8, gpus=0, mem=0.1/6.2 GB
+	0.9492	 = Validation score   (accuracy)
+	0.54s	 = Training   runtime
+	0.0s	 = Validation runtime
+Fitting model: LightGBM ...
+	Fitting with cpus=8, gpus=0, mem=0.1/6.2 GB
+	0.9492	 = Validation score   (accuracy)
+	0.48s	 = Training   runtime
+	0.0s	 = Validation runtime
+Fitting model: RandomForestGini ...
+	Fitting with cpus=8, gpus=0, mem=0.3/6.1 GB
+	0.9492	 = Validation score   (accuracy)
+	4.09s	 = Training   runtime
+	0.04s	 = Validation runtime
+Fitting model: RandomForestEntr ...
+	Fitting with cpus=8, gpus=0, mem=0.3/5.7 GB
+	0.9492	 = Validation score   (accuracy)
+	3.79s	 = Training   runtime
+	0.04s	 = Validation runtime
+Fitting model: CatBoost ...
+	Fitting with cpus=8, gpus=0
+	0.9492	 = Validation score   (accuracy)
+	1.93s	 = Training   runtime
+	0.01s	 = Validation runtime
+Fitting model: ExtraTreesGini ...
+	Fitting with cpus=8, gpus=0, mem=0.3/5.6 GB
+	0.9492	 = Validation score   (accuracy)
+	1.55s	 = Training   runtime
+	0.05s	 = Validation runtime
+Fitting model: ExtraTreesEntr ...
+	Fitting with cpus=8, gpus=0, mem=0.3/5.5 GB
+	0.9492	 = Validation score   (accuracy)
+	1.59s	 = Training   runtime
+	0.05s	 = Validation runtime
+Fitting model: NeuralNetFastAI ...
+	Fitting with cpus=8, gpus=0, mem=0.1/5.4 GB
+No improvement since epoch 1: early stopping
+	0.9492	 = Validation score   (accuracy)
+	19.33s	 = Training   runtime
+	0.02s	 = Validation runtime
+Fitting model: XGBoost ...
+	Fitting with cpus=8, gpus=0
+	0.9496	 = Validation score   (accuracy)
+	0.6s	 = Training   runtime
+	0.01s	 = Validation runtime
+Fitting model: NeuralNetTorch ...
+	Fitting with cpus=8, gpus=0, mem=0.1/5.3 GB
+	0.9492	 = Validation score   (accuracy)
+	14.52s	 = Training   runtime
+	0.02s	 = Validation runtime
+Fitting model: LightGBMLarge ...
+	Fitting with cpus=8, gpus=0, mem=0.2/5.2 GB
+	0.9496	 = Validation score   (accuracy)
+	2.47s	 = Training   runtime
+	0.0s	 = Validation runtime
+Fitting model: WeightedEnsemble_L2 ...
+	Fitting 1 model on all data | Fitting with cpus=8, gpus=0, mem=0.0/5.2 GB
+	Ensemble Weights: {'XGBoost': 1.0}
+	0.9496	 = Validation score   (accuracy)
+	0.06s	 = Training   runtime
+	0.0s	 = Validation runtime
+AutoGluon training complete, total runtime = 53.02s ... Best model: WeightedEnsemble_L2 | Estimated inference throughput: 366827.4 rows/s (2500 batch size)
+Disabling decision threshold calibration for metric `accuracy` due to having fewer than 10000 rows of validation data for calibration, to avoid overfitting (2500 rows).
+	`accuracy` is generally not improved through threshold calibration. Force calibration via specifying `calibrate_decision_threshold=True`.
+TabularPredictor saved. To load, use: predictor = TabularPredictor.load("<tmp>/ag_3eocseea/final/clf")
+train 47,706  test 47,706  features 38  rate 0.0507
+cross-fit fold 1/5
+cross-fit fold 2/5
+cross-fit fold 3/5
+cross-fit fold 4/5
+cross-fit fold 5/5
+{
+  "run_name": "kdd98_autogluon_default",
+  "python": "3.11.18",
+  "machine": "Darwin arm64",
+  "finished_at": "2026-11-13 12:03:03",
+  "tool": "AutoGluon",
+  "tool_version": "1.6.3",
+  "data": "../data/cup98lrn_automl_prepped_with_split.tsv",
+  "target": "TARGET_B",
+  "settings": "presets=default (medium_quality), eval_metric=accuracy, time_limit=None",
+  "n_train": 47706,
+  "n_features": 38,
+  "fit_seconds": 54.122308015823364,
+  "predict_seconds": 0.16634511947631836,
+  "best_model": "WeightedEnsemble_L2",
+  "best_val_score": 0.9496,
+  "n_models_trained": 12,
+  "models": [
+    "LightGBMLarge",
+    "XGBoost",
+    "WeightedEnsemble_L2",
+    "LightGBM",
+    "LightGBMXT",
+    "CatBoost",
+    "NeuralNetFastAI",
+    "NeuralNetTorch",
+    "RandomForestEntr",
+    "RandomForestGini",
+    "ExtraTreesEntr",
+    "ExtraTreesGini"
+  ],
+  "n_test": 47706,
+  "true_rate": 0.05076929526684275,
+  "accuracy_default": 0.9492307047331573,
+  "accuracy_baseline": 0.9492307047331573,
+  "pct_predicted_positive": 0.0,
+  "roc_auc": 0.6247630332790629,
+  "log_loss": 0.19553019297402927,
+  "mean_pred": 0.05042997493950125,
+  "lift_top10": 2.0766219180325116,
+  "cnr_peak": 5468.319999994679,
+  "cnr_peak_depth_pct": 0.9972749758940175,
+  "cnr_top10": 1405.7199999999877,
+  "cnr_top50": 4295.9600000015835,
+  "cnr_mail_all": 5404.919999994641,
+  "cnr_default_decision": 0.0,
+  "mailed_pct_default_decision": 0.0,
+  "gift_fit_seconds": 18.98154330253601,
+  "gift_eval_metric": "root_mean_squared_error",
+  "gift_mae_resp": 4.33320026511894,
+  "gift_rmse_resp": 9.246800911322829,
+  "gift_spearman_resp": 0.7893070195081787,
+  "ev_rule_cnr": 7712.080000000004,
+  "ev_rule_mailed_pct": 0.5663648178426194,
+  "ev_cnr_peak": 8087.07999999619,
+  "ev_cnr_peak_depth_pct": 0.38504590617532386,
+  "ev_cnr_top10": 4617.720000000148,
+  "ev_cnr_top50": 7784.959999994594,
+  "ev_cnr_mail_all": 5404.919999987652,
+  "cutoff_method": "5-fold cross-fit of the full AutoML run",
+  "cutoff_cv_seconds": 328.6076669692993,
+  "n_cutoff_rows": 47706,
+  "p_cut_threshold": 0.01666666753590107,
+  "p_cut_train_depth_pct": 0.9317276652831928,
+  "p_cut_train_peak": 5526.679999999713,
+  "p_cut_cnr": 5407.640000000007,
+  "p_cut_mailed_pct": 0.9999161531044313,
+  "p_cut_cnr_at_depth": 4933.680000000006,
+  "ev_cut_threshold": 0.4302781272809,
+  "ev_cut_train_depth_pct": 0.8429128411520563,
+  "ev_cut_train_peak": 5750.839999993057,
+  "ev_cut_cnr": 5877.440000000006,
+  "ev_cut_mailed_pct": 0.9493983985242946,
+  "ev_cut_cnr_at_depth": 6735.840000000005,
+  "cvavg_p_cut_threshold": 0.01666666753590107,
+  "cvavg_p_cut_train_depth_pct": 0.9317276652831928,
+  "cvavg_p_cut_train_peak": 5526.679999999713,
+  "cvavg_p_cut_cnr": 5404.9200000000055,
+  "cvavg_p_cut_mailed_pct": 1.0,
+  "cvavg_p_cut_cnr_at_depth": 5313.680000000006,
+  "cvavg_ev_cut_threshold": 0.4302781272809,
+  "cvavg_ev_cut_train_depth_pct": 0.8429128411520563,
+  "cvavg_ev_cut_train_peak": 5750.839999993057,
+  "cvavg_ev_cut_cnr": 5419.9200000000055,
+  "cvavg_ev_cut_mailed_pct": 0.9989519138053914,
+  "cvavg_ev_cut_cnr_at_depth": 6556.840000000005,
+  "cvavg_roc_auc": 0.6045036505457329,
+  "cvavg_mean_pred": 0.0999066884601668
+}

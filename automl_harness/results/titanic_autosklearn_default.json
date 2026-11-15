@@ -1,0 +1,33 @@
+{
+  "run_name": "titanic_autosklearn_default",
+  "python": "3.9.23",
+  "machine": "Darwin arm64",
+  "finished_at": "2026-11-12 19:08:31",
+  "tool": "auto-sklearn",
+  "tool_version": "0.15.0",
+  "data": "../data/titanic3.csv",
+  "target": "survived",
+  "settings": "defaults (metric=accuracy), time_limit=600s, n_jobs=8, memory_limit=None, seed=42",
+  "n_train": 916,
+  "n_features": 6,
+  "fit_seconds": 603.8067982196808,
+  "predict_seconds": 0.3589136600494385,
+  "n_test": 393,
+  "true_rate": 0.3816793893129771,
+  "accuracy_default": 0.8371501272264631,
+  "accuracy_baseline": 0.6183206106870229,
+  "pct_predicted_positive": 0.33587786259541985,
+  "roc_auc": 0.8896707818930041,
+  "log_loss": 0.47476733947890887,
+  "mean_pred": 0.45428540673849765,
+  "lift_top10": 2.6199999999999997,
+  "n_models_in_ensemble": 12,
+  "ensemble_members": {
+    "random_forest": 5,
+    "liblinear_svc": 4,
+    "adaboost": 1,
+    "mlp": 1,
+    "decision_tree": 1
+  },
+  "sprint_statistics": "auto-sklearn results:\n  Dataset name: a989647e-dec2-11f1-85c4-e75dbd750095\n  Metric: accuracy\n  Best validation score: 0.798680\n  Number of target algorithm runs: 112\n  Number of successful target algorithm runs: 108\n  Number of crashed target algorithm runs: 2\n  Number of target algorithms that exceeded the time limit: 2\n  Number of target algorithms that exceeded the memory limit: 0\n"
+}

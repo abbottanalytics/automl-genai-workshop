@@ -19,10 +19,11 @@ You don't need a GitHub account.
 |---|---|
 | `slides/` | the workshop deck as PDF: a slides version and a notes version |
 | `qa/` | questions from attendees, with answers, links and papers, added after the workshop |
-| `prompts/` | the step-by-step prompt files: `kddcup1998_workshop_modeling_v8.md` (KDD Cup 1998, net revenue) and `titanic_workshop_modeling_v1.md` (Titanic, a capacity metric when there is no dollar value) |
-| `data/` | the KDD Cup 1998 and Titanic datasets the prompts use, plus a disguised dataset and data dictionary for the data-leakage exercise; sources and terms in `data/README.md` |
+| `prompts/` | the step-by-step prompt files: `kddcup1998_workshop_modeling_v8.md` (KDD Cup 1998, net revenue), `titanic_workshop_modeling_v1.md` (Titanic, a capacity metric when there is no dollar value), `data_leakage_workshop_prompts_v1.md` (the data-leakage exercise on the disguised dataset) and `automl_experiments_prompts_v1.md` (what AutoML engines optimize, and what that does to net revenue) |
+| `data/` | the KDD Cup 1998 and Titanic datasets the prompts use, the KDD file prepared for the AutoML runs, plus a disguised dataset and data dictionary for the data-leakage exercise; sources and terms in `data/README.md` |
 | `genai_backup_v8/` | finished notebook for the KDD Cup prompt file: the code for every step, already run, plus every report table, log and plot in `reports/` |
 | `genai_backup_titanic_v1/` | the same for the Titanic prompt file |
+| `automl_harness/` | the AutoGluon and auto-sklearn code behind the deck's AutoML slides, with the results of every run (including the long ones) |
 
 ## Two ways to use it
 
@@ -31,6 +32,8 @@ You don't need a GitHub account.
 **2. Without an assistant.** Open the backup notebook (`.ipynb`) in Jupyter. It has already been run, so you can read every step's output without running anything. To run it yourself, keep the folder layout as it is (the notebooks read `../data/`) and Run All. The KDD notebook takes about 1.5 minutes on a laptop, and the Titanic notebook about 40 seconds.
 
 **Reusing the prompts on your own data.** The Titanic prompt file starts with a section called "HOW TO REUSE THIS FILE FOR YOUR OWN DATA" and a PROBLEM PARAMETERS block: edit that block (data file, target, leakage and ID columns, metric), and pick the KDD or Titanic file depending on whether your outcome has a dollar value.
+
+**AutoML (AutoGluon and auto-sklearn).** See `automl_harness/README.md`. `run_in_class_fast.sh` runs the two quick AutoGluon runs (about a minute each); the long runs are already in `automl_harness/results/`. AutoGluon and auto-sklearn each need their own Python environment.
 
 ## Python
 
