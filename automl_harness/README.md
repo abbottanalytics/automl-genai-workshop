@@ -66,6 +66,7 @@ Both datasets are in the repository's `data/` folder.
 | `automl_harness_common.py` | data loading, split, metrics, result files (shared) |
 | `automl_harness_autogluon.py` | AutoGluon-Tabular run (`--presets`, `--eval-metric` optional) |
 | `automl_harness_autosklearn.py` | auto-sklearn run (`--metric roc_auc` optional; default accuracy) |
+| `automl_harness_autogluon_results_view.py` | for notebook use after `predictor.fit(...)`: a compact model table and a full-width plot of validation score vs. fit time, in place of `fit_summary(show_plot=True)` |
 | `automl_harness_compare.py` | builds `results/comparison.md` and the comparison CSVs from all runs in `results/` |
 | `automl_harness_bootstrap.py` | paired bootstrap of the KDD98 net-revenue results from the saved predictions |
 | `automl_harness_ask_mem_watchdog.sh` | optional memory guard for auto-sklearn on macOS (see below) |
