@@ -12,9 +12,16 @@ Neither tool can optimize cumulative net revenue directly. The harness shows wha
 
 A step-by-step GenAI version of the same experiment is in `../prompts/automl_experiments_prompts_v1.md`.
 
-## In class vs. at home
+## In class vs. on your own
 
-* **In class:** `run_in_class_fast.sh` runs the two quick AutoGluon runs (Titanic and KDD98 with default settings, about 1 minute each).
+**In class, these analyses are run directly in a GenAI assistant (ChatGPT or Claude), using the prompt files in `../prompts/`.** This folder is not the main way the workshop runs. It is here for two reasons:
+
+1. **To run the experiments on your own after the workshop**, outside a chat window, on your own machine and your own data.
+2. **As a backup during the workshop**, in case an assistant fails or stalls on a step.
+
+What it contains:
+
+* `run_in_class_fast.sh` runs the two quick AutoGluon runs (Titanic and KDD98 with default settings, about 1 minute each). These are the runs to use if a live demo needs a fallback.
 * **The longer runs** (AutoGluon `best_quality`: 10 minutes for Titanic, 80 minutes for KDD98; auto-sklearn: 10–20 minutes per run) are already done. Their results are in `results/`, so you can read them without running anything. `run_autogluon_all.sh` and `run_autosklearn_all.sh` rerun them.
 
 ## Results (from `results/comparison.md`)
