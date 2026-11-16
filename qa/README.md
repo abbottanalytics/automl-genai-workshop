@@ -8,6 +8,10 @@ This page grows after each session. Dates are when the answer was added.
 
 *Answers will be added here after the workshop.*
 
+**Background deck:** [TDWI - Abbott - Data Science Bootcamp Feb2024 modeling 2a v2.pdf](<TDWI - Abbott - Data Science Bootcamp Feb2024 modeling 2a v2.pdf>), *Modeling Your Data: Building and Assessing* (TDWI Data Science Bootcamp, February 2024, 160 slides). It covers the algorithms (decision trees, logistic regression, neural networks, k-NN, naïve Bayes, SVMs), how to assess classification and regression models (gains, lift, ROC, profit), sampling for imbalanced targets, how to interpret models, and k-means clustering.
+
+*(added 16 November 2026)*
+
 <!--
 Template for each question:
 
